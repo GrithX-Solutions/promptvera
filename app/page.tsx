@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Free AI Prompt Generator & Creative Tools | PromptVera",
     description: siteConfig.description,
   },

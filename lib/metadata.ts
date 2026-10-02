@@ -27,7 +27,7 @@ export function toolMetadata({
       description,
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: socialTitle,
       description,
     },
