@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JournalPromptGenerator } from "@/components/JournalPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Journal Prompt Generator – Free Daily Prompts";
 const description =
   "Free journal prompt generator for self-reflection, gratitude, goals, relationships, creativity, and daily check-ins. Generate a focused journaling prompt instantly.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/journal-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/journal-prompt-generator" });
 
 export default function JournalPromptGeneratorPage() {
   return (

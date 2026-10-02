@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RandomPromptGenerator } from "@/components/RandomPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Random Prompt Generator – Free Creative Ideas";
 const description =
   "Free random prompt generator for writing, stories, characters, journaling, conversations, and creative challenges. No signup required.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/random-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/random-prompt-generator" });
 
 export default function RandomPromptGeneratorPage() {
   return (

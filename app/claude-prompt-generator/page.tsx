@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClaudePromptGenerator } from "@/components/ClaudePromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Claude Prompt Generator – Free Structured Prompts";
 const description =
   "Free Claude prompt generator for clear, structured prompts with role, context, task, constraints, examples, XML sections, and output requirements.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/claude-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/claude-prompt-generator" });
 
 export default function ClaudePromptGeneratorPage() {
   return (

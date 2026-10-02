@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HorrorStoryPlotGenerator } from "@/components/HorrorStoryPlotGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Horror Story Plot Generator – Free Ideas";
 const description =
   "Free horror story plot generator with horror style, protagonist, core fear, escalation, reveal, survival cost, intensity, and ending direction.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/horror-story-plot-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/horror-story-plot-generator" });
 
 export default function HorrorStoryPlotGeneratorPage() {
   return (

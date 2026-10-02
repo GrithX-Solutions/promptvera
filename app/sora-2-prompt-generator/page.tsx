@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PromptBuilder } from "@/components/PromptBuilder";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Sora 2 Prompt Generator";
 const description =
   "Free Sora 2 prompt generator for structured AI video prompts with scene, shot type, camera movement, lighting, audio, format, and continuity instructions.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/sora-2-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/sora-2-prompt-generator" });
 
 export default function Sora2PromptGeneratorPage() {
   return (

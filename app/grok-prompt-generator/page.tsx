@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { GrokPromptGenerator } from "@/components/GrokPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Grok Prompt Generator – Free Structured Prompts";
 const description =
   "Free Grok prompt generator for clearer research, coding, analysis, planning, and writing prompts with context, source-of-truth, evidence, and approval boundaries.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/grok-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/grok-prompt-generator" });
 
 export default function GrokPromptGeneratorPage() {
   return (
@@ -40,8 +37,9 @@ export default function GrokPromptGeneratorPage() {
       <article className="content-wrap prose">
         <h2>What does a Grok prompt generator do?</h2>
         <p>
-          A Grok prompt generator helps organize the job before you send it to Grok.
-          Instead of adding decorative instructions, this tool separates the result you
+          A Grok prompt generator, sometimes searched as a Grok AI prompt generator,
+          helps organize the job before you send it to Grok. Instead of adding decorative
+          instructions, this tool separates the result you
           need from the context, source material, constraints, output format, and any
           action that should require your approval.
         </p>

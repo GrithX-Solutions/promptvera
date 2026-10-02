@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { StoryPlotGenerator } from "@/components/StoryPlotGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Story Plot Generator – Free Plot Ideas";
 const description =
   "Free story plot generator for novels, short stories, and scripts. Build a structured plot with a protagonist, conflict, turning points, climax, and resolution.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/story-plot-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/story-plot-generator" });
 
 export default function StoryPlotGeneratorPage() {
   return (
@@ -52,7 +49,8 @@ export default function StoryPlotGeneratorPage() {
           PromptVera&apos;s plot story generator is designed for planning rather
           than prose writing. You can use the outline for a short story, novella,
           novel, screenplay, game narrative, or as a starting point for your own
-          beat sheet.
+          beat sheet. Leave the optional premise open when you want to use it as a
+          random story plot generator and explore an unexpected combination.
         </p>
 
         <h2>How to build a stronger story plot</h2>

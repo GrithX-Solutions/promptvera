@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ShortStoryPromptGenerator } from "@/components/ShortStoryPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Short Story Prompt Generator – Free Story Ideas";
 const description =
   "Free short story prompt generator with genre, protagonist, goal, obstacle, setting, point of view, length, and optional story twist.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/short-story-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/short-story-prompt-generator" });
 
 export default function ShortStoryPromptGeneratorPage() {
   return (

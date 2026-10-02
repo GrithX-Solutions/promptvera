@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PromptBuilder } from "@/components/PromptBuilder";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "AI Image Prompt Generator";
 const description =
   "Free AI image prompt generator with subject, style, composition, camera, lens, lighting, detail, and aspect-ratio controls.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/ai-image-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/ai-image-prompt-generator" });
 
 export default function AiImagePromptGeneratorPage() {
   return (
@@ -34,6 +31,11 @@ export default function AiImagePromptGeneratorPage() {
           A good image prompt gives the model a clear visual hierarchy. Start with the subject and
           scene, then add the visual treatment. Camera and lens language can help when you want a
           photographic look, but it is optional for illustration, vector work, or abstract compositions.
+        </p>
+        <p>
+          You can also use this as a free image prompt generator when you already have a rough
+          visual concept and want to turn it into a more deliberate subject, composition, lighting,
+          style, and output brief.
         </p>
 
         <h3>Subject before style</h3>

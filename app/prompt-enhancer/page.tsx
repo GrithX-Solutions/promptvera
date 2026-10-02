@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PromptEnhancer } from "@/components/PromptEnhancer";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "AI Prompt Enhancer – Free Prompt Enhancement Tool";
 const description =
   "Free AI prompt enhancer for turning rough instructions into clearer prompts with goals, context, constraints, and output direction for major AI workflows.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/prompt-enhancer" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/prompt-enhancer" });
 
 export default function PromptEnhancerPage() {
   return (

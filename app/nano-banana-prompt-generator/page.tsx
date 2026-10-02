@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PromptBuilder } from "@/components/PromptBuilder";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Nano Banana Prompt Generator";
 const description =
   "Free Nano Banana prompt generator for precise image-generation and image-editing instructions with composition, lighting, preservation, and aspect-ratio controls.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/nano-banana-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/nano-banana-prompt-generator" });
 
 export default function NanoBananaPromptGeneratorPage() {
   return (

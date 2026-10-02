@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DrawingPromptGenerator } from "@/components/DrawingPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Drawing Prompt Generator – Random Art Ideas";
 const description =
   "Free drawing prompt generator for random art ideas, sketch challenges, characters, creatures, environments, objects, and creative scenes.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/drawing-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/drawing-prompt-generator" });
 
 export default function DrawingPromptGeneratorPage() {
   return (
@@ -45,8 +42,9 @@ export default function DrawingPromptGeneratorPage() {
           your own.
         </p>
         <p>
-          This page also works as an art prompt generator for illustrators, students, hobbyists, and
-          anyone practicing visual storytelling. You can use the same prompt for a pencil sketch,
+          This page also works as an art prompt generator and drawing idea generator for
+          illustrators, students, hobbyists, and anyone practicing visual storytelling. You can
+          use the same prompt for a pencil sketch,
           ink drawing, watercolor study, digital painting, or as creative direction for an image
           generation workflow.
         </p>
