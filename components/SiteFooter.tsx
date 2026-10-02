@@ -33,6 +33,7 @@ export function SiteFooter() {
           <Link href="/suno-prompt-generator">Suno Generator</Link>
           <Link href="/drawing-prompt-generator">Drawing Prompts</Link>
           <Link href="/random-prompt-generator">Random Prompts</Link>
+          <Link href="/random-theme-generator">Random Themes</Link>
           <Link href="/journal-prompt-generator">Journal Prompts</Link>
           <Link href="/poetry-prompt-generator">Poetry Prompts</Link>
         </div>

@@ -20,6 +20,7 @@ const routes = [
   "/short-story-prompt-generator",
   "/drawing-prompt-generator",
   "/random-prompt-generator",
+  "/random-theme-generator",
   "/poetry-prompt-generator",
   "/sora-2-prompt-generator",
   "/suno-prompt-generator",
