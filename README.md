@@ -1,20 +1,49 @@
 # PromptVera
 
-**Domain:** https://promptvera.com  
+**Live site:** https://promptvera.com  
 **Tagline:** Better Prompts. Better AI Results.
 
-PromptVera is an AdSense-first, no-login utility site for free AI prompt generators and prompt enhancement tools.
+PromptVera is an independent, no-login collection of free AI prompt generators and creative idea tools. The current tools use deterministic browser-side logic, so the core experience does not require a database, user account, or paid AI API request.
 
-## Initial product surface
+## Live tool surface
 
-- Prompt Enhancer
-- Prompt Improver
+### AI prompt tools
+
+- AI Prompt Enhancer
+- AI Prompt Improver
+- ChatGPT Prompt Generator
+- Gemini Prompt Generator
+- Claude Prompt Generator
+- Grok Prompt Generator
+
+### Image, video, and music
+
+- AI Image Prompt Generator
+- Nano Banana Prompt Generator
 - Sora 2 Prompt Generator
 - Suno Prompt Generator
-- Nano Banana Prompt Generator
-- AI Image Prompt Generator
 
-The first release intentionally uses deterministic browser-side prompt logic. No database, authentication system, or paid AI API is required for the core tools.
+### Writing, stories, and creative ideas
+
+- Drawing Prompt Generator
+- Random Prompt Generator
+- Random Theme Generator
+- Journal Prompt Generator
+- Poetry Prompt Generator
+- Fanfic Prompt Generator
+- OC Prompt Generator
+- Short Story Prompt Generator
+- Story Plot Generator
+- Horror Story Plot Generator
+- Book Title Generator
+
+## Product principles
+
+- Each indexed tool should solve a distinct user task or search intent.
+- Do not create thin near-duplicate pages just to capture keyword variants.
+- Generated output should remain editable and understandable.
+- Browser-side generation is preferred when it can solve the task reliably.
+- Model and product names are descriptive references; PromptVera is not an official product of the AI providers named by individual tools.
 
 ## Stack
 
@@ -22,7 +51,8 @@ The first release intentionally uses deterministic browser-side prompt logic. No
 - React 19
 - TypeScript
 - Plain CSS
-- Static/server-rendered content with small client components for tools
+- Static export served by Caddy
+- Small client components for interactive tools
 
 Node.js 20.9+ is required.
 
@@ -35,42 +65,35 @@ npm run dev
 
 Then open http://localhost:3000.
 
-Production build:
+Validation:
 
 ```bash
 npm run typecheck
 npm run build
-npm start
 ```
 
-## SEO foundation
+## Search and discovery foundation
 
-The app includes:
+The production site includes:
 
-- Per-page metadata and canonical URLs
-- XML sitemap
-- robots.txt
-- WebApplication structured data on tool pages
-- Internal tool linking
-- Original explanatory content on every launch tool page
-- Responsive, dependency-light UI
+- Per-page titles, descriptions, canonical URLs, Open Graph, and Twitter metadata
+- XML sitemap and crawlable robots.txt
+- Explicit OAI-SearchBot and GPTBot access
+- Organization and WebSite structured data
+- WebApplication and Breadcrumb structured data on tool pages
+- Answer-first explanatory sections and FAQs where useful
+- Contextual and sitewide internal linking
+- First-party documentation links on model-specific guidance pages
+- `/llms.txt` as a supplemental machine-readable site guide for systems that use it
+- IndexNow submission during the registered production deployment flow
+- Responsive UI, keyboard focus states, and skip-to-content navigation
 
-## Pre-production checklist
+`llms.txt` is supplemental only. Google Search does not require it and does not treat it as a ranking signal.
 
-Before connecting the registered domain to production:
+## Privacy model
 
-- [ ] Configure DNS and SSL for `promptvera.com`
-- [ ] Decide whether `www.promptvera.com` redirects to the apex domain
-- [ ] Create and test a working PromptVera contact mailbox
-- [ ] Add a Contact page after the mailbox is live
-- [ ] Add Google Search Console
-- [ ] Add analytics only after updating the privacy policy with the actual provider
-- [ ] Submit `/sitemap.xml` in Search Console
-- [ ] Verify canonical URLs on the production hostname
-- [ ] Test Core Web Vitals on mobile
-- [ ] Add a Google-certified consent platform before serving ads where required
-- [ ] Add AdSense and `ads.txt` only after the content/tool experience is production-ready
+The current generators build prompt text in the browser. PromptVera does not require account creation or a prompt-history database for these tools. Review the live privacy policy for the current production disclosures.
 
-## Product rule
+## SEO/content rule
 
-Do not create thin near-duplicate pages only to capture keyword variants. New pages should either provide a distinct tool/workflow or materially distinct supporting value.
+Search demand can inform what gets built, but a new URL should exist only when the tool or content has materially distinct user value. Related keyword variants should normally be consolidated into the strongest matching page instead of being split into thin landing pages.
