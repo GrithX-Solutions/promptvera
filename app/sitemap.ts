@@ -10,6 +10,7 @@ const routes = [
   "/claude-prompt-generator",
   "/grok-prompt-generator",
   "/journal-prompt-generator",
+  "/fanfic-prompt-generator",
   "/drawing-prompt-generator",
   "/random-prompt-generator",
   "/poetry-prompt-generator",
