@@ -14,6 +14,7 @@ const routes = [
   "/journal-prompt-generator",
   "/fanfic-prompt-generator",
   "/oc-prompt-generator",
+  "/story-plot-generator",
   "/horror-story-plot-generator",
   "/short-story-prompt-generator",
   "/drawing-prompt-generator",
