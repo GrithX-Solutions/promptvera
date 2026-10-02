@@ -11,6 +11,7 @@ export function SiteHeader() {
         <nav className="nav" aria-label="Primary navigation">
           <Link href="/#tools">Tools</Link>
           <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
           <Link href="/prompt-enhancer">Prompt Enhancer</Link>
         </nav>
       </div>
