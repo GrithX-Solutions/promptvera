@@ -8,6 +8,7 @@ const routes = [
   "/prompt-enhancer",
   "/prompt-improver",
   "/chatgpt-prompt-generator",
+  "/gemini-prompt-generator",
   "/claude-prompt-generator",
   "/grok-prompt-generator",
   "/journal-prompt-generator",
