@@ -10,6 +10,7 @@ const routes = [
   "/nano-banana-prompt-generator",
   "/ai-image-prompt-generator",
   "/about",
+  "/contact",
   "/privacy-policy",
   "/terms",
 ];
