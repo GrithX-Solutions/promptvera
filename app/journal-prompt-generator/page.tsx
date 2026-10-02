@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JournalPromptGenerator } from "@/components/JournalPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
 
-const title = "Journal Prompt Generator – Free Daily Reflection Ideas";
+const title = "Journal Prompt Generator – Free Daily Prompts";
 const description =
   "Free journal prompt generator for self-reflection, gratitude, goals, relationships, creativity, and daily check-ins. Generate a focused journaling prompt instantly.";
 
