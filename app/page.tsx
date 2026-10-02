@@ -218,6 +218,15 @@ export default function HomePage() {
 
       <section className="section">
         <div className="shell content-wrap prose">
+          <h2>What is PromptVera?</h2>
+          <p>
+            PromptVera is a free, browser-based collection of AI prompt generators and
+            creative idea tools. The current tools do not require an account and are
+            designed for specific jobs such as prompt improvement, model-specific prompting,
+            image and video prompting, music prompting, writing, character development,
+            story planning, themes, and book titles.
+          </p>
+
           <h2>A free AI prompt generator for different workflows</h2>
           <p>
             PromptVera is not one oversized AI prompt generator that adds the same boilerplate

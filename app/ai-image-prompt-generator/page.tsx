@@ -26,6 +26,14 @@ export default function AiImagePromptGeneratorPage() {
       <PromptBuilder toolId="ai-image" />
 
       <article className="content-wrap prose">
+        <h2>What is an AI image prompt generator?</h2>
+        <p>
+          An AI image prompt generator turns a rough visual idea into a structured image
+          brief. It helps separate the subject, scene, composition, lighting, camera or
+          lens direction, visual style, detail level, and output requirements so the prompt
+          is easier to review and adapt for different image models.
+        </p>
+
         <h2>What makes an AI image prompt useful?</h2>
         <p>
           A good image prompt gives the model a clear visual hierarchy. Start with the subject and

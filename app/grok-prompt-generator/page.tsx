@@ -51,12 +51,25 @@ export default function GrokPromptGeneratorPage() {
 
         <h2>Why this structure fits current Grok workflows</h2>
         <p>
-          Current xAI guidance for Grok-based bots recommends leading with the result
-          you need, linking or naming the source of truth, stating what the bot may
-          change versus what requires approval, and asking for evidence when work needs
-          to be independently reviewed. Grok 4.7 is also positioned for coding,
-          agentic tasks, and knowledge work, so clear boundaries and explicit output
-          requirements are especially useful for multi-step jobs.
+          <a
+            href="https://docs.x.ai/grok-bot/chat-and-collaboration"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Current xAI guidance for Grok-based bots
+          </a>{" "}
+          recommends leading with the result you need, linking or naming the source of truth,
+          stating what the bot may change versus what requires approval, and asking for evidence
+          when work needs to be independently reviewed.{" "}
+          <a
+            href="https://docs.x.ai/developers/grok-4-7"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Grok 4.7
+          </a>{" "}
+          is also positioned for coding, agentic tasks, and knowledge work, so clear boundaries
+          and explicit output requirements are especially useful for multi-step jobs.
         </p>
 
         <h2>How to write a stronger Grok prompt</h2>

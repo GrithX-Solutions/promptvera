@@ -15,6 +15,16 @@ export default function AboutPage() {
       <p>
         PromptVera is a free utility site for building, improving, and structuring prompts. The project focuses on specific tasks—such as video, music, and image prompting—instead of pretending one prompt template fits every model and workflow.
       </p>
+
+      <h2>PromptVera at a glance</h2>
+      <ul>
+        <li><strong>What it is:</strong> an independent website of free AI prompt generators and creative idea tools.</li>
+        <li><strong>How the current tools work:</strong> core generation logic runs in the browser using deterministic rules and curated structures.</li>
+        <li><strong>Account requirement:</strong> the current tools do not require sign-up.</li>
+        <li><strong>AI API requirement:</strong> the current tools do not need a paid third-party AI API call to build the prompt text.</li>
+        <li><strong>Main topics:</strong> prompt improvement, model-specific prompting, image and video prompting, music prompting, creative writing, characters, plots, themes, and titles.</li>
+      </ul>
+
       <h2>How the first version works</h2>
       <p>
         The launch version uses deterministic browser-side prompt logic. It does not require an account and does not need a paid AI API to turn your selections into a structured prompt.

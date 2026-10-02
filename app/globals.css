@@ -36,6 +36,30 @@ body {
 a { color: inherit; text-decoration: none; }
 button, input, textarea, select { font: inherit; }
 button { cursor: pointer; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--brand-strong);
+  transform: translateY(-180%);
+  transition: transform 120ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 ::selection { background: var(--brand-soft); color: var(--brand-strong); }
 
 .shell {
@@ -473,7 +497,8 @@ button { cursor: pointer; }
 @media (max-width: 640px) {
   .shell { width: min(calc(100% - 22px), var(--max)); }
   .header-inner { min-height: 64px; }
-  .nav a:not(:last-child) { display: none; }
+  .nav a:nth-child(2),
+  .nav a:nth-child(3) { display: none; }
   .hero { padding: 64px 0 44px; }
 
   .tool-grid,

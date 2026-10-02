@@ -26,6 +26,14 @@ export default function NanoBananaPromptGeneratorPage() {
       <PromptBuilder toolId="nano-banana" />
 
       <article className="content-wrap prose">
+        <h2>What is a Nano Banana prompt generator?</h2>
+        <p>
+          A Nano Banana prompt generator helps structure image-generation or image-editing
+          instructions, especially when the task needs explicit preservation rules. It
+          separates the requested change from details that should remain stable, such as
+          identity, product geometry, logos, labels, clothing, layout, or proportions.
+        </p>
+
         <h2>Prompt image edits like an editor, not a caption writer</h2>
         <p>
           Image-editing prompts are strongest when they separate what should change from what must
