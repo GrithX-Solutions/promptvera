@@ -2,34 +2,28 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteJsonLd } from "@/components/SiteJsonLd";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "PromptVera — Free AI Prompt Generators & Prompt Enhancer",
+    default: "Free AI Prompt Generator & Creative Tools | PromptVera",
     template: "%s | PromptVera",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    siteName: siteConfig.name,
-    url: siteConfig.url,
-    title: "PromptVera — Better Prompts. Better AI Results.",
-    description: siteConfig.description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "PromptVera — Better Prompts. Better AI Results.",
-    description: siteConfig.description,
-  },
+  publisher: siteConfig.name,
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -41,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <SiteJsonLd />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

@@ -31,22 +31,39 @@ export default function AiImagePromptGeneratorPage() {
       <article className="content-wrap prose">
         <h2>What makes an AI image prompt useful?</h2>
         <p>
-          A good image prompt gives the model a clear visual hierarchy. Start with the subject and scene, then add the visual treatment. Camera and lens language can help when you want a photographic look, but it is optional for illustration, vector work, or abstract compositions.
+          A good image prompt gives the model a clear visual hierarchy. Start with the subject and
+          scene, then add the visual treatment. Camera and lens language can help when you want a
+          photographic look, but it is optional for illustration, vector work, or abstract compositions.
         </p>
 
         <h3>Subject before style</h3>
         <p>
-          “Cinematic, beautiful, detailed” is not a complete visual request. First establish what is actually in the frame, where it is, and what the viewer should notice. Style should support that subject rather than replace it.
+          “Cinematic, beautiful, detailed” is not a complete visual request. First establish what is
+          actually in the frame, where it is, and what the viewer should notice. Style should support
+          that subject rather than replace it.
         </p>
 
         <h3>Composition controls attention</h3>
         <p>
-          Wide framing creates context, close-ups prioritize detail, and centered symmetry creates a different visual rhythm from a rule-of-thirds layout. Pick a composition that matches the purpose of the image.
+          Wide framing creates context, close-ups prioritize detail, and centered symmetry creates a
+          different visual rhythm from a rule-of-thirds layout. Pick a composition that matches the
+          purpose of the image.
         </p>
 
         <h3>Do not over-specify camera language</h3>
         <p>
-          Lens terms can be helpful for photorealistic generations, but stacking several focal lengths or incompatible shot descriptions creates noise. One clear camera direction is usually enough.
+          Lens terms can be helpful for photorealistic generations, but stacking several focal
+          lengths or incompatible shot descriptions creates noise. One clear camera direction is
+          usually enough.
+        </p>
+
+        <h2>Related image and creative prompt tools</h2>
+        <p>
+          For image-editing instructions with explicit preservation rules, use the{" "}
+          <Link href="/nano-banana-prompt-generator">Nano Banana Prompt Generator</Link>. If you
+          need an idea to draw rather than an AI image prompt, the{" "}
+          <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link> produces art
+          directions without requiring an image model.
         </p>
 
         <h2>Frequently asked questions</h2>

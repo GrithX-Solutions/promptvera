@@ -31,22 +31,37 @@ export default function SunoPromptGeneratorPage() {
       <article className="content-wrap prose">
         <h2>Build a music prompt around musical decisions</h2>
         <p>
-          A useful music-generation prompt should communicate more than a topic. “Make a song about success” says what the lyrics may discuss but very little about the sound. Genre, mood, tempo, vocal character, instrumentation, and song structure give the model a more coherent musical direction.
+          A useful music-generation prompt should communicate more than a topic. “Make a song about
+          success” says what the lyrics may discuss but very little about the sound. Genre, mood,
+          tempo, vocal character, instrumentation, and song structure give the model a more coherent musical direction.
         </p>
 
         <h3>Genre and mood are different controls</h3>
         <p>
-          Genre describes the musical vocabulary; mood describes the emotional result. An indie-rock track can be euphoric, restrained, nostalgic, or dark. Keeping those decisions separate gives you more deliberate combinations.
+          Genre describes the musical vocabulary; mood describes the emotional result. An indie-rock
+          track can be euphoric, restrained, nostalgic, or dark. Keeping those decisions separate
+          gives you more deliberate combinations.
         </p>
 
         <h3>Use instrumentation to shape the production</h3>
         <p>
-          Name the instruments that matter rather than listing everything that could appear. A prompt built around warm piano, clean electric guitar, tight drums, and a restrained synth bed is more focused than a long list of unrelated sounds.
+          Name the instruments that matter rather than listing everything that could appear. A prompt
+          built around warm piano, clean electric guitar, tight drums, and a restrained synth bed is
+          more focused than a long list of unrelated sounds.
         </p>
 
         <h3>Specify structure when arrangement matters</h3>
         <p>
-          If you need a conventional verse and chorus or a build into an electronic drop, say so. If structure is not important, keep the prompt simpler and let the generation explore.
+          If you need a conventional verse and chorus or a build into an electronic drop, say so. If
+          structure is not important, keep the prompt simpler and let the generation explore.
+        </p>
+
+        <h2>Related prompt generators</h2>
+        <p>
+          If your project also needs video direction, the{" "}
+          <Link href="/sora-2-prompt-generator">Sora 2 Prompt Generator</Link> structures scene,
+          camera, motion, lighting, audio, and continuity instructions. For a general instruction
+          that is still vague, start with the <Link href="/prompt-enhancer">AI Prompt Enhancer</Link>.
         </p>
 
         <h2>Frequently asked questions</h2>

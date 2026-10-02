@@ -1,5 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Free AI Prompt Generator & Creative Tools | PromptVera",
+  },
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    url: siteConfig.url,
+    title: "Free AI Prompt Generator & Creative Tools | PromptVera",
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary",
+    title: "Free AI Prompt Generator & Creative Tools | PromptVera",
+    description: siteConfig.description,
+  },
+};
 
 const tools = [
   {
@@ -129,14 +151,15 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="shell hero-inner">
-          <span className="eyebrow">Free • No login • Fast</span>
+          <span className="eyebrow">Free • No login • Browser-based</span>
           <h1>
-            Better prompts.
+            Free AI Prompt Generator
             <br />
-            <span className="gradient-text">Better AI results.</span>
+            <span className="gradient-text">& Creative Tools</span>
           </h1>
           <p className="hero-copy">
-            PromptVera gives you focused AI and creative prompt generators—without accounts, subscriptions, or unnecessary complexity.
+            Build clearer AI prompts and creative ideas for ChatGPT, Gemini, Claude, Grok,
+            images, video, music, writing, stories, characters, and more—without an account.
           </p>
           <div className="hero-actions">
             <Link className="button" href="/prompt-enhancer">Enhance a prompt</Link>
@@ -153,10 +176,11 @@ export default function HomePage() {
       <section className="section" id="tools">
         <div className="shell">
           <div className="section-heading">
-            <span className="eyebrow">Prompt tools</span>
-            <h2>Choose the job, not a generic generator.</h2>
+            <span className="eyebrow">Free prompt generators</span>
+            <h2>Choose the job, not a generic template.</h2>
             <p>
-              Each PromptVera tool is designed around a specific workflow, so the output is useful before you move into your AI or creative process.
+              Each PromptVera generator is built around a distinct search intent and workflow,
+              from AI prompt improvement to image, video, music, writing, and story planning.
             </p>
           </div>
           <div className="tool-grid">
@@ -176,7 +200,7 @@ export default function HomePage() {
             </div>
             <div className="feature">
               <h3>Private by default</h3>
-              <p>The first release uses browser-side prompt logic and does not require an account or a paid AI API.</p>
+              <p>The current tools use browser-side logic and do not require an account or a paid AI API.</p>
             </div>
             <div className="feature">
               <h3>Made for iteration</h3>
@@ -188,24 +212,46 @@ export default function HomePage() {
 
       <section className="section">
         <div className="shell content-wrap prose">
-          <h2>How PromptVera helps you write better prompts</h2>
+          <h2>A free AI prompt generator for different workflows</h2>
           <p>
-            PromptVera turns a vague idea into a prompt that is easier to review, edit, and reuse.
-            Instead of adding random detail, each tool asks for the information that matters to the
-            task: the goal, context, constraints, format, visual direction, music structure, or
-            creative challenge.
+            PromptVera is not one oversized AI prompt generator that adds the same boilerplate
+            to every request. Use the <Link href="/prompt-enhancer">AI Prompt Enhancer</Link> when
+            a rough instruction needs clearer goals and constraints, or the{" "}
+            <Link href="/prompt-improver">Prompt Improver</Link> when you already have a working
+            prompt that needs tighter structure.
           </p>
           <p>
-            The result is still your prompt. You can copy it into the AI service or creative workflow
-            you use, remove anything you do not need, and iterate from there. PromptVera does not
-            require an account for the launch tools, and the core prompt-building logic runs in the browser.
+            Model-specific tasks have their own builders for{" "}
+            <Link href="/chatgpt-prompt-generator">ChatGPT</Link>,{" "}
+            <Link href="/gemini-prompt-generator">Gemini</Link>,{" "}
+            <Link href="/claude-prompt-generator">Claude</Link>, and{" "}
+            <Link href="/grok-prompt-generator">Grok</Link>. Visual and media workflows can start
+            with the <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>,{" "}
+            <Link href="/sora-2-prompt-generator">Sora 2 Prompt Generator</Link>, or{" "}
+            <Link href="/suno-prompt-generator">Suno Prompt Generator</Link>.
           </p>
-          <h3>Start with the job you need done</h3>
+
+          <h2>Creative generators for writing, stories, and ideas</h2>
           <p>
-            Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
-            tools such as the ChatGPT, Gemini, Claude, or Grok Prompt Generator when a platform benefits from its own
-            prompting structure, and use the creative generators for journaling, fanfiction, video,
-            original characters, story plots, book titles, horror plots, short stories, music, images, drawing, writing, or poetry.
+            PromptVera also covers creative planning that does not need a paid AI call. Generate
+            drawing and writing ideas, character directions, story prompts, structured plots, and
+            book names directly in the browser. For longer fiction planning, start with the{" "}
+            <Link href="/story-plot-generator">Story Plot Generator</Link>; when the manuscript or
+            concept needs a name, use the <Link href="/book-title-generator">Book Title Generator</Link>.
+          </p>
+
+          <h2>How PromptVera improves prompt quality</h2>
+          <p>
+            Better prompting usually comes from clearer intent rather than more words. The tools
+            separate the task, context, constraints, tone, format, visual direction, music
+            structure, or narrative requirements so you can see what the prompt is actually asking
+            the model to do.
+          </p>
+          <p>
+            The generated result remains editable. Copy it into the AI or creative workflow you
+            use, remove anything that does not matter, and keep the instructions that materially
+            change the output. That approach produces reusable prompts without pretending that one
+            formula is optimal for every model or task.
           </p>
         </div>
       </section>
