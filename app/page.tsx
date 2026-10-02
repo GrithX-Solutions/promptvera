@@ -57,6 +57,12 @@ const tools = [
     icon: "P",
   },
   {
+    title: "Book Title Generator",
+    description: "Generate fiction and nonfiction book title ideas by genre, tone, title style, theme, topic, and your own keywords.",
+    href: "/book-title-generator",
+    icon: "B",
+  },
+  {
     title: "Horror Story Plot Generator",
     description: "Generate horror plots with a protagonist, core fear, escalation rule, reveal, survival cost, intensity, and ending direction.",
     href: "/horror-story-plot-generator",
@@ -199,7 +205,7 @@ export default function HomePage() {
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
             tools such as the ChatGPT, Gemini, Claude, or Grok Prompt Generator when a platform benefits from its own
             prompting structure, and use the creative generators for journaling, fanfiction, video,
-            original characters, story plots, horror plots, short stories, music, images, drawing, writing, or poetry.
+            original characters, story plots, book titles, horror plots, short stories, music, images, drawing, writing, or poetry.
           </p>
         </div>
       </section>
