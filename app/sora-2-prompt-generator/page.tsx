@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PromptBuilder } from "@/components/PromptBuilder";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Sora 2 Prompt Generator";
 const description =
   "Free Sora 2 prompt generator for structured AI video prompts with scene, shot type, camera movement, lighting, audio, format, and continuity instructions.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/sora-2-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/sora-2-prompt-generator" });
 
 export default function Sora2PromptGeneratorPage() {
   return (
@@ -31,27 +28,43 @@ export default function Sora2PromptGeneratorPage() {
       <article className="content-wrap prose">
         <h2>How to write a stronger Sora video prompt</h2>
         <p>
-          Start with the visible event: who or what is in the scene, where it happens, and what changes during the shot. Then describe camera behavior separately. Mixing every visual detail into one sentence makes it harder to see whether your prompt contains contradictory instructions.
+          Start with the visible event: who or what is in the scene, where it happens, and what
+          changes during the shot. Then describe camera behavior separately. Mixing every visual
+          detail into one sentence makes it harder to see whether your prompt contains contradictory instructions.
         </p>
 
         <h3>1. Define the scene and action</h3>
         <p>
-          Describe the subject, setting, and movement in concrete terms. “A car in a city” leaves many decisions open; “a silver electric coupe drives through a rain-soaked commercial district at night” establishes a clearer visual target.
+          Describe the subject, setting, and movement in concrete terms. “A car in a city” leaves
+          many decisions open; “a silver electric coupe drives through a rain-soaked commercial
+          district at night” establishes a clearer visual target.
         </p>
 
         <h3>2. Add shot and movement language</h3>
         <p>
-          Use camera direction only when it serves the scene. A tracking shot, orbit, crane move, or static composition creates a different visual result. Avoid stacking incompatible camera moves into a short clip.
+          Use camera direction only when it serves the scene. A tracking shot, orbit, crane move, or
+          static composition creates a different visual result. Avoid stacking incompatible camera
+          moves into a short clip.
         </p>
 
         <h3>3. Protect continuity</h3>
         <p>
-          Video generations can become inconsistent when the prompt changes subject details from one phrase to another. The generator adds a continuity section to remind the model to keep identity, environment, lighting, direction of motion, and scale coherent.
+          Video generations can become inconsistent when the prompt changes subject details from one
+          phrase to another. The generator adds a continuity section to remind the model to keep
+          identity, environment, lighting, direction of motion, and scale coherent.
         </p>
 
         <div className="callout">
           <strong>Tip:</strong> Treat the generated prompt as a shot brief. Remove any field that is irrelevant rather than forcing every control into every video.
         </div>
+
+        <h2>Related visual prompt tools</h2>
+        <p>
+          Need a still-image brief first? Use the{" "}
+          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link> for composition,
+          lighting, lens, and style controls. For image-editing prompts with preservation constraints,
+          use the <Link href="/nano-banana-prompt-generator">Nano Banana Prompt Generator</Link>.
+        </p>
 
         <h2>Frequently asked questions</h2>
         <div className="faq">

@@ -5,5 +5,5 @@ export const siteConfig = {
   contactEmail: "care@promptvera.com",
   tagline: "Better Prompts. Better AI Results.",
   description:
-    "Free AI prompt generators and prompt enhancement tools for image, video, music, and general-purpose AI workflows.",
+    "Free AI prompt generator and creative tools for ChatGPT, Gemini, Claude, Grok, image, video, music, writing, characters, stories, and more.",
 } as const;

@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { GeminiPromptGenerator } from "@/components/GeminiPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Gemini Prompt Generator – Free Prompts";
 const description =
   "Free Gemini prompt generator for clear tasks, context, multimodal inputs, parameters, constraints, examples, verbosity, and structured output.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/gemini-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/gemini-prompt-generator" });
 
 export default function GeminiPromptGeneratorPage() {
   return (

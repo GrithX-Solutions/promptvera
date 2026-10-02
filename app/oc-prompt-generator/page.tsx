@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { OCPromptGenerator } from "@/components/OCPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "OC Prompt Generator – Original Character Ideas";
 const description =
   "Free OC prompt generator for original character ideas with archetype, personality, motivation, flaw, relationships, story hooks, and visual design cues.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/oc-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/oc-prompt-generator" });
 
 export default function OCPromptGeneratorPage() {
   return (
@@ -43,8 +40,9 @@ export default function OCPromptGeneratorPage() {
       <article className="content-wrap prose">
         <h2>What is an OC prompt generator?</h2>
         <p>
-          An OC prompt generator helps you create an original character—often shortened
-          to OC—without reducing the character to a random list of traits. A useful
+          An OC prompt generator is an original character prompt generator—OC is the
+          common shorthand—and helps you create a character without reducing them to
+          a random list of traits. A useful
           character concept connects personality, motivation, flaws, relationships,
           setting, and visual choices so the character can actually make decisions
           inside a story or creative project.

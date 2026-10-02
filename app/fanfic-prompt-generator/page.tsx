@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FanficPromptGenerator } from "@/components/FanficPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Fanfic Prompt Generator – Free Fanfiction Ideas";
 const description =
   "Free fanfic prompt generator for fandom stories, pairings, OTP ideas, tropes, canon divergence, alternate universes, conflict, and tone.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/fanfic-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/fanfic-prompt-generator" });
 
 export default function FanficPromptGeneratorPage() {
   return (
@@ -75,8 +72,9 @@ export default function FanficPromptGeneratorPage() {
 
         <h3>Use pairing or OTP prompts as relationship prompts</h3>
         <p>
-          If your idea centers on an OTP or another pairing, enter the characters in the
-          pairing field and choose a relationship dynamic. The generator is intentionally
+          If you are using the page as an OTP prompt generator, or your idea centers on
+          another pairing, enter the characters in the pairing field and choose a
+          relationship dynamic. The generator is intentionally
           general-audience and focuses on story, emotion, conflict, humor, comfort,
           adventure, and relationship development rather than explicit sexual content.
         </p>

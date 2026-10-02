@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BookTitleGenerator } from "@/components/BookTitleGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Book Title Generator – Free Book Name Ideas";
 const description =
   "Free book title generator for fiction and nonfiction. Create book name ideas by genre, tone, style, theme, topic, or your own keywords.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/book-title-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/book-title-generator" });
 
 export default function BookTitleGeneratorPage() {
   return (
@@ -59,8 +56,9 @@ export default function BookTitleGeneratorPage() {
           If you already know the central image or topic of the book, enter it
           in the keyword field. The generator will use that idea as an anchor
           rather than replacing it with an unrelated concept. This is useful
-          when you need a book title generator using keywords, a working title
-          for a manuscript, or several variations around the same theme.
+          when you need a book title generator using keywords or a book title
+          generator with keywords, a working title for a manuscript, or several
+          variations around the same theme.
         </p>
 
         <h2>Fiction title ideas by genre</h2>

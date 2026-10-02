@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PoetryPromptGenerator } from "@/components/PoetryPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "Poetry Prompt Generator – Free Poem Ideas";
 const description =
   "Free poetry prompt generator for poem ideas, forms, imagery, moods, perspectives, and craft constraints. Generate a fresh poetry writing prompt instantly.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/poetry-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/poetry-prompt-generator" });
 
 export default function PoetryPromptGeneratorPage() {
   return (

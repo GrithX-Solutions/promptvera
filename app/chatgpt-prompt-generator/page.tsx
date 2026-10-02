@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChatGPTPromptGenerator } from "@/components/ChatGPTPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
+import { toolMetadata } from "@/lib/metadata";
 
 const title = "ChatGPT Prompt Generator – Free Structured Prompts";
 const description =
   "Free ChatGPT prompt generator for clear tasks, context, source material, audience, constraints, examples, tone, and output format. No signup required.";
 
-export const metadata: Metadata = {
-  title,
-  description,
-  alternates: { canonical: "/chatgpt-prompt-generator" },
-};
+export const metadata: Metadata = toolMetadata({ title, description, path: "/chatgpt-prompt-generator" });
 
 export default function ChatGPTPromptGeneratorPage() {
   return (
