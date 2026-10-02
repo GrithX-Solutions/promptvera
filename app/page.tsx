@@ -101,6 +101,30 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="section">
+        <div className="shell content-wrap prose">
+          <h2>How PromptVera helps you write better AI prompts</h2>
+          <p>
+            PromptVera turns a vague idea into a prompt that is easier to review, edit, and reuse.
+            Instead of adding random detail, each tool asks for the information that matters to the
+            task: the goal, context, constraints, format, visual direction, music structure, or
+            output requirements.
+          </p>
+          <p>
+            The result is still your prompt. You can copy it into the AI service you use, remove
+            anything you do not need, and iterate from there. PromptVera does not require an account
+            for the launch tools, and the core prompt-building logic runs in the browser.
+          </p>
+          <h3>Start with the job you need done</h3>
+          <p>
+            Use Prompt Enhancer or Prompt Improver for general instructions. Use the dedicated
+            generators when the task needs model-specific structure, such as camera movement for
+            video, arrangement for music, or composition and lighting for images. This keeps each
+            prompt focused instead of forcing every request through one oversized template.
+          </p>
+        </div>
+      </section>
     </>
   );
 }

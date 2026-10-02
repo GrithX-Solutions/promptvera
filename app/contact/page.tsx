@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact & Support for PromptVera Tools",
   description:
     "Contact PromptVera for tool feedback, bug reports, privacy requests, business inquiries, and general questions.",
   alternates: { canonical: "/contact" },
@@ -49,6 +49,21 @@ export default function ContactPage() {
         PromptVera is an independent utility site. We cannot provide account support for third-party
         AI services referenced by our tools. For billing, account access, or service-specific
         problems, contact the relevant provider directly.
+      </p>
+
+      <h2>Helpful feedback for prompt tools</h2>
+      <p>
+        If the generated prompt is technically valid but not useful for your workflow, tell us which
+        tool you used, the type of task you were trying to complete, and which control or instruction
+        was missing. That context is more useful than sending private prompt content and helps us
+        improve the structure of the tool without collecting sensitive information.
+      </p>
+
+      <h2>Security and privacy reports</h2>
+      <p>
+        If you believe a PromptVera page exposes data unexpectedly or has a security issue, describe
+        the affected URL and the behavior you observed. Do not send passwords, authentication tokens,
+        private keys, or unnecessary personal data as part of a report.
       </p>
     </div>
   );
