@@ -9,6 +9,7 @@ const routes = [
   "/prompt-improver",
   "/claude-prompt-generator",
   "/grok-prompt-generator",
+  "/journal-prompt-generator",
   "/drawing-prompt-generator",
   "/random-prompt-generator",
   "/poetry-prompt-generator",
