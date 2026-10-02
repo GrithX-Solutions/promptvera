@@ -21,6 +21,12 @@ const tools = [
     icon: "G",
   },
   {
+    title: "Journal Prompt Generator",
+    description: "Generate focused journal prompts for self-reflection, gratitude, goals, relationships, creativity, and daily check-ins.",
+    href: "/journal-prompt-generator",
+    icon: "J",
+  },
+  {
     title: "Drawing Prompt Generator",
     description: "Generate random drawing and art ideas with subjects, settings, moods, media, and creative challenges.",
     href: "/drawing-prompt-generator",
@@ -150,7 +156,8 @@ export default function HomePage() {
           <p>
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
             tools such as the Claude or Grok Prompt Generator when a platform benefits from its own
-            prompting structure, and use the creative generators for video, music, images, drawing, writing, or poetry.
+            prompting structure, and use the creative generators for journaling, video, music, images,
+            drawing, writing, or poetry.
           </p>
         </div>
       </section>
