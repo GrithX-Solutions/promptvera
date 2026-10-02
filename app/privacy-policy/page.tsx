@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -38,6 +39,13 @@ export default function PrivacyPolicyPage() {
       <h2>Third-party services</h2>
       <p>
         PromptVera links to or references third-party AI products. Their privacy practices apply when you leave PromptVera or paste generated prompts into those services.
+      </p>
+
+      <h2>Privacy contact</h2>
+      <p>
+        For privacy questions or requests related to PromptVera, email{" "}
+        <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.
+        Please do not include passwords, API keys, private keys, or unrelated sensitive credentials.
       </p>
 
       <h2>Changes</h2>
