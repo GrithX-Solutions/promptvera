@@ -9,6 +9,12 @@ const tools = [
     icon: "✦",
   },
   {
+    title: "Claude Prompt Generator",
+    description: "Build Claude-focused prompts with explicit context, constraints, output requirements, examples, and optional XML structure.",
+    href: "/claude-prompt-generator",
+    icon: "C",
+  },
+  {
     title: "Drawing Prompt Generator",
     description: "Generate random drawing and art ideas with subjects, settings, moods, media, and creative challenges.",
     href: "/drawing-prompt-generator",
@@ -136,9 +142,9 @@ export default function HomePage() {
           </p>
           <h3>Start with the job you need done</h3>
           <p>
-            Use Prompt Enhancer or Prompt Improver for general AI instructions. Use the dedicated
-            generators when the task needs a specific structure, such as camera movement for video,
-            arrangement for music, composition and lighting for images, or a random creative idea for drawing, writing, or poetry.
+            Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
+            tools such as the Claude Prompt Generator when a platform benefits from its own prompting
+            structure, and use the creative generators for video, music, images, drawing, writing, or poetry.
           </p>
         </div>
       </section>
