@@ -15,6 +15,12 @@ const tools = [
     icon: "✎",
   },
   {
+    title: "Random Prompt Generator",
+    description: "Generate random writing, story, character, journal, conversation, and creative challenge prompts.",
+    href: "/random-prompt-generator",
+    icon: "⟳",
+  },
+  {
     title: "Sora 2 Prompt Generator",
     description: "Build structured video prompts with shot, movement, lighting, audio, and output controls.",
     href: "/sora-2-prompt-generator",
@@ -126,7 +132,7 @@ export default function HomePage() {
           <p>
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use the dedicated
             generators when the task needs a specific structure, such as camera movement for video,
-            arrangement for music, composition and lighting for images, or a random creative idea for drawing.
+            arrangement for music, composition and lighting for images, or a random creative idea for drawing or writing.
           </p>
         </div>
       </section>
