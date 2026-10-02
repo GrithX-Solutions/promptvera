@@ -109,6 +109,12 @@ const tools = [
     icon: "⟳",
   },
   {
+    title: "Random Theme Generator",
+    description: "Generate random themes for writing, stories, art, design, games, projects, events, and creative challenges.",
+    href: "/random-theme-generator",
+    icon: "◇",
+  },
+  {
     title: "Poetry Prompt Generator",
     description: "Generate poem ideas with imagery, emotional tension, poetic form, perspective, and craft constraints.",
     href: "/poetry-prompt-generator",

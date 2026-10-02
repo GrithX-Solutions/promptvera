@@ -87,8 +87,11 @@ export default function RandomPromptGeneratorPage() {
           <Link href="/prompt-enhancer">Prompt Enhancer</Link>, which restructures an
           instruction you already have, and the{" "}
           <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link>, which
-          targets visual art and sketching ideas. Keeping those jobs separate makes each
-          tool more useful and reduces duplicated search intent across PromptVera.
+          targets visual art and sketching ideas. If you only need a broad creative direction
+          rather than a complete prompt, use the{" "}
+          <Link href="/random-theme-generator">Random Theme Generator</Link>. Keeping those
+          jobs separate makes each tool more useful and reduces duplicated search intent
+          across PromptVera.
         </p>
 
         <h2>Ways to use one generated prompt</h2>
