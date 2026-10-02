@@ -52,8 +52,14 @@ export default function GeminiPromptGeneratorPage() {
 
         <h2>What current Google Gemini prompting guidance emphasizes</h2>
         <p>
-          Google&apos;s current Gemini prompting documentation recommends clear and
-          specific instructions, consistent structure, explicit definitions for
+          <a
+            href="https://ai.google.dev/gemini-api/docs/prompting-strategies"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Google&apos;s current Gemini prompting documentation
+          </a>{" "}
+          recommends clear and specific instructions, consistent structure, explicit definitions for
           ambiguous parameters, and direct control over output verbosity. It also
           recommends clearly referencing each relevant input when working with text,
           images, audio, or video.

@@ -26,6 +26,14 @@ export default function Sora2PromptGeneratorPage() {
       <PromptBuilder toolId="sora-2" />
 
       <article className="content-wrap prose">
+        <h2>What is a Sora 2 prompt generator?</h2>
+        <p>
+          A Sora 2 prompt generator structures a video idea into a shot brief with the
+          visible scene, subject action, framing, camera movement, lighting, audio,
+          output format, and continuity instructions. PromptVera generates the prompt
+          text; it does not generate or host the video itself.
+        </p>
+
         <h2>How to write a stronger Sora video prompt</h2>
         <p>
           Start with the visible event: who or what is in the scene, where it happens, and what

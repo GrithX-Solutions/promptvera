@@ -53,8 +53,14 @@ export default function ClaudePromptGeneratorPage() {
 
         <h2>Why structure matters when prompting Claude</h2>
         <p>
-          Anthropic&apos;s current prompting documentation emphasizes clear and direct
-          instructions, explicit output requirements, and relevant examples. It also
+          <a
+            href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Anthropic&apos;s current prompting documentation
+          </a>{" "}
+          emphasizes clear and direct instructions, explicit output requirements, and relevant examples. It also
           recommends XML tags as a way to separate instructions, context, examples,
           and variable input when a prompt becomes complex. The XML option in this tool
           follows that organizational pattern; it is not a requirement for every short

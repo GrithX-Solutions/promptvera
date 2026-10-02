@@ -26,6 +26,14 @@ export default function SunoPromptGeneratorPage() {
       <PromptBuilder toolId="suno" />
 
       <article className="content-wrap prose">
+        <h2>What is a Suno prompt generator?</h2>
+        <p>
+          A Suno prompt generator turns a song concept into a clearer music brief by
+          separating genre, mood, tempo, vocal direction, instrumentation, arrangement,
+          and production cues. PromptVera generates prompt text only and does not create
+          or host the finished music.
+        </p>
+
         <h2>Build a Suno AI prompt around musical decisions</h2>
         <p>
           A useful Suno AI prompt generator should help you communicate more than a topic. “Make a

@@ -52,8 +52,14 @@ export default function ChatGPTPromptGeneratorPage() {
 
         <h2>What current OpenAI prompting guidance emphasizes</h2>
         <p>
-          OpenAI&apos;s current ChatGPT guidance recommends being clear and specific,
-          supplying enough context, stating the tone or style when it matters, and
+          <a
+            href="https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt"
+            target="_blank"
+            rel="noreferrer"
+          >
+            OpenAI&apos;s current ChatGPT guidance
+          </a>{" "}
+          recommends being clear and specific, supplying enough context, stating the tone or style when it matters, and
           refining prompts iteratively based on the response. OpenAI also recommends
           breaking complex work into focused requests when that makes the task easier
           to complete accurately.

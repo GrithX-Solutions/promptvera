@@ -1,0 +1,46 @@
+# PromptVera
+
+> PromptVera is an independent website offering free, browser-based AI prompt generators and creative idea tools. The current tools do not require an account, and core generation logic runs in the browser without a paid AI API call.
+
+Canonical site: https://promptvera.com
+Contact: care@promptvera.com
+Language: English
+
+## Core AI prompt tools
+
+- [AI Prompt Enhancer](https://promptvera.com/prompt-enhancer): Expands a rough instruction into a clearer task, goal, context, constraints, and output direction.
+- [AI Prompt Improver](https://promptvera.com/prompt-improver): Refines an existing prompt while preserving its core intent.
+- [ChatGPT Prompt Generator](https://promptvera.com/chatgpt-prompt-generator): Structures prompts for ChatGPT workflows.
+- [Gemini Prompt Generator](https://promptvera.com/gemini-prompt-generator): Structures prompts for Gemini workflows, including multimodal context.
+- [Claude Prompt Generator](https://promptvera.com/claude-prompt-generator): Structures prompts for Claude workflows.
+- [Grok Prompt Generator](https://promptvera.com/grok-prompt-generator): Structures prompts for Grok workflows.
+
+## Image, video, and music prompt tools
+
+- [AI Image Prompt Generator](https://promptvera.com/ai-image-prompt-generator): Builds model-agnostic image prompts with subject, composition, lighting, camera, style, and output direction.
+- [Nano Banana Prompt Generator](https://promptvera.com/nano-banana-prompt-generator): Builds image-generation and image-editing prompt text with preservation constraints.
+- [Sora 2 Prompt Generator](https://promptvera.com/sora-2-prompt-generator): Builds AI video prompt text with scene, shot, camera movement, lighting, audio, format, and continuity.
+- [Suno Prompt Generator](https://promptvera.com/suno-prompt-generator): Builds AI music prompt text with genre, mood, tempo, vocals, instrumentation, and arrangement.
+
+## Creative writing and idea tools
+
+- [Random Prompt Generator](https://promptvera.com/random-prompt-generator)
+- [Random Theme Generator](https://promptvera.com/random-theme-generator)
+- [Drawing Prompt Generator](https://promptvera.com/drawing-prompt-generator)
+- [Journal Prompt Generator](https://promptvera.com/journal-prompt-generator)
+- [Poetry Prompt Generator](https://promptvera.com/poetry-prompt-generator)
+- [Fanfic Prompt Generator](https://promptvera.com/fanfic-prompt-generator)
+- [OC Prompt Generator](https://promptvera.com/oc-prompt-generator)
+- [Short Story Prompt Generator](https://promptvera.com/short-story-prompt-generator)
+- [Story Plot Generator](https://promptvera.com/story-plot-generator)
+- [Horror Story Plot Generator](https://promptvera.com/horror-story-plot-generator)
+- [Book Title Generator](https://promptvera.com/book-title-generator)
+
+## Site information
+
+- [About PromptVera](https://promptvera.com/about)
+- [Contact](https://promptvera.com/contact)
+- [Privacy Policy](https://promptvera.com/privacy-policy)
+- [Terms](https://promptvera.com/terms)
+
+PromptVera is not an official product of OpenAI, Google, Anthropic, xAI, Suno, or other model providers referenced by descriptive tool names.
