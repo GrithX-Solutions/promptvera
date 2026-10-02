@@ -45,6 +45,12 @@ const tools = [
     icon: "F",
   },
   {
+    title: "OC Prompt Generator",
+    description: "Generate original character ideas with archetype, personality contrast, motivation, flaw, relationships, story hooks, and visual design cues.",
+    href: "/oc-prompt-generator",
+    icon: "O",
+  },
+  {
     title: "Short Story Prompt Generator",
     description: "Generate focused short-fiction ideas with genre, protagonist, goal, obstacle, setting, point of view, length, and optional twist.",
     href: "/short-story-prompt-generator",
@@ -181,7 +187,7 @@ export default function HomePage() {
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
             tools such as the ChatGPT, Gemini, Claude, or Grok Prompt Generator when a platform benefits from its own
             prompting structure, and use the creative generators for journaling, fanfiction, video,
-            short stories, music, images, drawing, writing, or poetry.
+            original characters, short stories, music, images, drawing, writing, or poetry.
           </p>
         </div>
       </section>
