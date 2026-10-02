@@ -7,6 +7,7 @@ const routes = [
   "",
   "/prompt-enhancer",
   "/prompt-improver",
+  "/drawing-prompt-generator",
   "/sora-2-prompt-generator",
   "/suno-prompt-generator",
   "/nano-banana-prompt-generator",
