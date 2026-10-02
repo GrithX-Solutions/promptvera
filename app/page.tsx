@@ -9,6 +9,12 @@ const tools = [
     icon: "✦",
   },
   {
+    title: "ChatGPT Prompt Generator",
+    description: "Build clearer ChatGPT prompts with task, context, source material, audience, constraints, tone, examples, and output format.",
+    href: "/chatgpt-prompt-generator",
+    icon: "C",
+  },
+  {
     title: "Claude Prompt Generator",
     description: "Build Claude-focused prompts with explicit context, constraints, output requirements, examples, and optional XML structure.",
     href: "/claude-prompt-generator",
@@ -167,7 +173,7 @@ export default function HomePage() {
           <h3>Start with the job you need done</h3>
           <p>
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
-            tools such as the Claude or Grok Prompt Generator when a platform benefits from its own
+            tools such as the ChatGPT, Claude, or Grok Prompt Generator when a platform benefits from its own
             prompting structure, and use the creative generators for journaling, fanfiction, video,
             short stories, music, images, drawing, writing, or poetry.
           </p>
