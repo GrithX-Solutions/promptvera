@@ -15,6 +15,12 @@ const tools = [
     icon: "C",
   },
   {
+    title: "Gemini Prompt Generator",
+    description: "Build Gemini-focused prompts with multimodal input guidance, explicit parameters, long-context ordering, verbosity, and output controls.",
+    href: "/gemini-prompt-generator",
+    icon: "G",
+  },
+  {
     title: "Claude Prompt Generator",
     description: "Build Claude-focused prompts with explicit context, constraints, output requirements, examples, and optional XML structure.",
     href: "/claude-prompt-generator",
@@ -173,7 +179,7 @@ export default function HomePage() {
           <h3>Start with the job you need done</h3>
           <p>
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
-            tools such as the ChatGPT, Claude, or Grok Prompt Generator when a platform benefits from its own
+            tools such as the ChatGPT, Gemini, Claude, or Grok Prompt Generator when a platform benefits from its own
             prompting structure, and use the creative generators for journaling, fanfiction, video,
             short stories, music, images, drawing, writing, or poetry.
           </p>
