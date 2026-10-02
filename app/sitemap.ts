@@ -11,6 +11,7 @@ const routes = [
   "/grok-prompt-generator",
   "/journal-prompt-generator",
   "/fanfic-prompt-generator",
+  "/short-story-prompt-generator",
   "/drawing-prompt-generator",
   "/random-prompt-generator",
   "/poetry-prompt-generator",
