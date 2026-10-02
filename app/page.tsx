@@ -21,6 +21,12 @@ const tools = [
     icon: "⟳",
   },
   {
+    title: "Poetry Prompt Generator",
+    description: "Generate poem ideas with imagery, emotional tension, poetic form, perspective, and craft constraints.",
+    href: "/poetry-prompt-generator",
+    icon: "⌁",
+  },
+  {
     title: "Sora 2 Prompt Generator",
     description: "Build structured video prompts with shot, movement, lighting, audio, and output controls.",
     href: "/sora-2-prompt-generator",
@@ -132,7 +138,7 @@ export default function HomePage() {
           <p>
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use the dedicated
             generators when the task needs a specific structure, such as camera movement for video,
-            arrangement for music, composition and lighting for images, or a random creative idea for drawing or writing.
+            arrangement for music, composition and lighting for images, or a random creative idea for drawing, writing, or poetry.
           </p>
         </div>
       </section>
