@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "PromptVera privacy policy.",
+  title: "Privacy Policy for PromptVera Tools",
+  description:
+    "Read how PromptVera handles prompt inputs, browser storage, analytics, advertising, third-party services, and privacy requests.",
   alternates: { canonical: "/privacy-policy" },
 };
 

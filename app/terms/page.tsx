@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Use",
-  description: "PromptVera terms of use.",
+  title: "Terms of Use for PromptVera Tools",
+  description:
+    "Read PromptVera's terms for using its free AI prompt tools, including acceptable use, third-party services, availability, and disclaimers.",
   alternates: { canonical: "/terms" },
 };
 
