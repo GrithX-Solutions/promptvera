@@ -15,6 +15,12 @@ const tools = [
     icon: "C",
   },
   {
+    title: "Grok Prompt Generator",
+    description: "Build Grok-focused prompts with result-first instructions, source-of-truth, evidence requirements, and action boundaries.",
+    href: "/grok-prompt-generator",
+    icon: "G",
+  },
+  {
     title: "Drawing Prompt Generator",
     description: "Generate random drawing and art ideas with subjects, settings, moods, media, and creative challenges.",
     href: "/drawing-prompt-generator",
@@ -143,8 +149,8 @@ export default function HomePage() {
           <h3>Start with the job you need done</h3>
           <p>
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
-            tools such as the Claude Prompt Generator when a platform benefits from its own prompting
-            structure, and use the creative generators for video, music, images, drawing, writing, or poetry.
+            tools such as the Claude or Grok Prompt Generator when a platform benefits from its own
+            prompting structure, and use the creative generators for video, music, images, drawing, writing, or poetry.
           </p>
         </div>
       </section>
