@@ -33,6 +33,12 @@ const tools = [
     icon: "F",
   },
   {
+    title: "Short Story Prompt Generator",
+    description: "Generate focused short-fiction ideas with genre, protagonist, goal, obstacle, setting, point of view, length, and optional twist.",
+    href: "/short-story-prompt-generator",
+    icon: "S",
+  },
+  {
     title: "Drawing Prompt Generator",
     description: "Generate random drawing and art ideas with subjects, settings, moods, media, and creative challenges.",
     href: "/drawing-prompt-generator",
@@ -163,7 +169,7 @@ export default function HomePage() {
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
             tools such as the Claude or Grok Prompt Generator when a platform benefits from its own
             prompting structure, and use the creative generators for journaling, fanfiction, video,
-            music, images, drawing, writing, or poetry.
+            short stories, music, images, drawing, writing, or poetry.
           </p>
         </div>
       </section>
