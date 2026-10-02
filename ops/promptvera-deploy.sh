@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 
 WORKSPACE=/srv/zt-workspaces/promptvera
 STATE_DIR=/var/lib/promptvera
 STATE_FILE="$STATE_DIR/last-deployed-sha"
+IMAGE_REPO=promptvera-web
+CURRENT_TAG="$IMAGE_REPO:latest"
+ROLLBACK_TAG="$IMAGE_REPO:rollback"
+CONTAINER=promptvera_caddy
+COMPOSE=(docker compose -p promptvera -f docker-compose.production.yml)
 
 install -d -m 0755 "$STATE_DIR"
 cd "$WORKSPACE"
@@ -14,23 +19,75 @@ cd "$WORKSPACE"
 CURRENT="$(git rev-parse HEAD)"
 PREVIOUS="$(cat "$STATE_FILE" 2>/dev/null || true)"
 
-docker compose -p promptvera -f docker-compose.production.yml config >/dev/null
-docker compose -p promptvera -f docker-compose.production.yml up -d --build --remove-orphans
+wait_for_health() {
+  local status=""
 
-healthy=0
-for _ in $(seq 1 45); do
-  status="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' promptvera_caddy 2>/dev/null || true)"
-  if [ "$status" = "healthy" ]; then
-    healthy=1
-    break
+  for _ in $(seq 1 45); do
+    status="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$CONTAINER" 2>/dev/null || true)"
+    if [ "$status" = "healthy" ]; then
+      return 0
+    fi
+    sleep 2
+  done
+
+  return 1
+}
+
+prune_project_dangling() {
+  if ! docker image prune     --force     --filter "label=com.docker.compose.project=promptvera"     >/dev/null; then
+    echo "warning: PromptVera dangling-image cleanup failed" >&2
   fi
-  sleep 2
-done
+}
 
-if [ "$healthy" -ne 1 ]; then
-  docker logs --tail 100 promptvera_caddy || true
+restore_rollback() {
+  if ! docker image inspect "$ROLLBACK_TAG" >/dev/null 2>&1; then
+    echo "error: no PromptVera rollback image is available" >&2
+    return 1
+  fi
+
+  echo "Restoring PromptVera last-known-good image."
+  docker image tag "$ROLLBACK_TAG" "$CURRENT_TAG"
+
+  if ! "${COMPOSE[@]}" up     -d     --no-build     --force-recreate     --remove-orphans; then
+    return 1
+  fi
+
+  if ! wait_for_health; then
+    docker logs --tail 100 "$CONTAINER" || true
+    return 1
+  fi
+
+  prune_project_dangling
+  return 0
+}
+
+"${COMPOSE[@]}" config >/dev/null
+
+previous_image_id="$(docker inspect -f '{{.Image}}' "$CONTAINER" 2>/dev/null || true)"
+if [ -n "$previous_image_id" ]; then
+  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
+  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
+fi
+
+if ! "${COMPOSE[@]}" up -d --build --remove-orphans; then
+  echo "error: PromptVera candidate deployment failed; attempting rollback" >&2
+  restore_rollback || echo "error: automatic rollback also failed" >&2
   exit 1
 fi
+
+if ! wait_for_health; then
+  docker logs --tail 100 "$CONTAINER" || true
+  echo "error: PromptVera candidate failed health validation; attempting rollback" >&2
+  restore_rollback || echo "error: automatic rollback also failed" >&2
+  exit 1
+fi
+
+current_image_id="$(docker inspect -f '{{.Image}}' "$CONTAINER")"
+if [ -n "$previous_image_id" ] && [ "$current_image_id" = "$previous_image_id" ]; then
+  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
+fi
+
+prune_project_dangling
 
 submit_all=0
 indexnow_ok=1
