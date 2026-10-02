@@ -51,6 +51,12 @@ const tools = [
     icon: "O",
   },
   {
+    title: "Story Plot Generator",
+    description: "Generate structured plots with a protagonist, goal, conflict, turning points, climax, resolution, genre, and story scope.",
+    href: "/story-plot-generator",
+    icon: "P",
+  },
+  {
     title: "Horror Story Plot Generator",
     description: "Generate horror plots with a protagonist, core fear, escalation rule, reveal, survival cost, intensity, and ending direction.",
     href: "/horror-story-plot-generator",
@@ -193,7 +199,7 @@ export default function HomePage() {
             Use Prompt Enhancer or Prompt Improver for general AI instructions. Use model-specific
             tools such as the ChatGPT, Gemini, Claude, or Grok Prompt Generator when a platform benefits from its own
             prompting structure, and use the creative generators for journaling, fanfiction, video,
-            original characters, horror plots, short stories, music, images, drawing, writing, or poetry.
+            original characters, story plots, horror plots, short stories, music, images, drawing, writing, or poetry.
           </p>
         </div>
       </section>
