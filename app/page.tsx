@@ -9,6 +9,12 @@ const tools = [
     icon: "✦",
   },
   {
+    title: "Drawing Prompt Generator",
+    description: "Generate random drawing and art ideas with subjects, settings, moods, media, and creative challenges.",
+    href: "/drawing-prompt-generator",
+    icon: "✎",
+  },
+  {
     title: "Sora 2 Prompt Generator",
     description: "Build structured video prompts with shot, movement, lighting, audio, and output controls.",
     href: "/sora-2-prompt-generator",
@@ -52,7 +58,7 @@ export default function HomePage() {
             <span className="gradient-text">Better AI results.</span>
           </h1>
           <p className="hero-copy">
-            PromptVera gives you focused prompt generators for today&apos;s AI tools—without accounts, subscriptions, or unnecessary complexity.
+            PromptVera gives you focused AI and creative prompt generators—without accounts, subscriptions, or unnecessary complexity.
           </p>
           <div className="hero-actions">
             <Link className="button" href="/prompt-enhancer">Enhance a prompt</Link>
@@ -70,9 +76,9 @@ export default function HomePage() {
         <div className="shell">
           <div className="section-heading">
             <span className="eyebrow">Prompt tools</span>
-            <h2>Choose the job, not a generic chatbot.</h2>
+            <h2>Choose the job, not a generic generator.</h2>
             <p>
-              Each PromptVera tool is designed around a specific prompt structure, so the output is useful before you paste it into your AI model.
+              Each PromptVera tool is designed around a specific workflow, so the output is useful before you move into your AI or creative process.
             </p>
           </div>
           <div className="tool-grid">
@@ -88,7 +94,7 @@ export default function HomePage() {
           <div className="feature-grid">
             <div className="feature">
               <h3>Purpose-built</h3>
-              <p>Different AI tasks need different prompt structures. We do not force everything through one generic template.</p>
+              <p>Different tasks need different prompt structures. We do not force everything through one generic template.</p>
             </div>
             <div className="feature">
               <h3>Private by default</h3>
@@ -104,24 +110,23 @@ export default function HomePage() {
 
       <section className="section">
         <div className="shell content-wrap prose">
-          <h2>How PromptVera helps you write better AI prompts</h2>
+          <h2>How PromptVera helps you write better prompts</h2>
           <p>
             PromptVera turns a vague idea into a prompt that is easier to review, edit, and reuse.
             Instead of adding random detail, each tool asks for the information that matters to the
             task: the goal, context, constraints, format, visual direction, music structure, or
-            output requirements.
+            creative challenge.
           </p>
           <p>
-            The result is still your prompt. You can copy it into the AI service you use, remove
-            anything you do not need, and iterate from there. PromptVera does not require an account
-            for the launch tools, and the core prompt-building logic runs in the browser.
+            The result is still your prompt. You can copy it into the AI service or creative workflow
+            you use, remove anything you do not need, and iterate from there. PromptVera does not
+            require an account for the launch tools, and the core prompt-building logic runs in the browser.
           </p>
           <h3>Start with the job you need done</h3>
           <p>
-            Use Prompt Enhancer or Prompt Improver for general instructions. Use the dedicated
-            generators when the task needs model-specific structure, such as camera movement for
-            video, arrangement for music, or composition and lighting for images. This keeps each
-            prompt focused instead of forcing every request through one oversized template.
+            Use Prompt Enhancer or Prompt Improver for general AI instructions. Use the dedicated
+            generators when the task needs a specific structure, such as camera movement for video,
+            arrangement for music, composition and lighting for images, or a random creative idea for drawing.
           </p>
         </div>
       </section>
