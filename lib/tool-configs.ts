@@ -184,6 +184,20 @@ export const toolConfigs: Record<ToolId, ToolConfig> = {
         full: true,
       },
       {
+        key: "references",
+        label: "Reference image roles",
+        type: "text",
+        placeholder: "Example: Image 1 defines subject identity; Image 2 provides lighting and color only",
+        full: true,
+      },
+      {
+        key: "layout",
+        label: "Text or layout requirements",
+        type: "text",
+        placeholder: "Example: Keep headline in the top third and leave clean negative space on the left",
+        full: true,
+      },
+      {
         key: "format",
         label: "Aspect ratio",
         type: "select",
