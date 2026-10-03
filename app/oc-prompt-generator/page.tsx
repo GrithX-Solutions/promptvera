@@ -49,7 +49,8 @@ export default function OCPromptGeneratorPage() {
           PromptVera&apos;s generator can support both writers and artists. You can use
           the story-focused options for relationship and scene ideas, the visual option
           for design direction, or both when you want the character concept to work on
-          the page and in artwork.
+          the page and in artwork. That also makes this page useful as a character prompt
+          generator when you want narrative and visual development in the same concept.
         </p>
 
         <h2>How to build a stronger original character</h2>
@@ -111,6 +112,16 @@ export default function OCPromptGeneratorPage() {
           role, relationships, and story behavior.
         </p>
 
+        <h2>OC prompts vs. AI character image generators</h2>
+        <p>
+          This tool does not generate a character image. It creates the character concept and,
+          when you enable visual direction, adds design cues you can draw yourself or adapt for
+          another visual workflow. For a broader drawing challenge, use the{" "}
+          <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link>. For an
+          AI-image brief with composition, lighting, palette, and exclusions, use the{" "}
+          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>.
+        </p>
+
         <h2>OC Prompt Generator vs. Fanfic Prompt Generator</h2>
         <p>
           The <Link href="/fanfic-prompt-generator">Fanfic Prompt Generator</Link>
@@ -118,6 +129,14 @@ export default function OCPromptGeneratorPage() {
           character. An OC prompt starts from a new character concept. You can later
           adapt that character to an original world or, where appropriate, use them in
           a fandom project.
+        </p>
+
+        <h2>Move an OC into a story</h2>
+        <p>
+          Once the character has a motivation, flaw, and relationship pressure, use the{" "}
+          <Link href="/short-story-prompt-generator">Short Story Prompt Generator</Link> for a
+          compact fiction premise or the <Link href="/story-plot-generator">Story Plot Generator</Link>
+          when you need a longer sequence of turning points, escalation, climax, and resolution.
         </p>
 
         <h2>Ways to develop one OC prompt</h2>
@@ -146,6 +165,13 @@ export default function OCPromptGeneratorPage() {
             <summary>Can artists use this generator?</summary>
             <p>
               Yes. Enable the visual design option to add a character-design cue for drawing, illustration, or concept development.
+            </p>
+          </details>
+          <details>
+            <summary>Can I use it as a fantasy character prompt generator?</summary>
+            <p>
+              Yes. Choose a fantasy setting or role, then use the archetype, motivation, flaw,
+              relationship, scene, and visual cues to develop the character beyond a generic class or species label.
             </p>
           </details>
           <details>
