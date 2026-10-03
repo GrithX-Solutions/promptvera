@@ -6,7 +6,7 @@ import { toolMetadata } from "@/lib/metadata";
 
 const title = "Suno Prompt Generator – Free AI Music Prompt Builder";
 const description =
-  "Free Suno prompt generator for structured music prompts with genre, mood, tempo, vocals, instrumentation, arrangement, production direction, and iteration guidance.";
+  "Free Suno prompt generator for structured music prompts with genre, mood, tempo, vocals, instrumentation, arrangement, production direction, exclusions, and iteration guidance.";
 
 export const metadata: Metadata = toolMetadata({ title, description, path: "/suno-prompt-generator" });
 
@@ -21,7 +21,8 @@ export default function SunoPromptGeneratorPage() {
         <h1>Suno Prompt <span className="gradient-text">Generator</span></h1>
         <p>
           Turn a song concept into a clearer music brief with genre, mood, tempo, vocals,
-          instrumentation, arrangement, and production direction.
+          instrumentation, arrangement, production direction, and optional exclusions you
+          want the result to avoid.
         </p>
       </header>
 
@@ -66,6 +67,7 @@ export default function SunoPromptGeneratorPage() {
           <li><strong>Instrumentation:</strong> name the few instruments that should shape the track.</li>
           <li><strong>Structure:</strong> describe verse, chorus, bridge, build, drop, outro, or another arrangement only when it matters.</li>
           <li><strong>Production:</strong> add texture, space, dynamics, mix character, or recording aesthetic.</li>
+          <li><strong>Exclusions:</strong> name a small number of sounds or directions to avoid when they would otherwise pull the track off course.</li>
           <li><strong>Subject or lyrical direction:</strong> explain the theme without forcing every lyric unless you plan to supply your own words.</li>
         </ol>
 
@@ -118,7 +120,9 @@ export default function SunoPromptGeneratorPage() {
           When a generation misses the target, change the most important mismatch first. If the
           arrangement feels wrong, revise the structure. If the sound feels too polished, change
           production language. If the vocal dominates the track, adjust the vocal direction or
-          instrumentation. Keeping most variables stable makes each comparison more informative.
+          instrumentation. If one recurring element keeps appearing, add one precise exclusion
+          rather than a long negative list. Keeping most variables stable makes each comparison
+          more informative.
         </p>
         <p>
           Suno&apos;s current v6 workflow also supports broader creation and editing features that go
