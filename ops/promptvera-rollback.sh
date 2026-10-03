@@ -2,11 +2,21 @@
 set -Eeuo pipefail
 
 WORKSPACE=/srv/zt-workspaces/promptvera
+STATE_DIR=/var/lib/promptvera
+LOCK_FILE="$STATE_DIR/deploy.lock"
 IMAGE_REPO=promptvera-web
 CURRENT_TAG="$IMAGE_REPO:latest"
 ROLLBACK_TAG="$IMAGE_REPO:rollback"
 CONTAINER=promptvera_caddy
 COMPOSE=(docker compose -p promptvera -f docker-compose.production.yml)
+
+install -d -m 0755 "$STATE_DIR"
+command -v flock >/dev/null 2>&1 || {
+  echo "error: flock is required for serialized PromptVera deploy/rollback operations" >&2
+  exit 69
+}
+exec 9>"$LOCK_FILE"
+flock -x 9
 
 cd "$WORKSPACE"
 
@@ -25,10 +35,6 @@ wait_for_health() {
   done
 
   return 1
-}
-
-prune_project_dangling() {
-  docker image prune     --force     --filter "label=com.docker.compose.project=promptvera"     >/dev/null || true
 }
 
 "${COMPOSE[@]}" config >/dev/null
@@ -57,11 +63,10 @@ if ! "${COMPOSE[@]}" up   -d   --no-build   --force-recreate   --remove-orphans 
   docker image tag "$current_image_id" "$CURRENT_TAG"
   "${COMPOSE[@]}" up     -d     --no-build     --force-recreate     --remove-orphans || true
   wait_for_health || true
-  prune_project_dangling
   exit 1
 fi
 
+docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
 docker image tag "$current_image_id" "$ROLLBACK_TAG"
-prune_project_dangling
 
-echo "PromptVera rollback completed; one reverse image remains retained."
+echo "PromptVera rollback completed; exactly one reverse image remains retained."
