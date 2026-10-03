@@ -107,7 +107,15 @@ export default function BookTitleGeneratorPage() {
           when you still need the narrative itself: protagonist, goal,
           complications, turning points, climax, and resolution. Use this page
           when the concept already exists and the naming problem is the main
-          task.
+          task. If the story direction itself is still vague, the{" "}
+          <Link href="/random-theme-generator">Random Theme Generator</Link> can help you
+          choose a creative direction before you name the book.
+        </p>
+        <p>
+          For horror projects, build the threat and escalation first with the{" "}
+          <Link href="/horror-story-plot-generator">Horror Story Plot Generator</Link>,
+          then return here to test title ideas that match the finished premise rather than
+          naming a story that has not taken shape yet.
         </p>
 
         <h2>How to choose from generated book names</h2>
@@ -126,7 +134,7 @@ export default function BookTitleGeneratorPage() {
             <p>Yes. The current tool is free and does not require an account.</p>
           </details>
           <details>
-            <summary>Can I generate fantasy or romance book titles?</summary>
+            <summary>Can I generate fantasy, romance, or horror book titles?</summary>
             <p>
               Yes. Fiction genres include fantasy, romance, mystery, thriller,
               horror, science fiction, adventure, historical, literary, and
