@@ -123,6 +123,8 @@ export function buildToolPrompt(toolId: ToolId, idea: string, values: Record<str
         line("Composition", values.composition),
         line("Lighting", values.lighting),
         line("Preserve exactly", values.preserve),
+        line("Reference image roles", values.references),
+        line("Text / layout requirements", values.layout),
         line("Aspect ratio", values.format),
         "",
         "Quality constraints: preserve intentional identity and geometry, keep edges and textures clean, maintain realistic perspective and lighting relationships, and avoid accidental text changes, duplicated objects, warped proportions, or unrelated additions.",
