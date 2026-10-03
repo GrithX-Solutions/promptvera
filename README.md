@@ -45,6 +45,23 @@ PromptVera is an independent, no-login collection of free AI prompt generators a
 - Browser-side generation is preferred when it can solve the task reliably.
 - Model and product names are descriptive references; PromptVera is not an official product of the AI providers named by individual tools.
 
+## Content quality gate
+
+Every user-facing page must pass the project content standard before it is considered complete.
+
+Mandatory qualities:
+- semantically optimized,
+- skimmable,
+- more useful for the target intent than the relevant top competitors,
+- easy to read,
+- native-quality English,
+- free of known grammar and punctuation errors,
+- and written in active voice except where legal precision or clarity genuinely requires otherwise.
+
+The full release gate and review workflow are defined in docs/content-quality-standard.md. The latest sitewide audit is recorded in docs/content-audit-2026-10-03.md.
+
+Content is written for usefulness and information gain, not for an arbitrary word count.
+
 ## Stack
 
 - Next.js 16 App Router
@@ -58,19 +75,19 @@ Node.js 20.9+ is required.
 
 ## Local development
 
-```bash
+~~~bash
 npm install
 npm run dev
-```
+~~~
 
 Then open http://localhost:3000.
 
 Validation:
 
-```bash
+~~~bash
 npm run typecheck
 npm run build
-```
+~~~
 
 ## Search and discovery foundation
 
@@ -84,11 +101,11 @@ The production site includes:
 - Answer-first explanatory sections and FAQs where useful
 - Contextual and sitewide internal linking
 - First-party documentation links on model-specific guidance pages
-- `/llms.txt` as a supplemental machine-readable site guide for systems that use it
+- /llms.txt as a supplemental machine-readable site guide for systems that use it
 - IndexNow submission during the registered production deployment flow
 - Responsive UI, keyboard focus states, and skip-to-content navigation
 
-`llms.txt` is supplemental only. Google Search does not require it and does not treat it as a ranking signal.
+llms.txt is supplemental only. Google Search does not require it and does not treat it as a ranking signal.
 
 ## Privacy model
 
