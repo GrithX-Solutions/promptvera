@@ -87,6 +87,7 @@ export function buildToolPrompt(toolId: ToolId, idea: string, values: Record<str
         line("Camera movement", values.camera),
         line("Visual style", values.style),
         line("Lighting", values.lighting),
+        line("Action beats / timing", values.timing),
         line("Audio", values.audio),
         line("Frame", values.format),
         "",
