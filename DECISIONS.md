@@ -21,3 +21,11 @@ Manual rollback uses named Docker image tags rather than a container's internal 
 Tag replacement is performed by retagging the named reference directly instead of deleting the destination tag first.
 
 Reason: named-tag swaps keep both sides of the rollback transition addressable and avoid an unnecessary untagged failure window.
+
+## 2026-10-03 — Operator deploy profiles must match repo-controlled release logic
+
+A registered production `deploy` task is eligible for use only when its observed behavior matches the versioned release logic in `ops/promptvera-deploy.sh`. If the operator-defined task diverges from the repo script, the task is BLOCKED for future releases until alignment is verified.
+
+Emergency recovery may use explicit, auditable host actions only to restore production health or rollback safety; it must not be treated as a substitute for fixing the standard release path.
+
+Reason: the 2026-10-03 release attempt showed that a repo-correct deployment script does not protect production if the registered operator task executes different build/rotation behavior.
