@@ -108,13 +108,20 @@ Post-deploy:
 - P0/P1/P2 SEO deployment: **VERIFIED LIVE**.
 - One immediately previous production image is retained under `promptvera-web:rollback`: **VERIFIED**.
 - IndexNow submission for the completed deployment: **VERIFIED HTTP 200 / 26 URLs**.
-- Search Console post-deploy performance/indexing response: **UNKNOWN**; no elapsed-time evidence yet.
+- Live `sitemap.xml`: **VERIFIED** 26 URLs, matching the 26 public page routes in the current app.
+- Live `robots.txt`: **VERIFIED** `Allow: /` for general crawlers and declares `https://promptvera.com/sitemap.xml`.
+- Ubersuggest latest site audit: **VERIFIED** 26/26 URLs successful (HTTP 200), 0 blocked, 0 broken, 0 redirected, overall score 100, `page_allowed` issue count 0.
+- Search Console sitemap record for `https://promptvera.com/sitemap.xml`: **VERIFIED registered, 0 errors, 0 warnings**, but its latest connector snapshot shows only **12 submitted URLs**, last submitted 2026-10-02T11:13:50Z and last downloaded 2026-10-02T11:47:56Z. This is stale relative to the current 26-URL live sitemap deployed on 2026-10-03.
+- Search Console connector's `indexed` sitemap field is deprecated and currently returns 0; do **not** interpret that as 0 pages indexed.
+- Individual Google index status remains **UNKNOWN** because the connected Windsor Search Console integration is read-only and does not expose sitemap resubmission or URL Inspection actions.
 
 ## Blockers
 
 ### SEO measurement
 
-Google Search Console had no Search Analytics rows before this deployment. Ranking, impressions, CTR, and Google-query ownership for the newly deployed P0/P1/P2 pages remain **UNKNOWN** until first-party data appears.
+Google Search Console still has no Search Analytics rows for the checked period. Ranking, impressions, CTR, and Google-query ownership for the newly deployed P0/P1/P2 pages remain **UNKNOWN** until first-party data appears.
+
+The live site is technically crawl/index eligible, but Search Console has not yet recorded the current 26-URL sitemap snapshot. The connected Search Console data source is read-only, so sitemap re-submission and per-URL Inspection are **BLOCKED in the current toolchain**, not failed on the site itself.
 
 There is no evidence yet supporting a ranking or traffic gain claim.
 
@@ -164,4 +171,4 @@ State:
 
 ## NEXT ACTION
 
-Collect post-deploy first-party evidence before opening new SEO intents: recheck Google Search Console for indexing/impressions/query ownership and Ubersuggest rank tracking for the mapped US keywords, compare results against the 2026-10-02 baseline, identify pages with impressions but weak CTR/position or no discovery, and only then choose the next optimization or new-page research task.
+From an account surface that supports Google Search Console write/inspection actions, re-submit `https://promptvera.com/sitemap.xml` so GSC refreshes the current 26-URL sitemap, then run URL Inspection on the highest-priority canonical pages. After that, recheck Search Analytics and Ubersuggest rank tracking against the 2026-10-02 baseline before choosing any new SEO intent or content expansion.
