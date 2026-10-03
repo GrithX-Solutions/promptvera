@@ -92,9 +92,11 @@ export function buildToolPrompt(toolId: ToolId, idea: string, values: Record<str
         line("Tempo", values.tempo),
         line("Vocals", values.vocals),
         line("Instrumentation", values.instruments),
+        line("Production direction", values.production),
         line("Arrangement", values.structure),
+        line("Avoid or exclude", values.exclude),
         "",
-        "Production direction: use a coherent sonic palette, a memorable central motif, clear section contrast, and a mix that supports the vocal or lead element. Avoid abrupt genre shifts unless the concept explicitly calls for them.",
+        "General guidance: use a coherent sonic palette, a memorable central motif, clear section contrast, and a mix that supports the vocal or lead element. Avoid abrupt genre shifts unless the concept explicitly calls for them.",
       ]
         .filter(Boolean)
         .join("\n");
@@ -124,7 +126,9 @@ export function buildToolPrompt(toolId: ToolId, idea: string, values: Record<str
         line("Composition", values.composition),
         line("Camera / lens", values.lens),
         line("Lighting", values.lighting),
+        line("Color palette", values.palette),
         line("Important details", values.details),
+        line("Avoid", values.avoid),
         line("Aspect ratio", values.format),
         "",
         "Quality constraints: coherent perspective, intentional composition, believable materials and textures, clean subject boundaries, natural lighting, and no unintended duplicate elements, malformed anatomy, random text, watermarks, or visual artifacts.",
