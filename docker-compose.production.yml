@@ -1,5 +1,6 @@
 services:
   web:
+    image: promptvera-web:latest
     build:
       context: .
       dockerfile: Dockerfile
