@@ -8,34 +8,41 @@ Build sustainable US-first organic traffic from the current PromptVera tool set 
 
 ## Source / deploy SHA
 
-- GitHub `main`: `efb962e6083efd7c9fcb93a68972126a014eb418` (PR #37 squash merge).
+- GitHub `main`: `16a01a2fd9eb099500794f3f66a2a781f3c2fb90` (PR #39 squash merge).
 - Deployed application source remains `0f172725109d78e43bd3c444833e7da9dd3fa393` (PR #34 merge).
-- The P0 SEO implementation is merged in GitHub but is **not deployed**.
-- Production deployment remains blocked until the registered deploy task is verified to match the repo-controlled candidate-image release flow.
+- P0 and P1 SEO implementations are merged in GitHub but are **not deployed**.
+- Production deployment remains BLOCKED until the registered deploy task is VERIFIED to match the repo-controlled candidate-image release flow.
 
 ## Last completed task
 
-- Sitewide keyword + semantic research was completed in PR #36 and remains canonical in `docs/seo-keyword-semantic-map-2026-10-03.md`.
-- PR #37 implemented the first P0 SEO/content batch across all 12 P0 canonical pages without creating new URLs.
-- The P0 implementation sharpened intent ownership, natural secondary-term coverage, mixed-intent disambiguation, FAQ/PAA coverage, and contextual internal links.
-- AI Image Prompt Generator gained explicit color-palette and avoid controls.
-- Suno Prompt Generator gained explicit production-direction and exclusion controls.
+- PR #36 established the canonical sitewide keyword + semantic map in `docs/seo-keyword-semantic-map-2026-10-03.md`.
+- PR #37 completed the 12-page P0 existing-URL implementation.
+- PR #39 completed the 6-page P1 existing-URL implementation.
+- No new indexed URL was created in either implementation batch.
+- Prompt Improver now has explicit `Problems to fix` and `What must be preserved?` controls, giving it a functional workflow distinct from Prompt Enhancer.
+- Nano Banana now has explicit reference-image-role and text/layout controls that match current Gemini image workflows.
+- Grok, Journal, OC, and Short Story pages gained targeted semantic coverage and clearer internal workflow routing without keyword-stuffed rewrites.
 - PromptVera remains deterministic/browser-side for these tools; no paid AI API, auth, database, or background infrastructure was added.
 
 ## Tests / evidence
 
+### P1 implementation
+
+- PR #39 verified head before merge: `9441c0284662f32eaf716d2fd0a29be249d327ab`.
+- GitHub Actions CI run #50: **PASS**.
+- Shell syntax validation: **PASS**.
+- TypeScript typecheck: **PASS**.
+- Production build: **PASS**.
+- PR #39 changed 9 files: the 6 P1 page files plus `components/PromptEnhancer.tsx`, `lib/prompt-engine.ts`, and `lib/tool-configs.ts`.
+- Current Google Gemini image-generation documentation was rechecked for Nano Banana family naming, Nano Banana 2, multimodal reference inputs, conversational editing, and text rendering.
+- Current xAI documentation was rechecked for Grok 4.7 and Grok Bot guidance on result-first prompting, source of truth, approval boundaries, and reviewable evidence.
+
 ### P0 implementation
 
-- PR #37 latest verified head before merge: `b91938ea3bf7a33b9b10f8f5f678527735e7da5c`.
-- GitHub Actions CI run #48: **PASS**.
-- CI shell syntax validation: **PASS**.
-- CI TypeScript typecheck: **PASS**.
-- CI production build: **PASS**.
-- Changed files in PR #37: 14 total — 12 P0 page files plus `lib/tool-configs.ts` and `lib/prompt-engine.ts`.
-- No new indexed URL was created.
-- OpenAI prompt-guidance claims were rechecked against current first-party OpenAI Help Center guidance on 2026-10-03.
-- Suno v6/model/rights claims were rechecked against current first-party Suno release notes/help guidance on 2026-10-03.
-- Direct server-side `npm` validation was BLOCKED because the connector reported the host executable unavailable; this was not treated as a code failure. GitHub Actions CI is the verified build/typecheck evidence.
+- PR #37 verified head before merge: `b91938ea3bf7a33b9b10f8f5f678527735e7da5c`.
+- GitHub Actions CI run #48: **PASS** for shell syntax, typecheck, and production build.
+- PR #37 changed 14 files: 12 P0 pages plus shared prompt config/engine files.
+- OpenAI prompting and Suno model/rights claims were rechecked against first-party sources before merge.
 
 ### SEO research baseline
 
@@ -44,8 +51,7 @@ Build sustainable US-first organic traffic from the current PromptVera tool set 
 - US rank tracking through 2026-10-02: 83 tracked terms, 0 top-100 rankings.
 - Ubersuggest domain baseline: DA 2, 15 backlinks, 14 referring domains, estimated US organic traffic/keywords currently 0.
 - Current US keyword metrics and Google SERP analysis were completed for all current primary search-intent pages.
-- Search Console property `sc-domain:promptvera.com` returned 0 Search Analytics rows for 2026-09-03 through 2026-10-03; first-party query/click/CTR evidence remains UNKNOWN, not a failure signal.
-- Canonical research deliverable: `docs/seo-keyword-semantic-map-2026-10-03.md`.
+- Search Console property `sc-domain:promptvera.com` returned 0 Search Analytics rows for 2026-09-03 through 2026-10-03; first-party query/click/CTR evidence remains **UNKNOWN**, not a failure signal.
 
 ### Production / release evidence
 
@@ -58,10 +64,10 @@ Build sustainable US-first organic traffic from the current PromptVera tool set 
 
 - Public runtime: last VERIFIED healthy from the prior release task.
 - Deployed application SHA: `0f172725109d78e43bd3c444833e7da9dd3fa393`.
-- P0 SEO implementation SHA on GitHub main: `efb962e6083efd7c9fcb93a68972126a014eb418`.
-- P0 SEO implementation deployment status: **BLOCKED / NOT DEPLOYED**.
-- Search Console performance rows: UNKNOWN / not yet available.
-- Registered standard deploy task remains BLOCKED until its observed execution behavior is aligned with the versioned `ops/promptvera-deploy.sh`.
+- Current merged SEO implementation SHA: `16a01a2fd9eb099500794f3f66a2a781f3c2fb90`.
+- P0/P1 deployment status: **BLOCKED / NOT DEPLOYED**.
+- Search Console performance rows: **UNKNOWN / not yet available**.
+- Registered standard deploy task remains BLOCKED until its observed execution behavior is aligned with versioned `ops/promptvera-deploy.sh`.
 
 ## Blockers
 
@@ -71,54 +77,45 @@ First-party GSC performance optimization is BLOCKED by lack of Search Analytics 
 
 ### Release engineering
 
-The registered operator-defined `deploy` task must not be used for another production release yet. Its observed behavior previously diverged from the merged `ops/promptvera-deploy.sh` candidate-image flow and lost the previous-image reference during a release attempt.
+The registered operator-defined `deploy` task must not be used for another production release yet. Its observed behavior previously diverged from the merged candidate-image flow and lost the previous-image reference during a release attempt.
 
 ## Risks
 
-- Do not create new pages from keyword volume alone.
-- Do not split keyword variants with the same intent into thin URLs.
-- Do not force grammatically awkward variants into visible copy.
-- Do not let Drawing/Art intent cannibalize AI Image intent.
-- Keep the Random Theme page explicitly scoped to creative themes rather than UI/code-theme intent.
+- Do not create new pages from keyword volume alone or split same-intent variants into thin URLs.
+- Do not force grammatically awkward keyword variants into visible copy.
+- Keep Drawing/Art intent distinct from AI Image intent.
+- Keep Random Theme scoped to creative themes rather than UI/code-theme intent.
+- Keep Prompt Enhancer and Prompt Improver functionally and semantically distinct.
 - Model-specific pages require current first-party verification before factual changes.
-- GitHub main is newer than production; do not describe PR #37 changes as live until a controlled production deployment is VERIFIED.
-- Do not use the registered production deploy task until its operator profile is aligned with the repo-controlled release logic.
+- GitHub main is newer than production; do not describe PR #37 or PR #39 changes as live until a controlled production deployment is VERIFIED.
+- Do not use the registered production deploy task until its operator profile is aligned with repo-controlled release logic.
 
 ## Work in progress
 
-No P0 code work remains. The merged P0 implementation is waiting behind the release-engineering blocker and has not been deployed.
+P0 and P1 implementation work is complete in GitHub. The remaining planned current-URL SEO implementation is the P2 freshness/maintenance batch:
+- homepage / broad AI Prompt Generator intent
+- Gemini Prompt Generator
+- Claude Prompt Generator
+- Sora 2 Prompt Generator
 
-The next SEO implementation phase is the P1 existing-page batch:
-- Prompt Improver
-- Grok Prompt Generator
-- Nano Banana Prompt Generator
-- Journal Prompt Generator
-- OC Prompt Generator
-- Short Story Prompt Generator
-
-No new URL should be created as part of that batch unless fresh research proves a distinct intent and material product value.
+P2 work must preserve the homepage as a routing hub, avoid over-optimizing broad difficult head terms, and reverify current first-party model/product facts before edits.
 
 ## Affected files
 
-PR #37:
-- `app/book-title-generator/page.tsx`
-- `app/drawing-prompt-generator/page.tsx`
-- `app/random-theme-generator/page.tsx`
-- `app/chatgpt-prompt-generator/page.tsx`
-- `app/random-prompt-generator/page.tsx`
-- `app/story-plot-generator/page.tsx`
-- `app/prompt-enhancer/page.tsx`
-- `app/ai-image-prompt-generator/page.tsx`
-- `app/suno-prompt-generator/page.tsx`
-- `app/poetry-prompt-generator/page.tsx`
-- `app/fanfic-prompt-generator/page.tsx`
-- `app/horror-story-plot-generator/page.tsx`
-- `lib/tool-configs.ts`
+P1 PR #39:
+- `app/prompt-improver/page.tsx`
+- `app/grok-prompt-generator/page.tsx`
+- `app/nano-banana-prompt-generator/page.tsx`
+- `app/journal-prompt-generator/page.tsx`
+- `app/oc-prompt-generator/page.tsx`
+- `app/short-story-prompt-generator/page.tsx`
+- `components/PromptEnhancer.tsx`
 - `lib/prompt-engine.ts`
+- `lib/tool-configs.ts`
 
 State:
 - `PROJECT_STATE.md`
 
 ## NEXT ACTION
 
-Begin the P1 existing-page SEO/content implementation from `docs/seo-keyword-semantic-map-2026-10-03.md` on a non-protected branch, reverify current model-specific first-party guidance where applicable, run GitHub Actions typecheck/build, and merge through PR. Do not deploy P0 or P1 until the registered deploy task is VERIFIED safe and aligned with the repo-controlled candidate-image flow.
+Implement the P2 freshness/maintenance batch from `docs/seo-keyword-semantic-map-2026-10-03.md` on a non-protected branch. Reverify current OpenAI/Google/Anthropic/Sora first-party guidance as applicable, preserve canonical intent separation, run GitHub Actions typecheck/build, and merge through PR. Do not deploy until the registered deploy task is VERIFIED safe and aligned with the repo-controlled candidate-image flow.
