@@ -117,6 +117,16 @@ export default function ShortStoryPromptGeneratorPage() {
           dynamics, pairings, and tropes.
         </p>
 
+        <h2>Short Story Prompt Generator vs. Story Plot Generator</h2>
+        <p>
+          Use this page when you want a compact premise built for short fiction. The{" "}
+          <Link href="/story-plot-generator">Story Plot Generator</Link> goes further by
+          mapping a narrative spine from inciting incident through turning points, climax,
+          and resolution. If the idea should stay specifically frightening, the{" "}
+          <Link href="/horror-story-plot-generator">Horror Story Plot Generator</Link>
+          adds threat rules, escalation, reveal, and survival cost.
+        </p>
+
         <h2>Ways to develop one short story prompt</h2>
         <ul>
           <li>Write the opening scene without planning the ending, then identify the strongest unresolved choice.</li>
@@ -137,6 +147,13 @@ export default function ShortStoryPromptGeneratorPage() {
             <p>
               Yes. Choose Flash as the length target to get a prompt framed around one
               decisive scene with minimal backstory.
+            </p>
+          </details>
+          <details>
+            <summary>Can I use it as a random short story prompt generator?</summary>
+            <p>
+              Yes. Leave the optional theme blank and keep Genre on Any genre when you want
+              the generator to choose more of the premise for you.
             </p>
           </details>
           <details>
