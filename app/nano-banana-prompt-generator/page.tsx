@@ -21,7 +21,8 @@ export default function NanoBananaPromptGeneratorPage() {
         <h1>Nano Banana Prompt <span className="gradient-text">Generator</span></h1>
         <p>
           Structure image-generation or image-editing instructions with clearer subject,
-          composition, references, preservation rules, lighting, and output constraints.
+          composition, reference-image roles, preservation rules, text or layout requirements,
+          lighting, and output constraints.
         </p>
       </header>
 
@@ -110,8 +111,9 @@ export default function NanoBananaPromptGeneratorPage() {
         <p>
           When a workflow accepts multiple inputs, tell the model what each reference contributes.
           One image might define the subject identity, another the product angle, and another the
-          lighting or visual mood. Clear reference roles reduce the chance that unrelated details
-          blend together.
+          lighting or visual mood. Use the tool&apos;s <strong>Reference image roles</strong> field to
+          keep those jobs explicit instead of describing every reference as equally authoritative.
+          Clear reference roles reduce the chance that unrelated details blend together.
         </p>
 
         <h2>Make iterative edits instead of rewriting everything</h2>
@@ -135,7 +137,11 @@ export default function NanoBananaPromptGeneratorPage() {
           Use this page when you specifically want a Gemini/Nano Banana generation or editing brief,
           especially when references and preservation constraints matter. For a model-agnostic visual
           brief, use the{" "}
-          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>.
+          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>. For a
+          broader Gemini text workflow rather than image creation or editing, use the{" "}
+          <Link href="/gemini-prompt-generator">Gemini Prompt Generator</Link>. If your
+          draft already exists and only needs clearer constraints, the{" "}
+          <Link href="/prompt-enhancer">Prompt Enhancer</Link> is the more portable option.
         </p>
 
         <h2>Frequently asked questions</h2>
@@ -159,6 +165,14 @@ export default function NanoBananaPromptGeneratorPage() {
           <details>
             <summary>Can I ask for text inside an image?</summary>
             <p>Current Nano Banana documentation includes image models with text-rendering capabilities, but you should still proofread generated text and verify critical brand, legal, pricing, or product information before publishing.</p>
+          </details>
+          <details>
+            <summary>Can I use this prompt builder for Nano Banana 2?</summary>
+            <p>
+              Yes. The output is a planning brief that can be adapted to current Nano Banana image
+              models, including Nano Banana 2 where available. Check Google&apos;s current Gemini image
+              documentation for the model-specific limits and inputs that apply when you generate or edit.
+            </p>
           </details>
         </div>
       </article>
