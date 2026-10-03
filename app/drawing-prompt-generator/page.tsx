@@ -96,7 +96,9 @@ export default function DrawingPromptGeneratorPage() {
           in AI image prompts. If you need a structured prompt specifically for an image model, use
           the <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>. If you want a
           visual challenge for sketching or illustration, this drawing prompt generator is the
-          better fit.
+          better fit. For a broader art direction before you choose a subject, use the{" "}
+          <Link href="/random-theme-generator">Random Theme Generator</Link>. For character-focused
+          visual and narrative development, use the <Link href="/oc-prompt-generator">OC Prompt Generator</Link>.
         </p>
 
         <h2>Ways to turn one prompt into a practice session</h2>
@@ -117,6 +119,10 @@ export default function DrawingPromptGeneratorPage() {
           <details>
             <summary>Can I use the prompts for an art challenge?</summary>
             <p>Yes. You can generate a new idea for daily sketching, classroom exercises, art challenges, or personal practice.</p>
+          </details>
+          <details>
+            <summary>Can I use this as a random art prompt or drawing idea generator?</summary>
+            <p>Yes. Those searches describe the same creative job here: generating a concrete subject, scene, mood, medium, or challenge for something you plan to draw.</p>
           </details>
           <details>
             <summary>Does the tool generate artwork?</summary>
