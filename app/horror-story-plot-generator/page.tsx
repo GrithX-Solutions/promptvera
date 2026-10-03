@@ -48,7 +48,9 @@ export default function HorrorStoryPlotGeneratorPage() {
           PromptVera combines those elements into a plot framework you can adapt for
           short fiction, a longer story, or a writing exercise. You can choose a horror
           style, intensity, and ending direction, then optionally add your own setting
-          or theme.
+          or theme. If you are looking for a horror story idea generator rather than a
+          complete outline, the generated threat, setting, and reveal can also serve as
+          the seed for a shorter premise.
         </p>
 
         <h2>How to make a horror plot feel coherent</h2>
@@ -119,6 +121,14 @@ export default function HorrorStoryPlotGeneratorPage() {
           sentence, or topic.
         </p>
 
+        <h2>Continue the story-planning workflow</h2>
+        <p>
+          Use the <Link href="/story-plot-generator">Story Plot Generator</Link> when the same
+          premise needs to work outside horror or when you want a more genre-neutral structure.
+          Once the horror concept is stable, the <Link href="/book-title-generator">Book Title Generator</Link>
+          can help you test names that match the actual fear source, tone, and ending.
+        </p>
+
         <h2>Ways to develop one horror plot</h2>
         <ul>
           <li>Write the threat&apos;s rules privately before the protagonist understands them.</li>
@@ -139,6 +149,13 @@ export default function HorrorStoryPlotGeneratorPage() {
             <p>
               Yes. The style selector includes psychological, supernatural, gothic,
               folk, cosmic, survival, creature, and mystery-horror directions.
+            </p>
+          </details>
+          <details>
+            <summary>Can I use this as a scary story plot generator?</summary>
+            <p>
+              Yes. The tool is built for horror and scary-story plotting; choose the style,
+              intensity, setting, and ending direction that match the level of fear you want.
             </p>
           </details>
           <details>
