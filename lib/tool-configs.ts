@@ -25,7 +25,7 @@ export const toolConfigs: Record<ToolId, ToolConfig> = {
     id: "sora-2",
     title: "Sora 2 Prompt Generator",
     shortDescription:
-      "Build a production-style video prompt with scene, camera, movement, lighting, audio, and delivery details.",
+      "Build a legacy Sora 2-style video shot brief with scene, camera, movement, timing, lighting, audio, and delivery details.",
     inputLabel: "What should happen in the video?",
     inputPlaceholder: "A futuristic electric car drives through rainy Tokyo at night...",
     fields: [
@@ -56,6 +56,13 @@ export const toolConfigs: Record<ToolId, ToolConfig> = {
         type: "select",
         options: ["Natural daylight", "Golden hour", "Neon night", "Soft studio", "High contrast", "Low-key moody"],
         defaultValue: "Neon night",
+      },
+      {
+        key: "timing",
+        label: "Action beats / timing",
+        type: "text",
+        placeholder: "Example: walks to the window, pauses, opens the curtain, then looks back",
+        full: true,
       },
       {
         key: "audio",

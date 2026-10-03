@@ -74,6 +74,7 @@ export function ClaudePromptGenerator() {
   const [format, setFormat] = useState("Natural response");
   const [detail, setDetail] = useState("Balanced");
   const [xml, setXml] = useState(true);
+  const [longContext, setLongContext] = useState(false);
   const [output, setOutput] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -94,37 +95,51 @@ export function ClaudePromptGenerator() {
       detailRule,
       ...customConstraints,
     ];
+    const examples = example
+      .split(/\n\s*---\s*\n/)
+      .map((item) => item.trim())
+      .filter(Boolean);
 
     if (xml) {
+      const contextBlock = context.trim()
+        ? `<context>\n${escapeXml(context.trim())}\n</context>`
+        : "";
+      const taskBlock = `<task>\n${escapeXml(task.trim())}\n</task>`;
       const blocks = [
         `<role>\n${escapeXml(chosenRole)}\n</role>`,
-        context.trim()
-          ? `<context>\n${escapeXml(context.trim())}\n</context>`
-          : "",
+        longContext ? contextBlock : taskBlock,
         audience.trim()
           ? `<audience>\n${escapeXml(audience.trim())}\n</audience>`
           : "",
-        `<task>\n${escapeXml(task.trim())}\n</task>`,
+        longContext ? taskBlock : contextBlock,
         `<requirements>\n${requirements
           .map((item) => `- ${escapeXml(item)}`)
           .join("\n")}\n</requirements>`,
         `<output_format>\n${escapeXml(formatRules[format])}\n</output_format>`,
-        example.trim()
-          ? `<example>\n${escapeXml(example.trim())}\n</example>`
+        examples.length
+          ? `<examples>\n${examples
+              .map((item) => `<example>\n${escapeXml(item)}\n</example>`)
+              .join("\n")}\n</examples>`
           : "",
         `<success_criteria>\n- The response directly completes the requested task.\n- Explicit constraints are followed consistently.\n- Unsupported facts are not invented.\n- The output is ready to use or review without unnecessary preamble.\n</success_criteria>`,
       ].filter(Boolean);
 
       setOutput(blocks.join("\n\n"));
     } else {
+      const contextBlock = context.trim() ? `CONTEXT\n${context.trim()}` : "";
+      const taskBlock = `TASK\n${task.trim()}`;
       const blocks = [
         `ROLE\n${chosenRole}`,
-        context.trim() ? `CONTEXT\n${context.trim()}` : "",
+        longContext ? contextBlock : taskBlock,
         audience.trim() ? `AUDIENCE\n${audience.trim()}` : "",
-        `TASK\n${task.trim()}`,
+        longContext ? taskBlock : contextBlock,
         `REQUIREMENTS\n${requirements.map((item) => `- ${item}`).join("\n")}`,
         `OUTPUT FORMAT\n${formatRules[format]}`,
-        example.trim() ? `REFERENCE EXAMPLE\n${example.trim()}` : "",
+        examples.length
+          ? `REFERENCE EXAMPLES\n${examples
+              .map((item, index) => `Example ${index + 1}:\n${item}`)
+              .join("\n\n")}`
+          : "",
         "SUCCESS CRITERIA\n- Directly complete the task.\n- Follow explicit constraints.\n- Do not invent unsupported facts.\n- Return a usable result without unnecessary preamble.",
       ].filter(Boolean);
 
@@ -152,6 +167,7 @@ export function ClaudePromptGenerator() {
     setFormat("Natural response");
     setDetail("Balanced");
     setXml(true);
+    setLongContext(false);
     setOutput("");
     setCopied(false);
   }
@@ -265,14 +281,26 @@ export function ClaudePromptGenerator() {
           </div>
 
           <div className="field full">
-            <label htmlFor="claude-example">Reference example (optional)</label>
+            <label htmlFor="claude-example">Reference example(s) (optional)</label>
             <textarea
               className="textarea"
               id="claude-example"
               value={example}
               onChange={(event) => setExample(event.target.value)}
-              placeholder="Paste a short example of the style, structure, or type of result you want Claude to follow."
+              placeholder={"Paste one or more relevant examples. Separate multiple examples with a line containing ---"}
             />
+          </div>
+
+          <div className="field full">
+            <label className="checkbox-row" htmlFor="claude-long-context">
+              <input
+                id="claude-long-context"
+                type="checkbox"
+                checked={longContext}
+                onChange={(event) => setLongContext(event.target.checked)}
+              />
+              <span>Long-context mode: place long context before the task and query</span>
+            </label>
           </div>
 
           <div className="field full">

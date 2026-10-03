@@ -42,6 +42,15 @@ export default function Sora2PromptGeneratorPage() {
         </p>
       </div>
 
+      <div className="callout">
+        <strong>Historical planning controls, not live Sora settings.</strong>
+        <p>
+          The fields below are PromptVera&apos;s reusable shot-planning structure based on
+          the archived Sora 2 prompting framework. They do not represent a current OpenAI
+          Sora product or API control panel.
+        </p>
+      </div>
+
       <PromptBuilder toolId="sora-2" />
 
       <article className="content-wrap prose">
@@ -88,7 +97,7 @@ export default function Sora2PromptGeneratorPage() {
           <li><strong>Subject action:</strong> describe one plausible action or a short sequence of beats.</li>
           <li><strong>Camera movement:</strong> use a single clear motion unless the shot genuinely requires more.</li>
           <li><strong>Lighting and palette:</strong> describe the light source, contrast, time of day, and a small set of color anchors.</li>
-          <li><strong>Timing:</strong> place key actions or pauses in an order that can fit the intended clip.</li>
+          <li><strong>Timing:</strong> use the action-beats field to place key actions or pauses in a clear order that can fit the intended clip.</li>
           <li><strong>Audio or dialogue:</strong> keep spoken lines and sound cues concise enough for the scene.</li>
           <li><strong>Continuity:</strong> repeat identity, wardrobe, environment, and motion details that must remain stable.</li>
         </ol>
@@ -161,6 +170,13 @@ export default function Sora2PromptGeneratorPage() {
           <details>
             <summary>Why keep a Sora 2 prompt generator after discontinuation?</summary>
             <p>The page preserves a useful historical video-prompt structure for research, prompt study, and adaptation to current video tools. PromptVera does not imply that Sora 2 remains available.</p>
+          </details>
+          <details>
+            <summary>Are the controls on this page current OpenAI Sora settings?</summary>
+            <p>
+              No. They are PromptVera planning fields derived from the archived Sora 2
+              prompting framework. OpenAI&apos;s former Sora product and API have been discontinued.
+            </p>
           </details>
           <details>
             <summary>Does PromptVera generate video?</summary>

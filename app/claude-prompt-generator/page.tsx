@@ -62,9 +62,10 @@ export default function ClaudePromptGeneratorPage() {
           </a>{" "}
           emphasizes clear and direct instructions, explicit output requirements, and relevant examples. It also
           recommends XML tags as a way to separate instructions, context, examples,
-          and variable input when a prompt becomes complex. The XML option in this tool
-          follows that organizational pattern; it is not a requirement for every short
-          Claude prompt.
+          and variable input when a prompt becomes complex. It also recommends placing
+          long documents or data before the query for large-context work. The XML and
+          long-context options in this tool follow those organizational patterns; neither
+          is a requirement for every short Claude prompt.
         </p>
         <p>
           For simple questions, a direct sentence may be enough. Use additional fields
@@ -100,10 +101,17 @@ export default function ClaudePromptGeneratorPage() {
         <h3>Use examples when the pattern matters</h3>
         <p>
           Examples are valuable when you need Claude to match a specific structure,
-          tone, transformation, or edge case. A relevant example can communicate the
-          target more clearly than several paragraphs of abstract instruction. For
-          repeated production workflows, test multiple representative examples rather
-          than assuming one example covers every input.
+          tone, transformation, or edge case. Anthropic&apos;s current guidance recommends
+          relevant, diverse, consistently structured examples for stronger steering.
+          The example field accepts more than one example when your workflow needs several
+          patterns or edge cases; keep them clearly separated and representative of the task.
+        </p>
+
+        <h3>Put long source material before the query</h3>
+        <p>
+          For large documents or multi-document work, enable long-context mode. The generated
+          prompt places the context before the task so the final query follows the material it
+          refers to. For short tasks, leave the option off and keep the prompt compact.
         </p>
 
         <h2>Claude prompt example</h2>
@@ -156,6 +164,14 @@ export default function ClaudePromptGeneratorPage() {
               No. XML is useful for separating parts of more complex prompts, but a
               short task can often be written clearly without it. The XML option is
               enabled by default here because this generator creates multi-part prompts.
+            </p>
+          </details>
+          <details>
+            <summary>When should I use long-context mode?</summary>
+            <p>
+              Use it when Claude needs to work from a large document, long transcript, or
+              multiple source blocks. The generated prompt places that material before the
+              task so the query comes after the context.
             </p>
           </details>
           <details>
