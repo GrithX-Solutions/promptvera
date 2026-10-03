@@ -55,6 +55,14 @@ export default function RandomThemeGeneratorPage() {
           project.
         </p>
 
+        <h2>Creative themes, not website or UI themes</h2>
+        <p>
+          The phrase “theme generator” can also refer to color schemes, code themes, or website
+          styling. This page does not generate CSS, UI themes, or game-specific theme lists. It
+          focuses on creative themes you can apply to writing, art, design exploration, projects,
+          events, and general brainstorming.
+        </p>
+
         <h2>Generate random themes by use case</h2>
         <h3>Writing and story themes</h3>
         <p>
@@ -107,7 +115,10 @@ export default function RandomThemeGeneratorPage() {
           drawing challenge, use the{" "}
           <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link>.
           A theme establishes direction; a drawing prompt tells you more
-          specifically what to create.
+          specifically what to create. For a theme you want to turn into a full narrative,
+          continue with the <Link href="/story-plot-generator">Story Plot Generator</Link>.
+          For a theme that should become a poem, use the{" "}
+          <Link href="/poetry-prompt-generator">Poetry Prompt Generator</Link>.
         </p>
 
         <h2>Ways to develop one generated theme</h2>
