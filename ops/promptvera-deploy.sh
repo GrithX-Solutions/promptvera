@@ -8,7 +8,8 @@ LOCK_FILE="$STATE_DIR/deploy.lock"
 IMAGE_REPO=promptvera-web
 CURRENT_TAG="$IMAGE_REPO:latest"
 ROLLBACK_TAG="$IMAGE_REPO:rollback"
-CANDIDATE_PREVIOUS_TAG="$IMAGE_REPO:candidate-previous"
+CANDIDATE_TAG="$IMAGE_REPO:candidate"
+PREVIOUS_STAGING_TAG="$IMAGE_REPO:previous-staging"
 CONTAINER=promptvera_caddy
 COMPOSE=(docker compose -p promptvera -f docker-compose.production.yml)
 
@@ -66,6 +67,14 @@ remove_image_unless_retained() {
   docker image rm "$image_id" >/dev/null 2>&1 || true
 }
 
+cleanup_candidate_tag() {
+  docker image rm "$CANDIDATE_TAG" >/dev/null 2>&1 || true
+}
+
+cleanup_previous_staging_tag() {
+  docker image rm "$PREVIOUS_STAGING_TAG" >/dev/null 2>&1 || true
+}
+
 restore_previous() {
   local previous_image_id="$1"
 
@@ -77,7 +86,7 @@ restore_previous() {
   echo "Restoring PromptVera previous healthy image."
   docker image tag "$previous_image_id" "$CURRENT_TAG"
 
-  if ! "${COMPOSE[@]}" up     -d     --no-build     --force-recreate     --remove-orphans; then
+  if ! "${COMPOSE[@]}" up -d --no-build --force-recreate --remove-orphans; then
     return 1
   fi
 
@@ -89,54 +98,88 @@ restore_previous() {
   return 0
 }
 
+rotate_rollback_to_previous() {
+  local previous_image_id="$1"
+
+  [ -n "$previous_image_id" ] || return 0
+
+  # The previous production image stays pinned under PREVIOUS_STAGING_TAG
+  # throughout candidate deployment and health validation. Only after the
+  # candidate is healthy do we replace the retained rollback release.
+  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
+  docker image tag "$PREVIOUS_STAGING_TAG" "$ROLLBACK_TAG"
+  cleanup_previous_staging_tag
+}
+
 "${COMPOSE[@]}" config >/dev/null
 
 previous_image_id="$(container_image_id)"
 old_rollback_image_id="$(image_id_for_tag "$ROLLBACK_TAG")"
 
-# Pin the currently healthy production image under a temporary tag before
-# Compose rebuilds or recreates the service. Keep the existing rollback tag
-# untouched until the candidate has passed health validation.
-docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
+# Keep both the running production image and the existing rollback image
+# addressable while the candidate is built, started, and health-checked.
+cleanup_previous_staging_tag
 if [ -n "$previous_image_id" ]; then
-  docker image tag "$previous_image_id" "$CANDIDATE_PREVIOUS_TAG"
+  docker image tag "$previous_image_id" "$PREVIOUS_STAGING_TAG"
 fi
 
-if ! "${COMPOSE[@]}" up -d --build --remove-orphans; then
-  candidate_image_id="$(image_id_for_tag "$CURRENT_TAG")"
+# Build under an isolated candidate tag. A failed build cannot mutate the
+# image tag consumed by the running production container.
+cleanup_candidate_tag
+if ! docker build -t "$CANDIDATE_TAG" -f Dockerfile .; then
+  echo "error: PromptVera candidate image build failed; production was not changed" >&2
+  cleanup_candidate_tag
+  cleanup_previous_staging_tag
+  exit 1
+fi
+
+candidate_image_id="$(image_id_for_tag "$CANDIDATE_TAG")"
+if [ -z "$candidate_image_id" ]; then
+  echo "error: PromptVera candidate image was not created" >&2
+  cleanup_candidate_tag
+  cleanup_previous_staging_tag
+  exit 1
+fi
+
+# Promote the built candidate to the explicit Compose image tag, then recreate
+# the service without allowing Compose to build or retag anything itself.
+docker image tag "$candidate_image_id" "$CURRENT_TAG"
+
+if ! "${COMPOSE[@]}" up -d --no-build --force-recreate --remove-orphans; then
   echo "error: PromptVera candidate deployment failed; attempting rollback" >&2
   if restore_previous "$previous_image_id"; then
+    cleanup_candidate_tag
+    cleanup_previous_staging_tag
     remove_image_unless_retained "$candidate_image_id" "$previous_image_id" "$old_rollback_image_id"
   else
     echo "error: automatic rollback also failed" >&2
   fi
-  docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
   exit 1
 fi
-
-candidate_image_id="$(container_image_id)"
 
 if ! wait_for_health; then
   docker logs --tail 100 "$CONTAINER" || true
   echo "error: PromptVera candidate failed health validation; attempting rollback" >&2
   if restore_previous "$previous_image_id"; then
+    cleanup_candidate_tag
+    cleanup_previous_staging_tag
     remove_image_unless_retained "$candidate_image_id" "$previous_image_id" "$old_rollback_image_id"
   else
     echo "error: automatic rollback also failed" >&2
   fi
-  docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
   exit 1
 fi
 
 current_image_id="$(container_image_id)"
 
 if [ -n "$previous_image_id" ] && [ "$current_image_id" != "$previous_image_id" ]; then
-  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
-  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
+  rotate_rollback_to_previous "$previous_image_id"
   remove_image_unless_retained "$old_rollback_image_id" "$current_image_id" "$previous_image_id"
+else
+  cleanup_previous_staging_tag
 fi
 
-docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
+cleanup_candidate_tag
 
 submit_all=0
 indexnow_ok=1
