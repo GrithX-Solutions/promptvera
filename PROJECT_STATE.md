@@ -114,6 +114,9 @@ Post-deploy:
 - Search Console sitemap record for `https://promptvera.com/sitemap.xml`: **VERIFIED registered, 0 errors, 0 warnings**, but its latest connector snapshot shows only **12 submitted URLs**, last submitted 2026-10-02T11:13:50Z and last downloaded 2026-10-02T11:47:56Z. This is stale relative to the current 26-URL live sitemap deployed on 2026-10-03.
 - Search Console connector's `indexed` sitemap field is deprecated and currently returns 0; do **not** interpret that as 0 pages indexed.
 - Individual Google index status remains **UNKNOWN** because the connected Windsor Search Console integration is read-only and does not expose sitemap resubmission or URL Inspection actions.
+- Fresh Search Console Search Analytics pull on 2026-10-03, including fresh data, still returned 0 rows. This is not treated as a technical failure: Google documents that newly created/newly added sites can take up to a week to generate Search Console data, and normal Performance data may lag by 2–3 days.
+- Google Search Console URL Inspection's "Temporary processing error" under Discovery → Sitemaps is documented as a temporary issue in Google's reporting system retrieving sitemap data; rerunning inspection can resolve it. Current site-side evidence does not show a sitemap/crawl blocker.
+- Googlebot-specific live fetch on 2026-10-03 returned the same current 26-URL sitemap as a normal request, HTTP 200, `text/xml`, with current `Last-Modified`; this rules out a known alternate/stale sitemap response to Googlebot.
 
 ## Blockers
 
