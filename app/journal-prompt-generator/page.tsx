@@ -107,7 +107,10 @@ export default function JournalPromptGeneratorPage() {
           That difference matters because the two tools solve different writing jobs. A story prompt
           needs characters, tension, or a premise; a journal prompt should help you
           examine your own experience, decisions, priorities, or observations without
-          turning the entry into fiction.
+          turning the entry into fiction. If you want a broad motif before deciding what
+          to reflect on, use the <Link href="/random-theme-generator">Random Theme Generator</Link>.
+          If you want to turn an image or feeling into a poem instead of a personal reflection,
+          use the <Link href="/poetry-prompt-generator">Poetry Prompt Generator</Link>.
         </p>
 
         <h2>Useful ways to build a journaling habit</h2>
@@ -130,6 +133,13 @@ export default function JournalPromptGeneratorPage() {
             <p>
               Yes. Choose Daily reset for a short end-of-day reflection, or leave the
               category on Any to get a different type of prompt each time.
+            </p>
+          </details>
+          <details>
+            <summary>Can I use it as a random journal prompt generator?</summary>
+            <p>
+              Yes. Leave Category on Any when you want the tool to choose among reflection,
+              gratitude, goals, relationships, creativity, and daily-reset prompts for you.
             </p>
           </details>
           <details>
