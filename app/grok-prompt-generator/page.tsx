@@ -126,7 +126,10 @@ export default function GrokPromptGeneratorPage() {
           The <Link href="/prompt-enhancer">Prompt Enhancer</Link> creates a portable
           structure for many AI assistants. This Grok Prompt Generator is narrower:
           it emphasizes result-first instructions, source-of-truth, evidence, and
-          action boundaries that fit current Grok and Grok-bot workflows.
+          action boundaries that fit current Grok and Grok-bot workflows. If you
+          already have a detailed Grok prompt and need to remove ambiguity, duplication,
+          or conflicting constraints without changing its purpose, use the{" "}
+          <Link href="/prompt-improver">Prompt Improver</Link>.
         </p>
         <p>
           PromptVera is an independent utility site and is not affiliated with or
@@ -150,6 +153,14 @@ export default function GrokPromptGeneratorPage() {
           <details>
             <summary>Does Grok always need an action boundary?</summary>
             <p>No. It matters mainly when tools, files, publishing, external systems, or other actions are involved. For a simple question, you can leave that field empty.</p>
+          </details>
+          <details>
+            <summary>What should I put in the source-of-truth field?</summary>
+            <p>
+              Add the document, URL, repository path, dataset, policy, or other material that should
+              control the answer when sources disagree. Leave it empty when the task does not depend
+              on a particular authoritative source.
+            </p>
           </details>
         </div>
       </article>
