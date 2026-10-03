@@ -122,7 +122,7 @@ const tools = [
   },
   {
     title: "Sora 2 Prompt Generator",
-    description: "Explore the legacy Sora 2 shot-prompt structure for scene, movement, lighting, audio, and continuity planning.",
+    description: "Study the legacy Sora 2 shot-prompt structure for scene, movement, timing, lighting, audio, and continuity planning.",
     href: "/sora-2-prompt-generator",
     icon: "▶",
   },
@@ -134,7 +134,7 @@ const tools = [
   },
   {
     title: "Nano Banana Prompt Generator",
-    description: "Create precise image-generation and image-editing prompts with preservation and composition instructions.",
+    description: "Create Gemini image-generation and editing briefs with reference roles, preservation, layout, composition, and lighting controls.",
     href: "/nano-banana-prompt-generator",
     icon: "◈",
   },
@@ -146,7 +146,7 @@ const tools = [
   },
   {
     title: "Prompt Improver",
-    description: "Refine weak prompts into concise, goal-oriented instructions with better context and output criteria.",
+    description: "Diagnose an existing prompt, name the problems to fix, preserve non-negotiable requirements, and tighten its structure.",
     href: "/prompt-improver",
     icon: "↗",
   },
@@ -165,7 +165,7 @@ export default function HomePage() {
           </h1>
           <p className="hero-copy">
             Build clearer AI prompts and creative ideas for ChatGPT, Gemini, Claude, Grok,
-            images, video, music, writing, stories, characters, and more—without an account.
+            images, music, writing, stories, characters, and more—without an account.
           </p>
           <div className="hero-actions">
             <Link className="button" href="/prompt-enhancer">Enhance a prompt</Link>
@@ -186,7 +186,8 @@ export default function HomePage() {
             <h2>Choose the job, not a generic template.</h2>
             <p>
               Each PromptVera generator targets a distinct task and workflow,
-              from AI prompt improvement to image, video, music, writing, and story planning.
+              from AI prompt improvement to image, music, writing, story planning, and a
+              clearly labeled legacy Sora video-prompt study tool.
             </p>
           </div>
           <div className="tool-grid">
