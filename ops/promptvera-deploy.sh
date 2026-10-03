@@ -93,6 +93,14 @@ restore_previous() {
 previous_image_id="$(container_image_id)"
 old_rollback_image_id="$(image_id_for_tag "$ROLLBACK_TAG")"
 
+# Pin the currently healthy production image before Compose rebuilds or
+# recreates the service. Once the old container is removed, an untagged image
+# can disappear before we get a chance to retain it for rollback.
+if [ -n "$previous_image_id" ]; then
+  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
+  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
+fi
+
 if ! "${COMPOSE[@]}" up -d --build --remove-orphans; then
   candidate_image_id="$(image_id_for_tag "$CURRENT_TAG")"
   echo "error: PromptVera candidate deployment failed; attempting rollback" >&2
@@ -120,8 +128,6 @@ fi
 current_image_id="$(container_image_id)"
 
 if [ -n "$previous_image_id" ] && [ "$current_image_id" != "$previous_image_id" ]; then
-  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
-  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
   remove_image_unless_retained "$old_rollback_image_id" "$current_image_id" "$previous_image_id"
 fi
 
