@@ -65,7 +65,8 @@ Build sustainable US-first organic traffic from the current PromptVera tool set 
 
 - Docker runtime health check on 2026-10-03: **VERIFIED healthy** — 22/22 containers running, no unhealthy, stopped, or unstable containers.
 - PromptVera registered `health` task action `429ecb1f88ee44bc9780048ed8d55cc4`: **PASS**, stdout `state=running health=healthy`.
-- The PromptVera production workspace reported branch `seo/p0-semantic-implementation` during that health task, so it is not currently aligned to the merged application source.
+- The PromptVera production workspace is on `seo/p0-semantic-implementation` at HEAD `e64a25770abef909c3c89f93f918ec3fdd08ff6b`, has no upstream, and is currently dirty with the 14 P0 files modified.
+- A direct comparison on 2026-10-03 verified the entire local dirty diff is **byte-for-byte identical** to merged PR #37's diff: 28,071 characters on each side. Therefore no unique/unpublished local application change was found in that dirty worktree.
 - Registered workspace tasks currently expose `deploy`, `health`, and `rollback`.
 - The registered `deploy` task description says it deploys clean main with health validation and retains one rollback image, but description text is not execution proof. A previous deploy execution diverged from the repo-controlled candidate-image flow, so deployment safety remains **BLOCKED** until behavior is verified.
 
@@ -88,10 +89,11 @@ First-party GSC performance optimization is BLOCKED by lack of Search Analytics 
 
 Production workspace alignment and deploy-task execution safety are both BLOCKED:
 
-- workspace is currently on `seo/p0-semantic-implementation`, not merged `main`;
+- workspace is currently on dirty `seo/p0-semantic-implementation` at `e64a25770abef909c3c89f93f918ec3fdd08ff6b`, not merged `main`;
+- the dirty diff is VERIFIED fully represented by merged PR #37, so there is no identified unique local work to preserve, but the assistant will not use reset/force/discard operations to clean it automatically;
 - previous protected-main checkout/sync attempts through the connector were blocked;
 - the registered deploy task's description now sounds correct, but its prior observed execution did not match the versioned `ops/promptvera-deploy.sh` candidate-image flow;
-- do not run another production deployment until both workspace/main alignment and deploy behavior are VERIFIED.
+- do not run another production deployment until workspace/main alignment and deploy behavior are both VERIFIED.
 
 ## Risks
 
@@ -127,4 +129,4 @@ State:
 
 ## NEXT ACTION
 
-Align the production workspace to clean merged `main` using an operator-supported protected-branch method, verify that the registered `deploy` task actually executes the repo-controlled candidate-image release behavior and preserves the existing rollback image until candidate health passes, then perform exactly one controlled deployment of the completed P0/P1/P2 application batch. After deployment, verify deployed SHA, container health, current/rollback image IDs, live HTTP/content, IndexNow submission, and Search Console/indexing status before starting any new SEO page work.
+Using an operator-supported protected-branch workflow, reconcile the production worktree whose dirty diff is already VERIFIED identical to merged PR #37, then switch/fast-forward it to clean merged `main`. Verify that the registered `deploy` task actually executes the repo-controlled candidate-image release behavior and preserves the existing rollback image until candidate health passes. Then perform exactly one controlled deployment of the completed P0/P1/P2 application batch and verify deployed SHA, container health, current/rollback image IDs, live HTTP/content, IndexNow submission, and Search Console/indexing status before starting any new SEO page work.
