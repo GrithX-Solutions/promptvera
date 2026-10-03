@@ -6,7 +6,7 @@ import { toolMetadata } from "@/lib/metadata";
 
 const title = "AI Image Prompt Generator – Free Visual Prompt Builder";
 const description =
-  "Free AI image prompt generator for structured visual prompts with subject, scene, composition, style, camera, lens, lighting, detail, and output controls.";
+  "Free AI image prompt generator that turns a text idea into a structured visual prompt with subject, composition, style, camera, lighting, palette, constraints, and output controls.";
 
 export const metadata: Metadata = toolMetadata({ title, description, path: "/ai-image-prompt-generator" });
 
@@ -42,6 +42,15 @@ export default function AiImagePromptGeneratorPage() {
           guarantee of one exact composition.
         </p>
 
+        <h2>Text-to-prompt, not image-to-prompt</h2>
+        <p>
+          This tool starts from an idea you type. It does not upload or analyze an existing image.
+          Some tools called image prompt generators work in the opposite direction by analyzing
+          an existing image. PromptVera&apos;s tool is for planning a new image from text: describe
+          the idea first, then refine palette, composition, lighting, important details,
+          exclusions, and aspect ratio in the prompt itself.
+        </p>
+
         <h2>AI image prompt anatomy</h2>
         <ol>
           <li><strong>Subject:</strong> name the main person, object, creature, product, or scene.</li>
@@ -50,7 +59,7 @@ export default function AiImagePromptGeneratorPage() {
           <li><strong>Style:</strong> define the visual language, medium, era, or rendering approach.</li>
           <li><strong>Lighting and color:</strong> set mood with light quality, direction, contrast, and palette.</li>
           <li><strong>Camera and lens:</strong> use photographic cues only when they support the look you want.</li>
-          <li><strong>Constraints:</strong> state details that must stay consistent or elements you want to avoid.</li>
+          <li><strong>Constraints:</strong> use the details and avoid fields for elements that must stay consistent or should not appear.</li>
           <li><strong>Output:</strong> add aspect ratio or other format requirements when the target service supports them.</li>
         </ol>
 
@@ -157,6 +166,10 @@ export default function AiImagePromptGeneratorPage() {
           <details>
             <summary>Does PromptVera generate the image?</summary>
             <p>No. PromptVera creates the text brief. You copy and adapt that prompt for the image-generation tool you choose.</p>
+          </details>
+          <details>
+            <summary>Can I upload an image and extract its prompt?</summary>
+            <p>No. This page is a text-to-prompt builder. It starts from your written image idea rather than analyzing an uploaded reference image.</p>
           </details>
         </div>
       </article>

@@ -106,7 +106,11 @@ export default function PoetryPromptGeneratorPage() {
         </p>
         <p>
           If you want a visual idea to sketch rather than a poem to write, use the{" "}
-          <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link>. Keeping
+          <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link>. If you only
+          need a broad motif or conceptual direction, start with the{" "}
+          <Link href="/random-theme-generator">Random Theme Generator</Link>. For reflective
+          questions rather than poetic craft, use the{" "}
+          <Link href="/journal-prompt-generator">Journal Prompt Generator</Link>. Keeping
           these tools separate makes the output more relevant and avoids treating every
           creative task as the same kind of prompt.
         </p>
@@ -131,6 +135,13 @@ export default function PoetryPromptGeneratorPage() {
             <p>
               Yes. “Poetry prompt generator” and “poem prompt generator” describe the
               same core intent here: getting a structured idea for a poem you will write.
+            </p>
+          </details>
+          <details>
+            <summary>Can I use it as a random poetry prompt generator?</summary>
+            <p>
+              Yes. Leave the theme open or keep form, mood, and perspective on their broadest
+              settings when you want the generator to supply more of the creative direction.
             </p>
           </details>
           <details>

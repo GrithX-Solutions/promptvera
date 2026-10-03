@@ -133,7 +133,9 @@ export default function PromptEnhancerPage() {
           <Link href="/chatgpt-prompt-generator">ChatGPT</Link>,{" "}
           <Link href="/gemini-prompt-generator">Gemini</Link>,{" "}
           <Link href="/claude-prompt-generator">Claude</Link>, and{" "}
-          <Link href="/grok-prompt-generator">Grok</Link>.
+          <Link href="/grok-prompt-generator">Grok</Link>. For visual briefs, use the{" "}
+          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>; for music,
+          use the <Link href="/suno-prompt-generator">Suno Prompt Generator</Link>.
         </p>
 
         <h2>Frequently asked questions</h2>
@@ -157,6 +159,14 @@ export default function PromptEnhancerPage() {
           <details>
             <summary>Should I keep every section the enhancer adds?</summary>
             <p>No. Remove anything that does not affect the task. A concise prompt with the right information is usually easier to test and reuse.</p>
+          </details>
+          <details>
+            <summary>What should the prompt enhancer preserve?</summary>
+            <p>
+              Preserve the original task, explicit constraints, required facts, and any wording that
+              carries real meaning. Review the generated structure before use and remove or correct
+              anything that changes your intent rather than clarifying it.
+            </p>
           </details>
         </div>
       </article>

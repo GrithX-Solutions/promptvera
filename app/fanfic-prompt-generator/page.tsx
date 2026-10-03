@@ -110,6 +110,13 @@ export default function FanficPromptGeneratorPage() {
           random generator is usually the better starting point. Keeping those intents
           separate avoids turning both pages into the same story idea tool.
         </p>
+        <p>
+          For a new character with no existing canon, use the{" "}
+          <Link href="/oc-prompt-generator">OC Prompt Generator</Link>. If you already have
+          the fandom setup but need a full sequence of turning points, use the{" "}
+          <Link href="/story-plot-generator">Story Plot Generator</Link> to expand the premise
+          into a broader narrative spine.
+        </p>
 
         <h2>Ways to develop one fanfic prompt</h2>
         <ul>
@@ -133,6 +140,13 @@ export default function FanficPromptGeneratorPage() {
           <details>
             <summary>Can I generate OTP prompts?</summary>
             <p>Yes. Enter the pairing or characters and select a relationship dynamic. The tool focuses on general-audience relationship and story prompts.</p>
+          </details>
+          <details>
+            <summary>Can I generate AU or trope ideas?</summary>
+            <p>
+              Yes. Use the canon approach and trope controls to explore alternate universes,
+              canon divergence, relationship tropes, and other fandom-aware starting points.
+            </p>
           </details>
           <details>
             <summary>Does PromptVera know the canon of every fandom?</summary>
