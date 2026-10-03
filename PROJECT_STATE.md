@@ -4,65 +4,77 @@ Last verified: 2026-10-03
 
 ## Objective
 
-Keep the completed content release healthy in production while restoring a reliable, repo-aligned standard deployment path before the next production release.
+Build sustainable US-first organic traffic from the current PromptVera tool set using one canonical intent per URL, verified keyword demand, current SERPs, strong semantic coverage, and useful browser-side tools while keeping the production release path safe.
 
 ## Source / deploy SHA
 
-- Deployed application source: `0f172725109d78e43bd3c444833e7da9dd3fa393` (PR #34 merge).
-- Production workspace was verified clean on `main` with `HEAD == origin/main == 0f172725109d78e43bd3c444833e7da9dd3fa393` before deployment.
-- This state-only follow-up may make GitHub `main` newer than the deployed application SHA without changing the public runtime.
+- GitHub `main` before the current SEO research branch: `9b1858471809f53181d37dc8e5bb96f9e5fabec3`.
+- Deployed application source remains `0f172725109d78e43bd3c444833e7da9dd3fa393` (PR #34 merge).
+- The current SEO keyword/semantic mapping task is documentation/research only and must not trigger a production deployment.
 
 ## Last completed task
 
-- PR #30 content-quality remediation remains the current public content surface.
-- PR #32 and PR #34 merged the repo-controlled deploy/rollback safety design.
-- The 2026-10-03 production release attempt exposed a mismatch between the registered operator deploy task behavior and the versioned repo deploy script.
-- Production safety was recovered without a second production deployment: the current container was kept running, and a distinct tested rollback image was reconstructed from the known-good PR #30 source.
+- Production release recovery/state documentation merged in PR #35.
+- Production remains healthy with a distinct tested rollback image.
+- Sitewide content-quality remediation from PR #30 remains the current public content surface.
+- A fresh sitewide keyword + semantic research pass has now established canonical intent ownership, current US demand metrics, SERP patterns, competitor gaps, and implementation priorities for the existing search-intent pages.
 
 ## Tests / evidence
 
-- PR #34 CI run #43: PASS.
-- Production workspace before deploy: clean `main`, exact SHA `0f172725109d78e43bd3c444833e7da9dd3fa393`.
-- Registered deploy task action `a1c04c81cab24c9789da7b6526a06121`: FAILED with return code 1 after container recreation; Docker reported `No such image: sha256:3084abc6c999c9235680194c60e1933b0d7439fd2035a9947ecf3f8a7db21bdf`.
-- Current production container: VERIFIED `running` / `healthy`.
-- External `https://promptvera.com/`: VERIFIED HTTP 200 from the production host.
-- Current image `promptvera-web:latest`: `sha256:d9989fa5843556022d9f11bda197b24dcfb07db65bc7efdfa89c18c6195fda50`.
-- Reconstructed rollback source: merged PR #30 commit `05b4f80ce2647cb1f08afcfba1a4103bab3b6c9d`; PR #30 CI run #36: PASS.
-- Rollback image `promptvera-web:rollback`: `sha256:f1156bef74dbf007fd46839c7b505c3bed6387352849b373c75a29d7ed824a42`.
-- Rollback image isolated probe: VERIFIED HTTP 200.
-- Current and rollback image IDs are VERIFIED distinct.
-- IndexNow: VERIFIED HTTP 200, 26 URLs submitted.
-- `/var/lib/promptvera/last-deployed-sha` write to `0f172725109d78e43bd3c444833e7da9dd3fa393` returned success. Direct readback verification was BLOCKED by connector safety, so readback remains UNKNOWN.
+Production/release evidence:
+- Current public runtime was VERIFIED `running` / `healthy` after the release recovery.
+- External homepage HTTP 200 was VERIFIED.
+- Current and rollback image IDs were VERIFIED distinct.
+- IndexNow previously returned HTTP 200 for 26 URLs.
+
+SEO research evidence:
+- Ubersuggest: authenticated Tier 3.
+- PromptVera Ubersuggest project: active with US/UK/CA/AU tracking.
+- US rank tracking through 2026-10-02: 83 tracked terms, 0 top-100 rankings.
+- Ubersuggest domain baseline: DA 2, 15 backlinks, 14 referring domains, estimated US organic traffic/keywords currently 0.
+- Current US keyword metrics and Google SERP analysis completed for all current primary search-intent pages.
+- Search Console property `sc-domain:promptvera.com` returned 0 Search Analytics rows for 2026-09-03 through 2026-10-03; first-party query/click/CTR evidence is therefore UNKNOWN, not treated as failure.
+- Representative current competitors were reviewed for model-specific prompts, Sora, Suno, creative randomizers, journal prompts, and book titles.
+- Canonical research deliverable: `docs/seo-keyword-semantic-map-2026-10-03.md`.
 
 ## Deployment / indexing status
 
-- Public runtime: VERIFIED healthy.
-- Deployed application SHA: VERIFIED `0f172725109d78e43bd3c444833e7da9dd3fa393`.
-- Rollback availability: VERIFIED; one distinct tested rollback image is retained.
-- IndexNow submission: VERIFIED successful.
-- Registered standard deploy task: BLOCKED for the next release until its execution behavior is aligned with the repo-controlled release script.
+- Public runtime: VERIFIED healthy from the prior release task.
+- Deployed application SHA: `0f172725109d78e43bd3c444833e7da9dd3fa393`.
+- Current SEO research task: documentation only; no deploy required.
+- Search Console performance rows: UNKNOWN / not yet available.
+- Registered standard deploy task remains BLOCKED for future releases until its execution behavior is aligned with the repo-controlled release script.
 
 ## Blockers
 
-The registered operator-defined `deploy` task must not be used for another production release yet.
+### SEO
 
-Observed task output used Docker Compose build behavior and failed while retaining the previous image. That behavior does not match the merged `ops/promptvera-deploy.sh`, which builds an isolated candidate image and delays rollback rotation until after candidate health validation. The task's hidden operator argv is not exposed, so the exact registry-side implementation remains PARTIALLY VERIFIED rather than fully root-caused.
+No blocker prevents the research/map task from completing.
+
+First-party GSC performance optimization is BLOCKED by lack of Search Analytics rows. Until Google supplies impressions/clicks/query data, prioritization must use validated demand, live SERPs, page utility, and Ubersuggest rank tracking without pretending GSC data exists.
+
+### Release engineering
+
+The registered operator-defined `deploy` task must not be used for another production release yet. Its observed behavior previously diverged from the merged `ops/promptvera-deploy.sh` candidate-image flow.
 
 ## Risks
 
-- Reusing the current registered deploy task can again lose the previous rollback image.
-- A healthy runtime does not make a failed release procedure acceptable; release automation must preserve rollback safety before the next deployment.
-- Do not redeploy this state-only documentation update.
+- Do not create new pages from keyword volume alone.
+- Do not split keyword variants with the same intent into thin URLs.
+- Do not force grammatically awkward variants into visible copy.
+- Do not use generic high-volume terms whose SERP intent is mixed without qualification.
+- Model-specific pages require current first-party verification before factual changes.
+- A future SEO implementation must be completed, tested, reviewed, and merged as one GitHub task before any production deployment.
 
 ## Work in progress
 
-No public application change is in progress. Production is healthy and protected by a tested rollback image. The remaining work is operator-side deployment-profile alignment with the versioned repo release logic.
+The research phase is complete for the current URL set. The next work is an implementation pass beginning with the highest-priority existing pages from the canonical keyword/semantic map, without creating new URLs.
 
 ## Affected files
 
+- `docs/seo-keyword-semantic-map-2026-10-03.md`
 - `PROJECT_STATE.md`
-- `DECISIONS.md`
 
 ## NEXT ACTION
 
-Align the registered PromptVera `deploy` task with the merged repo-controlled `ops/promptvera-deploy.sh` candidate-image flow, verify that task behavior before the next release, and do not run another production deployment until that alignment is VERIFIED.
+Implement the first P0 SEO/content optimization batch from `docs/seo-keyword-semantic-map-2026-10-03.md` on a non-protected branch, starting with the highest-opportunity existing URLs, run content/semantic/cannibalization checks plus TypeScript/build CI, merge through PR, and do not deploy until the complete implementation batch is merged and the registered deploy task is safe.
