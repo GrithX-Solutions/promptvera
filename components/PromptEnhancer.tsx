@@ -140,7 +140,7 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
           </div>
         </div>
         <div className={output ? "output" : "output empty"}>
-          {output || "Your improved prompt will appear here."}
+          {output || (mode === "improve" ? "Your improved prompt will appear here." : "Your enhanced prompt will appear here.")}
         </div>
       </section>
     </div>
