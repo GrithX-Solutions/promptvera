@@ -110,6 +110,13 @@ export default function RandomPromptGeneratorPage() {
           jobs separate makes each tool more useful and keeps the outputs focused on what
           you are actually trying to create.
         </p>
+        <p>
+          When a random idea needs a complete narrative spine, move it into the{" "}
+          <Link href="/story-plot-generator">Story Plot Generator</Link>. For fandom,
+          pairing, trope, or alternate-universe ideas, use the{" "}
+          <Link href="/fanfic-prompt-generator">Fanfic Prompt Generator</Link>. For poetry-specific
+          craft constraints, use the <Link href="/poetry-prompt-generator">Poetry Prompt Generator</Link>.
+        </p>
 
         <h2>Ways to use one generated prompt</h2>
         <ul>
