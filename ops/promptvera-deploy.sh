@@ -106,7 +106,6 @@ rotate_rollback_to_previous() {
   # The previous production image stays pinned under PREVIOUS_STAGING_TAG
   # throughout candidate deployment and health validation. Only after the
   # candidate is healthy do we replace the retained rollback release.
-  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
   docker image tag "$PREVIOUS_STAGING_TAG" "$ROLLBACK_TAG"
   cleanup_previous_staging_tag
 }
