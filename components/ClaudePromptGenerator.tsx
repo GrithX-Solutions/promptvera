@@ -95,6 +95,10 @@ export function ClaudePromptGenerator() {
       detailRule,
       ...customConstraints,
     ];
+    const examples = example
+      .split(/\n\s*---\s*\n/)
+      .map((item) => item.trim())
+      .filter(Boolean);
 
     if (xml) {
       const contextBlock = context.trim()
@@ -112,8 +116,10 @@ export function ClaudePromptGenerator() {
           .map((item) => `- ${escapeXml(item)}`)
           .join("\n")}\n</requirements>`,
         `<output_format>\n${escapeXml(formatRules[format])}\n</output_format>`,
-        example.trim()
-          ? `<examples>\n${escapeXml(example.trim())}\n</examples>`
+        examples.length
+          ? `<examples>\n${examples
+              .map((item) => `<example>\n${escapeXml(item)}\n</example>`)
+              .join("\n")}\n</examples>`
           : "",
         `<success_criteria>\n- The response directly completes the requested task.\n- Explicit constraints are followed consistently.\n- Unsupported facts are not invented.\n- The output is ready to use or review without unnecessary preamble.\n</success_criteria>`,
       ].filter(Boolean);
@@ -129,7 +135,11 @@ export function ClaudePromptGenerator() {
         longContext ? taskBlock : contextBlock,
         `REQUIREMENTS\n${requirements.map((item) => `- ${item}`).join("\n")}`,
         `OUTPUT FORMAT\n${formatRules[format]}`,
-        example.trim() ? `REFERENCE EXAMPLE\n${example.trim()}` : "",
+        examples.length
+          ? `REFERENCE EXAMPLES\n${examples
+              .map((item, index) => `Example ${index + 1}:\n${item}`)
+              .join("\n\n")}`
+          : "",
         "SUCCESS CRITERIA\n- Directly complete the task.\n- Follow explicit constraints.\n- Do not invent unsupported facts.\n- Return a usable result without unnecessary preamble.",
       ].filter(Boolean);
 
@@ -277,7 +287,7 @@ export function ClaudePromptGenerator() {
               id="claude-example"
               value={example}
               onChange={(event) => setExample(event.target.value)}
-              placeholder="Paste one or more relevant examples of the style, structure, or transformation you want Claude to follow."
+              placeholder={"Paste one or more relevant examples. Separate multiple examples with a line containing ---"}
             />
           </div>
 
