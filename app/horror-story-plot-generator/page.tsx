@@ -84,6 +84,25 @@ export default function HorrorStoryPlotGeneratorPage() {
           practical, or moral; it does not need to depend on graphic violence.
         </p>
 
+        <h2>Horror plot example</h2>
+        <div className="example-box">
+          <strong>Setup</strong>
+          <p>Folk horror · Moderate intensity · Ambiguous ending</p>
+          <strong>Plot direction</strong>
+          <p>
+            A surveyor arrives in a mountain village to map a road that residents refuse to name.
+            Rule: every time the road is measured, one landmark moves closer to the village.
+            Escalation begins when the surveyor&apos;s own field notes contain measurements they have
+            not taken yet. The reveal suggests an earlier survey created the road rather than
+            recording it. To stop the final approach, the surveyor must destroy the only map that
+            could prove what happened. The ending leaves one copied coordinate in a government archive.
+          </p>
+        </div>
+        <p>
+          The fear comes from a rule, escalating evidence, a reveal that reframes earlier events,
+          and a survival cost—not simply from adding a frightening creature.
+        </p>
+
         <h2>Horror plot generator vs. Short Story Prompt Generator</h2>
         <p>
           The <Link href="/short-story-prompt-generator">Short Story Prompt Generator</Link>
@@ -125,7 +144,7 @@ export default function HorrorStoryPlotGeneratorPage() {
           <details>
             <summary>Does it generate graphic gore?</summary>
             <p>
-              The generator is designed around suspense, threat rules, consequences,
+              The generator focuses on suspense, threat rules, consequences,
               and atmosphere rather than graphic gore. You can choose a darker intensity,
               but the plot structure remains the focus.
             </p>

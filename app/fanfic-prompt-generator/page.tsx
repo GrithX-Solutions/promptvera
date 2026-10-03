@@ -79,6 +79,24 @@ export default function FanficPromptGeneratorPage() {
           adventure, and relationship development rather than explicit sexual content.
         </p>
 
+        <h2>Fanfic prompt example</h2>
+        <div className="example-box">
+          <strong>Setup</strong>
+          <p>Canon-divergent · Rivals · Hurt/comfort · Tense</p>
+          <strong>Generated direction</strong>
+          <p>
+            After a mission goes wrong, Character A hides an injury because admitting it would
+            force them to leave the team. Character B notices the change in their fighting style
+            and confronts them in private. The scene should begin as an argument about trust and
+            end with both characters realizing they have been protecting different versions of
+            the same secret.
+          </p>
+        </div>
+        <p>
+          The setup adds pressure to the relationship while leaving fandom-specific history,
+          dialogue, and canon details for you to supply.
+        </p>
+
         <h2>Fanfic prompt generator vs. random story prompts</h2>
         <p>
           The <Link href="/random-prompt-generator">Random Prompt Generator</Link> can

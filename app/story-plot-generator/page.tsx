@@ -46,7 +46,7 @@ export default function StoryPlotGeneratorPage() {
           central conflict can resolve.
         </p>
         <p>
-          PromptVera&apos;s plot story generator is designed for planning rather
+          PromptVera&apos;s story plot generator focuses on planning rather
           than prose writing. You can use the outline for a short story, novella,
           novel, screenplay, game narrative, or as a starting point for your own
           beat sheet. Leave the optional premise open when you want to use it as a
@@ -86,10 +86,31 @@ export default function StoryPlotGeneratorPage() {
           coincidence.
         </p>
 
+        <h2>Story plot example</h2>
+        <div className="example-box">
+          <strong>Premise</strong>
+          <p>A coastal engineer discovers that a flood barrier failed on purpose.</p>
+          <strong>Narrative spine</strong>
+          <p>
+            Goal: prove the failure was deliberate before the next storm. Inciting incident:
+            archived sensor data disappears after the engineer requests it. First turn: a former
+            contractor offers a partial backup but demands anonymity. Midpoint: the data shows the
+            barrier was weakened to force approval for a replacement project, implicating the
+            engineer&apos;s mentor. Crisis: releasing the evidence will also expose a shortcut the
+            engineer signed off on years earlier. Climax: they publish the complete record, including
+            their own mistake, before the storm arrives. Resolution: the barrier is stabilized and
+            the engineer must rebuild trust without controlling the outcome.
+          </p>
+        </div>
+        <p>
+          The example links each turn to a new decision or consequence instead of listing unrelated
+          events in sequence.
+        </p>
+
         <h2>Story Plot Generator vs. Short Story Prompt Generator</h2>
         <p>
           The <Link href="/short-story-prompt-generator">Short Story Prompt Generator</Link>{" "}
-          is designed to give you a compact fiction prompt with a protagonist,
+          gives you a compact fiction prompt with a protagonist,
           setting, obstacle, point of view, and optional twist. This Story Plot
           Generator goes further into structure by mapping turning points from
           the inciting incident through the climax and resolution.

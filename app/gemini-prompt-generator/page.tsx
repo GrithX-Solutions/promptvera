@@ -108,6 +108,24 @@ export default function GeminiPromptGeneratorPage() {
           than adding every possible instruction to the first one.
         </p>
 
+        <h2>Gemini prompt example for multimodal work</h2>
+        <div className="example-box">
+          <strong>Rough request</strong>
+          <p>Analyze this product demo video and specification PDF.</p>
+          <strong>Structured Gemini prompt</strong>
+          <p>
+            Review the attached product demo video and specification PDF. Treat the video as
+            evidence of demonstrated behavior and the PDF as the source of documented requirements.
+            Separate direct observations from inference. Identify any demonstrated feature that
+            conflicts with, exceeds, or is missing from the written specification. Return an
+            evidence table with timestamp or page references, then list unresolved questions.
+          </p>
+        </div>
+        <p>
+          The prompt assigns a role to each input and tells Gemini how to distinguish observation,
+          documentation, and inference.
+        </p>
+
         <h2>Gemini Prompt Generator vs. Prompt Enhancer</h2>
         <p>
           The <Link href="/prompt-enhancer">Prompt Enhancer</Link> creates a portable
@@ -119,7 +137,7 @@ export default function GeminiPromptGeneratorPage() {
         <p>
           PromptVera is an independent utility site and is not affiliated with or
           endorsed by Google. Gemini and related product names belong to their
-          respective owner.
+          respective owners.
         </p>
 
         <h2>Frequently asked questions</h2>

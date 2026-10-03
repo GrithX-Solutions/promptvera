@@ -48,8 +48,8 @@ export default function ShortStoryPromptGeneratorPage() {
         <p>
           PromptVera combines those elements into one compact premise. You can choose a
           genre, point of view, and approximate length, add an optional theme, and
-          decide whether the generator should include a possible turn. The result is
-          designed for drafting rather than for automatically writing the story.
+          decide whether the generator should include a possible turn. Use the result
+          for drafting rather than as an automatically written story.
         </p>
 
         <h2>How to turn a story prompt into a complete short story</h2>
@@ -84,6 +84,22 @@ export default function ShortStoryPromptGeneratorPage() {
           A standard short story can support a clearer escalation and change. A longer
           short story may contain several scenes, but it still benefits from one main
           conflict and one central character arc.
+        </p>
+
+        <h2>Short story prompt example</h2>
+        <div className="example-box">
+          <strong>Generated premise</strong>
+          <p>
+            A museum security guard has one hour before dawn to return a mislabeled object to the
+            correct exhibit before an international loan inspection begins. The object belongs to
+            a collection the guard&apos;s late father helped catalog, and the obvious fix would expose
+            a mistake he made decades earlier. Write the story in close third person and keep the
+            conflict centered on whether protecting a reputation matters more than correcting the record.
+          </p>
+        </div>
+        <p>
+          The premise gives the protagonist a goal, deadline, obstacle, personal stake, and choice
+          that can carry a complete short story.
         </p>
 
         <h2>Short story prompts vs. random writing prompts</h2>

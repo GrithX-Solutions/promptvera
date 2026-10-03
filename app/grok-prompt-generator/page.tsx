@@ -103,6 +103,24 @@ export default function GrokPromptGeneratorPage() {
           polished explanation.
         </p>
 
+        <h2>Grok prompt example for tool-enabled work</h2>
+        <div className="example-box">
+          <strong>Rough request</strong>
+          <p>Check the repository and prepare the release.</p>
+          <strong>Structured Grok prompt</strong>
+          <p>
+            Inspect the current repository and use the main branch plus the release checklist as
+            the source of truth. Identify changes since the last release, failing checks, and any
+            migration or configuration risk. Draft release notes and a deployment checklist.
+            Do not merge, deploy, publish, delete, or change production. Include file names,
+            check results, and unresolved blockers so another engineer can verify the work.
+          </p>
+        </div>
+        <p>
+          This version separates inspection from execution and makes the source, evidence, and
+          approval boundary explicit.
+        </p>
+
         <h2>Grok prompt generator vs. a generic Prompt Enhancer</h2>
         <p>
           The <Link href="/prompt-enhancer">Prompt Enhancer</Link> creates a portable
@@ -112,7 +130,7 @@ export default function GrokPromptGeneratorPage() {
         </p>
         <p>
           PromptVera is an independent utility site and is not affiliated with or
-          endorsed by xAI. Grok and related product names belong to their respective owner.
+          endorsed by xAI. Grok and related product names belong to their respective owners.
         </p>
 
         <h2>Frequently asked questions</h2>

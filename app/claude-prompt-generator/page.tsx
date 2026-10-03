@@ -54,7 +54,7 @@ export default function ClaudePromptGeneratorPage() {
         <h2>Why structure matters when prompting Claude</h2>
         <p>
           <a
-            href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables"
+            href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             target="_blank"
             rel="noreferrer"
           >
@@ -87,7 +87,7 @@ export default function ClaudePromptGeneratorPage() {
         <p>
           Useful context includes definitions, current state, source material,
           constraints, business rules, or assumptions Claude would not otherwise know.
-          Context that does not affect the answer can usually be removed.
+          You can usually remove context that does not affect the answer.
         </p>
 
         <h3>Make the output requirement testable</h3>
@@ -106,6 +106,24 @@ export default function ClaudePromptGeneratorPage() {
           than assuming one example covers every input.
         </p>
 
+        <h2>Claude prompt example</h2>
+        <div className="example-box">
+          <strong>Rough request</strong>
+          <p>Review this migration plan.</p>
+          <strong>Structured Claude prompt</strong>
+          <p>
+            Review the migration plan below for missing prerequisites, sequencing risks, rollback
+            gaps, and assumptions that need evidence. Preserve the stated business constraints.
+            Return four sections: blocking issues, non-blocking risks, unanswered questions, and a
+            revised execution order. Do not invent system details that are not present in the plan;
+            label any inference explicitly.
+          </p>
+        </div>
+        <p>
+          The improved request gives Claude a review scope, preservation rule, evidence boundary,
+          and output structure without adding unnecessary role-play.
+        </p>
+
         <h2>Claude prompt generator vs. Prompt Enhancer</h2>
         <p>
           The <Link href="/prompt-enhancer">Prompt Enhancer</Link> creates a portable,
@@ -116,7 +134,7 @@ export default function ClaudePromptGeneratorPage() {
         <p>
           PromptVera is an independent utility site and is not affiliated with or
           endorsed by Anthropic. Claude and related product names belong to their
-          respective owner.
+          respective owners.
         </p>
 
         <h2>Frequently asked questions</h2>

@@ -40,9 +40,7 @@ export default function OCPromptGeneratorPage() {
       <article className="content-wrap prose">
         <h2>What is an OC prompt generator?</h2>
         <p>
-          An OC prompt generator is an original character prompt generator—OC is the
-          common shorthand—and helps you create a character without reducing them to
-          a random list of traits. A useful
+          An OC prompt generator helps you create an original character without reducing the concept to a random list of traits. “OC” is the common shorthand for original character. A useful
           character concept connects personality, motivation, flaws, relationships,
           setting, and visual choices so the character can actually make decisions
           inside a story or creative project.
@@ -88,6 +86,23 @@ export default function OCPromptGeneratorPage() {
           without requiring a paragraph of exposition.
         </p>
 
+        <h2>OC prompt example</h2>
+        <div className="example-box">
+          <strong>Original character concept</strong>
+          <p>
+            A city archivist who is patient with damaged records but impatient with people.
+            Their main goal is to restore a missing neighborhood history before redevelopment
+            begins. Their flaw is refusing help because they equate dependence with losing
+            control. Visual cue: repaired satchel, ink-stained cuffs, and a set of mismatched
+            brass keys collected from demolished buildings. Scene test: a resident offers the
+            one document they need, but only if the archivist admits why the project is personal.
+          </p>
+        </div>
+        <p>
+          The concept connects motivation, flaw, visual design, and a decision point so the
+          character can drive a story instead of existing as a trait list.
+        </p>
+
         <h2>OC Prompt Generator vs. Drawing Prompt Generator</h2>
         <p>
           The <Link href="/drawing-prompt-generator">Drawing Prompt Generator</Link>
@@ -130,8 +145,7 @@ export default function OCPromptGeneratorPage() {
           <details>
             <summary>Can artists use this generator?</summary>
             <p>
-              Yes. Enable the visual design option to add a character-design cue that
-              can be used for drawing, illustration, or concept development.
+              Yes. Enable the visual design option to add a character-design cue for drawing, illustration, or concept development.
             </p>
           </details>
           <details>

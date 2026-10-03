@@ -14,7 +14,7 @@ export default function ContactPage() {
       <span className="eyebrow">Contact PromptVera</span>
       <h1>Questions, feedback, or a tool issue?</h1>
       <p>
-        PromptVera is built around small, practical AI prompt tools. If something is unclear,
+        PromptVera offers small, practical AI prompt tools. If something is unclear,
         a tool is not behaving as expected, or you have a relevant business or privacy inquiry,
         email us and include enough detail for us to understand the request.
       </p>
