@@ -4,6 +4,7 @@ set -Eeuo pipefail
 WORKSPACE=/srv/zt-workspaces/promptvera
 STATE_DIR=/var/lib/promptvera
 STATE_FILE="$STATE_DIR/last-deployed-sha"
+LOCK_FILE="$STATE_DIR/deploy.lock"
 IMAGE_REPO=promptvera-web
 CURRENT_TAG="$IMAGE_REPO:latest"
 ROLLBACK_TAG="$IMAGE_REPO:rollback"
@@ -11,6 +12,13 @@ CONTAINER=promptvera_caddy
 COMPOSE=(docker compose -p promptvera -f docker-compose.production.yml)
 
 install -d -m 0755 "$STATE_DIR"
+command -v flock >/dev/null 2>&1 || {
+  echo "error: flock is required for serialized PromptVera deploy/rollback operations" >&2
+  exit 69
+}
+exec 9>"$LOCK_FILE"
+flock -x 9
+
 cd "$WORKSPACE"
 
 [ "$(git branch --show-current)" = "main" ]
@@ -33,20 +41,40 @@ wait_for_health() {
   return 1
 }
 
-prune_project_dangling() {
-  if ! docker image prune     --force     --filter "label=com.docker.compose.project=promptvera"     >/dev/null; then
-    echo "warning: PromptVera dangling-image cleanup failed" >&2
-  fi
+image_id_for_tag() {
+  docker image inspect "$1" -f '{{.Id}}' 2>/dev/null || true
 }
 
-restore_rollback() {
-  if ! docker image inspect "$ROLLBACK_TAG" >/dev/null 2>&1; then
-    echo "error: no PromptVera rollback image is available" >&2
-    return 1
-  fi
+container_image_id() {
+  docker inspect -f '{{.Image}}' "$CONTAINER" 2>/dev/null || true
+}
 
-  echo "Restoring PromptVera last-known-good image."
-  docker image tag "$ROLLBACK_TAG" "$CURRENT_TAG"
+remove_image_unless_retained() {
+  local image_id="${1:-}"
+  shift || true
+
+  [ -n "$image_id" ] || return 0
+
+  local retained=""
+  for retained in "$@"; do
+    if [ -n "$retained" ] && [ "$image_id" = "$retained" ]; then
+      return 0
+    fi
+  done
+
+  docker image rm "$image_id" >/dev/null 2>&1 || true
+}
+
+restore_previous() {
+  local previous_image_id="$1"
+
+  [ -n "$previous_image_id" ] || {
+    echo "error: no previous PromptVera image is available for automatic rollback" >&2
+    return 1
+  }
+
+  echo "Restoring PromptVera previous healthy image."
+  docker image tag "$previous_image_id" "$CURRENT_TAG"
 
   if ! "${COMPOSE[@]}" up     -d     --no-build     --force-recreate     --remove-orphans; then
     return 1
@@ -57,37 +85,45 @@ restore_rollback() {
     return 1
   fi
 
-  prune_project_dangling
   return 0
 }
 
 "${COMPOSE[@]}" config >/dev/null
 
-previous_image_id="$(docker inspect -f '{{.Image}}' "$CONTAINER" 2>/dev/null || true)"
-if [ -n "$previous_image_id" ]; then
-  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
-  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
-fi
+previous_image_id="$(container_image_id)"
+old_rollback_image_id="$(image_id_for_tag "$ROLLBACK_TAG")"
 
 if ! "${COMPOSE[@]}" up -d --build --remove-orphans; then
+  candidate_image_id="$(image_id_for_tag "$CURRENT_TAG")"
   echo "error: PromptVera candidate deployment failed; attempting rollback" >&2
-  restore_rollback || echo "error: automatic rollback also failed" >&2
+  if restore_previous "$previous_image_id"; then
+    remove_image_unless_retained "$candidate_image_id" "$previous_image_id" "$old_rollback_image_id"
+  else
+    echo "error: automatic rollback also failed" >&2
+  fi
   exit 1
 fi
+
+candidate_image_id="$(container_image_id)"
 
 if ! wait_for_health; then
   docker logs --tail 100 "$CONTAINER" || true
   echo "error: PromptVera candidate failed health validation; attempting rollback" >&2
-  restore_rollback || echo "error: automatic rollback also failed" >&2
+  if restore_previous "$previous_image_id"; then
+    remove_image_unless_retained "$candidate_image_id" "$previous_image_id" "$old_rollback_image_id"
+  else
+    echo "error: automatic rollback also failed" >&2
+  fi
   exit 1
 fi
 
-current_image_id="$(docker inspect -f '{{.Image}}' "$CONTAINER")"
-if [ -n "$previous_image_id" ] && [ "$current_image_id" = "$previous_image_id" ]; then
-  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
-fi
+current_image_id="$(container_image_id)"
 
-prune_project_dangling
+if [ -n "$previous_image_id" ] && [ "$current_image_id" != "$previous_image_id" ]; then
+  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
+  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
+  remove_image_unless_retained "$old_rollback_image_id" "$current_image_id" "$previous_image_id"
+fi
 
 submit_all=0
 indexnow_ok=1
