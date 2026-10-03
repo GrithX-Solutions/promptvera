@@ -4,14 +4,14 @@ Last verified: 2026-10-03
 
 ## Objective
 
-Build sustainable US-first organic traffic from the current PromptVera tool set using one canonical intent per URL, verified keyword demand, current SERPs, strong semantic coverage, and useful browser-side tools while keeping the production release path safe.
+Build sustainable US-first organic traffic from the current PromptVera tool set using one canonical intent per URL, verified keyword demand, current SERPs, strong semantic coverage, useful browser-side tools, and a release path that preserves one tested rollback image.
 
 ## Source / deploy SHA
 
-- Completed application/SEO implementation source: `5729899e68274993c32abe27278ac8cbc652edc2` (PR #41 squash merge).
-- This state-only follow-up may make GitHub `main` newer without changing the public application code.
-- Deployed application source remains `0f172725109d78e43bd3c444833e7da9dd3fa393` (PR #34 merge).
-- P0, P1, and P2 SEO implementations are merged in GitHub but are **not deployed**.
+- GitHub `main` at deployment: `09e5b1c01df4d116cd3b68cdc87b4557df98489c`.
+- Completed application/SEO implementation source: `5729899e68274993c32abe27278ac8cbc652edc2` (PR #41); later commits through `09e5b1c...` are project-state documentation.
+- Production state file `/var/lib/promptvera/last-deployed-sha`: **VERIFIED** `09e5b1c01df4d116cd3b68cdc87b4557df98489c`.
+- P0, P1, and P2 SEO implementations are now **DEPLOYED / VERIFIED LIVE**.
 
 ## Last completed task
 
@@ -19,79 +19,115 @@ Build sustainable US-first organic traffic from the current PromptVera tool set 
 - PR #37 completed the 12-page P0 existing-URL implementation.
 - PR #39 completed the 6-page P1 existing-URL implementation.
 - PR #41 completed the P2 freshness/maintenance batch for the homepage, Gemini, Claude, and the Sora 2 legacy resource.
-- No new indexed URL was created in P0, P1, or P2.
-- Prompt Improver now has explicit `Problems to fix` and `What must be preserved?` controls.
-- AI Image, Suno, Nano Banana, Claude, and the legacy Sora shot planner gained utility-level controls that match their validated intents rather than copy-only keyword expansion.
-- Homepage remains a broad routing hub and now labels the Sora tool as a legacy study resource instead of implying a current active video product.
-- PromptVera remains deterministic/browser-side for these tools; no paid AI API, auth, database, or background infrastructure was added.
+- PR #42 closed the pre-deploy SEO implementation state.
+- Production workspace was safely aligned from the stale P0 feature branch to clean current `main` without reset/force. The pre-alignment local edits were preserved in Git stash `promptvera-pre-main-sync-2026-10-03`.
+- The registered PromptVera deploy and rollback task wrappers were found stale and unsafe relative to the merged repo scripts. Their prior versions were preserved, then both root-owned wrappers were replaced with the reviewed repo-controlled scripts before deployment.
+- Exactly one controlled production deploy was executed after all release gates passed.
+- The complete current-URL P0/P1/P2 SEO batch is now live.
 
 ## Tests / evidence
 
-### P2 implementation
+### SEO implementation
 
-- PR #41 verified head before merge: `dc34885e826bdb6762921e8e3183a84155290681`.
+P2:
+- PR #41 verified head: `dc34885e826bdb6762921e8e3183a84155290681`.
 - GitHub Actions CI run #52: **PASS**.
-- Shell syntax validation: **PASS**.
-- TypeScript typecheck: **PASS**.
-- Production build: **PASS**.
-- PR #41 changed 7 files: homepage, Gemini page, Claude page/component, Sora page, `lib/tool-configs.ts`, and `lib/prompt-engine.ts`.
-- Google Gemini prompt-design guidance was rechecked on 2026-10-03 for direct instructions, consistent structure, multimodal references, verbosity, and long-context ordering.
-- Anthropic Claude prompting best practices were rechecked on 2026-10-03 for clear instructions, structured examples, XML organization, and long-context ordering.
-- OpenAI Sora discontinuation documentation was rechecked on 2026-10-03: web/app discontinued 2026-04-26; API discontinued 2026-09-24.
-- OpenAI's Sora 2 prompting guide remains explicitly archived/outdated and is used only as a historical shot-planning reference.
+- Shell syntax, TypeScript typecheck, production build: **PASS**.
 
-### P1 implementation
-
-- PR #39 verified head before merge: `9441c0284662f32eaf716d2fd0a29be249d327ab`.
+P1:
+- PR #39 verified head: `9441c0284662f32eaf716d2fd0a29be249d327ab`.
 - GitHub Actions CI run #50: **PASS** for shell syntax, typecheck, and production build.
-- PR #39 changed 9 files covering all six P1 pages plus shared prompt UI/engine/config.
 
-### P0 implementation
-
-- PR #37 verified head before merge: `b91938ea3bf7a33b9b10f8f5f678527735e7da5c`.
+P0:
+- PR #37 verified head: `b91938ea3bf7a33b9b10f8f5f678527735e7da5c`.
 - GitHub Actions CI run #48: **PASS** for shell syntax, typecheck, and production build.
-- PR #37 changed 14 files covering all 12 P0 pages plus shared prompt config/engine.
 
-### SEO research baseline
+No new indexed URL was created by P0/P1/P2.
+
+### Release-path alignment
+
+Actual root-managed workspace registry was inspected and **VERIFIED**:
+- deploy task argv: `/usr/local/sbin/promptvera-deploy`
+- rollback task argv: `/usr/local/sbin/promptvera-rollback`
+- both tasks require a clean worktree and allow protected `main`.
+
+The previously installed root wrappers were **FAILED against the required safety design**:
+- old deploy wrapper used `docker compose up --build` and unsafe rollback-tag rotation;
+- old rollback wrapper used the older delete/re-tag transition.
+
+Prior wrappers were preserved as:
+- `/usr/local/sbin/promptvera-deploy.pre-869ff0b8`
+- `/usr/local/sbin/promptvera-rollback.pre-b33caa0c`
+
+After alignment:
+- root deploy SHA-256: `869ff0b8538c345e750121fe77d3e5f1edc855611b73ce35b8b00dff0266847c`
+- repo `ops/promptvera-deploy.sh` SHA-256: same value — **VERIFIED byte-identical**
+- root rollback SHA-256: `b33caa0c16430a7fc7f95760ec29bc9ca1097d29b6f9e951dc12cc8d1bf7adec`
+- repo `ops/promptvera-rollback.sh` SHA-256: same value — **VERIFIED byte-identical**
+- `bash -n` for both installed wrappers: **PASS**
+- production workspace before deploy: clean `main`, `HEAD == origin/main == 09e5b1c...`.
+
+### Production deployment
+
+Registered deploy task action: `60094176abd74e93a18b73ebfb04e62c`
+- task source: root-owned workspace registry
+- branch: `main`
+- return code: **0**
+- candidate image build: **PASS**
+- Next.js production build inside candidate: **PASS**
+- TypeScript stage inside build: **PASS**
+- static generation: **33/33 pages PASS**
+- container recreate/start: **PASS**
+- IndexNow: **HTTP 200, 26 URLs submitted**
+
+Post-deploy:
+- registered health task: **PASS**, `state=running health=healthy`
+- production workspace: **VERIFIED clean main**, SHA `09e5b1c...`
+- running/current image `promptvera-web:latest`: `sha256:d8d8e33dee1b621c6fba5ce83ea7584c76dde926ec998db243ec872f03f8acb3`
+- retained rollback image `promptvera-web:rollback`: `sha256:d9989fa5843556022d9f11bda197b24dcfb07db65bc7efdfa89c18c6195fda50`
+- running container image equals `latest`: **VERIFIED**
+- rollback is distinct from current and is the immediately previous production image: **VERIFIED**
+- public `https://promptvera.com/`: **HTTP 200**
+- live AI Image page exposes the new P0 metadata/content and utility controls: **VERIFIED**
+- live Sora 2 page explicitly identifies itself as a legacy/discontinued-resource workflow: **VERIFIED**
+- production state file readback matches deployed Git SHA: **VERIFIED**
+
+## SEO research baseline
 
 - Ubersuggest: authenticated Tier 3.
-- PromptVera Ubersuggest project: active with US/UK/CA/AU tracking.
+- PromptVera project tracks US/UK/CA/AU.
 - US rank tracking through 2026-10-02: 83 tracked terms, 0 top-100 rankings.
-- Ubersuggest domain baseline: DA 2, 15 backlinks, 14 referring domains, estimated US organic traffic/keywords currently 0.
-- Current US keyword metrics and Google SERP analysis were completed for all current primary search-intent pages.
-- Search Console property `sc-domain:promptvera.com` returned 0 Search Analytics rows for 2026-09-03 through 2026-10-03; first-party query/click/CTR evidence remains **UNKNOWN**, not a failure signal.
-
-### Production / release evidence
-
-- Docker runtime health check on 2026-10-03: **VERIFIED healthy** — 22/22 containers running, no unhealthy, stopped, or unstable containers.
-- PromptVera registered `health` task action `429ecb1f88ee44bc9780048ed8d55cc4`: **PASS**, stdout `state=running health=healthy`.
-- The PromptVera production workspace reported branch `seo/p0-semantic-implementation` during that health task, so it is not currently aligned to the merged application source.
-- Registered workspace tasks currently expose `deploy`, `health`, and `rollback`.
-- The registered `deploy` task description says it deploys clean main with health validation and retains one rollback image, but description text is not execution proof. A previous deploy execution diverged from the repo-controlled candidate-image flow, so deployment safety remains **BLOCKED** until behavior is verified.
+- Ubersuggest domain baseline: DA 2, 15 backlinks, 14 referring domains, estimated US organic traffic/keywords 0 at research time.
+- US keyword metrics, current SERP patterns, competitor gaps, canonical intent ownership, cannibalization rules, entities, questions, and internal-link targets are recorded in `docs/seo-keyword-semantic-map-2026-10-03.md`.
+- Search Console property `sc-domain:promptvera.com` returned 0 Search Analytics rows for 2026-09-03 through 2026-10-03 before deployment. First-party impressions/clicks/CTR/query ownership therefore remain **UNKNOWN**, not a failure signal.
 
 ## Deployment / indexing status
 
-- Public runtime: **VERIFIED running / healthy** on 2026-10-03.
-- Deployed application SHA: `0f172725109d78e43bd3c444833e7da9dd3fa393`.
-- Completed merged SEO application SHA: `5729899e68274993c32abe27278ac8cbc652edc2`.
-- P0/P1/P2 deployment status: **BLOCKED / NOT DEPLOYED**.
-- Search Console performance rows: **UNKNOWN / not yet available**.
-- IndexNow previously returned HTTP 200 for 26 URLs; the newly merged content has not been submitted because it is not deployed.
+- Public runtime: **VERIFIED running / healthy**.
+- Deployed workspace/source SHA: **VERIFIED** `09e5b1c01df4d116cd3b68cdc87b4557df98489c`.
+- P0/P1/P2 SEO deployment: **VERIFIED LIVE**.
+- One immediately previous production image is retained under `promptvera-web:rollback`: **VERIFIED**.
+- IndexNow submission for the completed deployment: **VERIFIED HTTP 200 / 26 URLs**.
+- Search Console post-deploy performance/indexing response: **UNKNOWN**; no elapsed-time evidence yet.
 
 ## Blockers
 
 ### SEO measurement
 
-First-party GSC performance optimization is BLOCKED by lack of Search Analytics rows. Until Google supplies impressions/clicks/query data, prioritization must use validated demand, current SERPs, page utility, and Ubersuggest rank tracking without pretending first-party ranking evidence exists.
+Google Search Console had no Search Analytics rows before this deployment. Ranking, impressions, CTR, and Google-query ownership for the newly deployed P0/P1/P2 pages remain **UNKNOWN** until first-party data appears.
+
+There is no evidence yet supporting a ranking or traffic gain claim.
 
 ### Release engineering
 
-Production workspace alignment and deploy-task execution safety are both BLOCKED:
+The prior deploy-path blocker is **RESOLVED / VERIFIED** for the currently registered task:
+- registry binding identified;
+- root deploy/rollback wrappers synchronized to reviewed repo scripts;
+- hashes match exactly;
+- shell syntax passes;
+- one real registered deploy completed successfully while preserving the immediately previous production image as rollback.
 
-- workspace is currently on `seo/p0-semantic-implementation`, not merged `main`;
-- previous protected-main checkout/sync attempts through the connector were blocked;
-- the registered deploy task's description now sounds correct, but its prior observed execution did not match the versioned `ops/promptvera-deploy.sh` candidate-image flow;
-- do not run another production deployment until both workspace/main alignment and deploy behavior are VERIFIED.
+Any future wrapper change must be reverified before deployment.
 
 ## Risks
 
@@ -102,29 +138,30 @@ Production workspace alignment and deploy-task execution safety are both BLOCKED
 - Keep Prompt Enhancer and Prompt Improver functionally and semantically distinct.
 - Keep Sora 2 explicitly historical; do not imply current OpenAI product/API availability.
 - Model-specific pages require current first-party verification before factual changes.
-- GitHub is materially newer than production; do not describe P0/P1/P2 changes as live until a controlled production deployment is VERIFIED.
-- Do not use the registered production deploy task based only on its current description.
+- Do not claim SEO success from deployment alone; GSC/rank evidence is still pending.
+- Root production wrappers are operator-managed artifacts outside Git. Their exact hashes must continue to match the intended repo scripts before future releases.
 
 ## Work in progress
 
-The planned current-URL SEO implementation (P0 + P1 + P2) is complete in GitHub.
+The planned current-URL SEO implementation (P0 + P1 + P2) is complete, merged, deployed, and runtime-verified.
 
-No additional content batch should be started before the release path is made safe, because the current public site still serves the pre-SEO application source.
+No new search-intent page is authorized by the current evidence. The next phase is measurement and evidence collection rather than immediate page expansion.
 
-## Affected files
+## Affected files / runtime artifacts
 
-P2 PR #41:
-- `app/page.tsx`
-- `app/gemini-prompt-generator/page.tsx`
-- `app/claude-prompt-generator/page.tsx`
-- `app/sora-2-prompt-generator/page.tsx`
-- `components/ClaudePromptGenerator.tsx`
-- `lib/tool-configs.ts`
-- `lib/prompt-engine.ts`
+Application work is already merged in PRs #37, #39, and #41.
+
+Runtime alignment:
+- `/usr/local/sbin/promptvera-deploy`
+- `/usr/local/sbin/promptvera-rollback`
+
+Preserved operator rollback copies:
+- `/usr/local/sbin/promptvera-deploy.pre-869ff0b8`
+- `/usr/local/sbin/promptvera-rollback.pre-b33caa0c`
 
 State:
 - `PROJECT_STATE.md`
 
 ## NEXT ACTION
 
-Align the production workspace to clean merged `main` using an operator-supported protected-branch method, verify that the registered `deploy` task actually executes the repo-controlled candidate-image release behavior and preserves the existing rollback image until candidate health passes, then perform exactly one controlled deployment of the completed P0/P1/P2 application batch. After deployment, verify deployed SHA, container health, current/rollback image IDs, live HTTP/content, IndexNow submission, and Search Console/indexing status before starting any new SEO page work.
+Collect post-deploy first-party evidence before opening new SEO intents: recheck Google Search Console for indexing/impressions/query ownership and Ubersuggest rank tracking for the mapped US keywords, compare results against the 2026-10-02 baseline, identify pages with impressions but weak CTR/position or no discovery, and only then choose the next optimization or new-page research task.
