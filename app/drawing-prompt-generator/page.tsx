@@ -71,6 +71,24 @@ export default function DrawingPromptGeneratorPage() {
           a loose requirement, so the generated scene still introduces an unexpected combination.
         </p>
 
+        <h2>Drawing prompt example</h2>
+        <div className="example-box">
+          <strong>Theme</strong>
+          <p>Old technology</p>
+          <strong>Generated drawing direction</strong>
+          <p>
+            Draw a repair technician opening a wall of forgotten analog control panels in an
+            abandoned observatory. Use a low viewpoint so the switches and cables feel oversized.
+            Keep the palette limited to rust, faded cream, and one green indicator light. Medium:
+            ink and wash. Creative challenge: show age through wear and repair marks instead of
+            adding dust everywhere.
+          </p>
+        </div>
+        <p>
+          A useful drawing prompt gives you a subject, visual problem, and constraint while still
+          leaving the final composition and style choices in your hands.
+        </p>
+
         <h2>Drawing prompts vs. AI image prompts</h2>
         <p>
           A drawing prompt is primarily an idea-generation tool. It can include composition and mood,
@@ -106,7 +124,7 @@ export default function DrawingPromptGeneratorPage() {
           </details>
           <details>
             <summary>Can I use these ideas with AI image generators?</summary>
-            <p>Yes, but you may want to add model-specific visual instructions. PromptVera's AI Image Prompt Generator is designed for that purpose.</p>
+            <p>Yes, but you may want to add model-specific visual instructions. PromptVera's AI Image Prompt Generator handles that workflow.</p>
           </details>
         </div>
       </article>

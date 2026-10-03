@@ -79,15 +79,32 @@ export default function JournalPromptGeneratorPage() {
           include examples, and notice whether your thinking changes while writing.
         </p>
 
+        <h2>Journal prompt example</h2>
+        <div className="example-box">
+          <strong>Category</strong>
+          <p>Goals · Balanced Reflection</p>
+          <strong>Prompt</strong>
+          <p>
+            Which goal received most of your attention this week, and what evidence shows that
+            attention moved it forward? Name one task that felt productive but did not meaningfully
+            support the goal. What would you protect or remove from next week&apos;s schedule based
+            on that difference?
+          </p>
+        </div>
+        <p>
+          The prompt starts with observable behavior before asking for a conclusion, which makes
+          the reflection easier to review later.
+        </p>
+
         <h2>Journal prompts vs. random writing prompts</h2>
         <p>
-          The <Link href="/random-prompt-generator">Random Prompt Generator</Link> is
-          built for broad creative ideation, including stories, characters, dialogue,
-          journaling, and creative challenges. This page is narrower: every prompt is
-          designed specifically for personal reflection and journaling.
+          The <Link href="/random-prompt-generator">Random Prompt Generator</Link> supports
+          broad creative ideation, including stories, characters, dialogue,
+          journaling, and creative challenges. This page is narrower: we create every prompt
+          specifically for personal reflection and journaling.
         </p>
         <p>
-          That difference matters for search intent and for usefulness. A story prompt
+          That difference matters because the two tools solve different writing jobs. A story prompt
           needs characters, tension, or a premise; a journal prompt should help you
           examine your own experience, decisions, priorities, or observations without
           turning the entry into fiction.

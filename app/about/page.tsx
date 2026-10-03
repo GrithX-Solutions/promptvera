@@ -35,7 +35,7 @@ export default function AboutPage() {
       </p>
       <h2>Our content standard</h2>
       <p>
-        Tool pages are intended to explain the underlying prompting decisions, provide useful controls, and give users an editable output. We avoid publishing large numbers of near-identical pages that exist only to target search queries.
+        Tool pages explain the underlying prompting decisions, provide useful controls, and give users an editable output. We avoid publishing large numbers of near-identical pages that exist only to target search queries.
       </p>
       <h2>Why we build focused prompt generators</h2>
       <p>

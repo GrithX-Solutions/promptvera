@@ -55,10 +55,8 @@ export default function BookTitleGeneratorPage() {
         <p>
           If you already know the central image or topic of the book, enter it
           in the keyword field. The generator will use that idea as an anchor
-          rather than replacing it with an unrelated concept. This is useful
-          when you need a book title generator using keywords or a book title
-          generator with keywords, a working title for a manuscript, or several
-          variations around the same theme.
+          rather than replacing it with an unrelated concept. This is useful when you already have a central word, image, place, topic, or
+          concept and want several title directions around the same idea.
         </p>
 
         <h2>Fiction title ideas by genre</h2>
@@ -88,6 +86,19 @@ export default function BookTitleGeneratorPage() {
           Some generated options use a title and subtitle structure. Treat the
           subtitle as editable positioning: it should clarify the practical
           value of the book without making claims the manuscript cannot support.
+        </p>
+
+        <h2>Book title examples</h2>
+        <div className="example-box">
+          <strong>Fantasy · restrained · theme: memory</strong>
+          <p>The Archive of Ash · What the River Forgot · A Map of Vanished Names</p>
+          <strong>Nonfiction · practical · topic: remote team communication</strong>
+          <p>Working in the Open · The Async Team Handbook · Fewer Meetings, Clearer Work</p>
+        </div>
+        <p>
+          Treat generated names as directions rather than finished publishing decisions. Shortlist
+          the strongest options, test them against the book&apos;s actual promise and tone, then check
+          for confusingly similar existing uses before publication.
         </p>
 
         <h2>Book Title Generator vs. Story Plot Generator</h2>

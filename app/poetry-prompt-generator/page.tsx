@@ -81,12 +81,27 @@ export default function PoetryPromptGeneratorPage() {
           meter, rhyme, line, or stanza requirements while revising your draft.
         </p>
 
+        <h2>Poetry prompt example</h2>
+        <div className="example-box">
+          <strong>Generated direction</strong>
+          <p>
+            Write a poem about realizing a friendship has changed, but never name the friendship
+            directly. Center the poem on a chipped blue mug left in the wrong cupboard. Use second
+            person, keep the language conversational, and let the final image contradict the
+            speaker&apos;s earlier certainty. Form: free verse, 14–20 lines.
+          </p>
+        </div>
+        <p>
+          The prompt supplies an image, emotional tension, perspective, form, and turn without
+          writing the poem itself.
+        </p>
+
         <h2>Poetry prompts vs. a random prompt generator</h2>
         <p>
-          The <Link href="/random-prompt-generator">Random Prompt Generator</Link> is
-          designed for broad writing, story, character, journal, dialogue, and
-          ideation prompts. This page is narrower. Its random combinations are built
-          around poetic craft: image, compression, perspective, emotional tension,
+          The <Link href="/random-prompt-generator">Random Prompt Generator</Link> handles
+          broad writing, story, character, journal, dialogue, and
+          ideation prompts. This page is narrower. It combines elements of
+          poetic craft: image, compression, perspective, emotional tension,
           form, and a turn in thought.
         </p>
         <p>

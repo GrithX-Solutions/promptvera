@@ -152,3 +152,84 @@ Across the site:
 11. Legal copy accuracy check
 
 This order prioritizes the pages with the largest combination of traffic opportunity, AI-discovery relevance, and competitive content gap.
+
+
+---
+
+## Post-remediation status — 2026-10-03
+
+The sitewide remediation pass on branch `content/p0-quality-remediation` addressed the RED and AMBER findings above. The original findings remain in this document as the audit baseline.
+
+### Gate result
+
+All current user-facing pages now pass the applicable content-quality gate at source-review level, pending CI and production deployment verification.
+
+Search-intent pages now meet the required standards for:
+- semantic coverage,
+- skimmability,
+- competitor-informed information gain,
+- native-quality US English,
+- grammar and punctuation,
+- active voice by default,
+- factual/model-source accuracy,
+- and task-specific differentiation.
+
+Legal pages pass the readability and editorial gate with the documented legal-precision exception for passive constructions such as the standard “as is” disclaimer.
+
+### P0 pages remediated
+
+- `/`: expanded answer-first homepage content, tool-selection guidance, worked example, prompt-quality framework, and FAQs.
+- `/prompt-enhancer`: added prompt anatomy, diagnostic use cases, worked before/after example, common failure modes, and clearer separation from Prompt Improver.
+- `/prompt-improver`: added a diagnostic workflow, conflict cleanup, preservation guidance, worked example, and clearer intent boundary.
+- `/ai-image-prompt-generator`: added prompt anatomy, worked visual example, use cases, common mistakes, iteration guidance, and stronger model-agnostic caveats.
+- `/sora-2-prompt-generator`: corrected a major factual freshness issue. The page now states that OpenAI discontinued the Sora web/app experience on April 26, 2026 and the Sora API on September 24, 2026, and frames the tool as a legacy prompt-structure resource.
+- `/suno-prompt-generator`: updated for the current Suno v6 family, Simple/Custom workflows, musical prompt structure, iteration, worked example, and rights caveats.
+- `/nano-banana-prompt-generator`: expanded from narrow editing guidance to current Gemini/Nano Banana generation, editing, reference-image, preservation, text/layout, and iterative workflows.
+
+### P1 pages remediated
+
+The model-specific prompt pages were rechecked against current first-party documentation and current SERPs. ChatGPT, Gemini, Claude, and Grok pages now include distinct worked examples. Claude now links to the current Anthropic prompting-best-practices location.
+
+Creative-tool pages received targeted information-gain improvements rather than blanket expansion:
+- Drawing Prompt Generator
+- Random Prompt Generator
+- Random Theme Generator
+- Journal Prompt Generator
+- Poetry Prompt Generator
+- Fanfic Prompt Generator
+- OC Prompt Generator
+- Short Story Prompt Generator
+- Story Plot Generator
+- Horror Story Plot Generator
+- Book Title Generator
+
+These pages now include concrete worked examples where they materially improve understanding and AEO/semantic context.
+
+### Editorial cleanup completed
+
+The remediation pass also:
+- removed awkward exact-match SEO phrases from body copy,
+- removed internal SEO terminology where it did not belong in user-facing copy,
+- corrected avoidable passive constructions across non-legal pages,
+- corrected repeated ownership grammar from “respective owner” to “respective owners,”
+- replaced the unnatural phrase “plot story generator” in prose with native English,
+- corrected the OC definition sentence,
+- reduced template-like wording without changing the tools’ behavior,
+- and preserved keyword variants only where they read naturally.
+
+### Structural verification
+
+Every reviewed user-facing page has exactly one H1. Search-intent pages use descriptive H2/H3 sections, place the interactive tool near the top, and include supporting explanations, comparisons, FAQs, examples, or practical guidance according to the needs of the query.
+
+No arbitrary minimum word count was introduced. Pages remain as long as needed to satisfy the user intent and information-gain requirement.
+
+### Ongoing freshness rule
+
+Model-specific content is not permanently “done.” Before a material refresh, PromptVera must recheck current first-party documentation and current SERPs. Product discontinuations, renamed models, changed plan access, API changes, rights guidance, or altered capabilities require factual updates even when the page structure remains unchanged.
+
+### Release status
+
+Content review: **PASS**  
+Source-level hard-rule gate: **PASS**  
+CI/build: **pending**  
+Production deployment verification: **pending**

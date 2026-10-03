@@ -4,9 +4,9 @@ import { PromptBuilder } from "@/components/PromptBuilder";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
 import { toolMetadata } from "@/lib/metadata";
 
-const title = "Sora 2 Prompt Generator";
+const title = "Sora 2 Prompt Generator – Legacy Video Prompt Builder";
 const description =
-  "Free Sora 2 prompt generator for structured AI video prompts with scene, shot type, camera movement, lighting, audio, format, and continuity instructions.";
+  "Legacy Sora 2 prompt generator for structured video shot briefs. OpenAI discontinued Sora in 2026; use this tool to study and adapt scene, camera, motion, lighting, audio, and continuity prompts.";
 
 export const metadata: Metadata = toolMetadata({ title, description, path: "/sora-2-prompt-generator" });
 
@@ -15,74 +15,164 @@ export default function Sora2PromptGeneratorPage() {
     <div className="shell tool-page">
       <ToolJsonLd name="PromptVera Sora 2 Prompt Generator" description={description} path="/sora-2-prompt-generator" />
       <div className="breadcrumb"><Link href="/">PromptVera</Link> / Sora 2 Prompt Generator</div>
+
       <header className="tool-hero">
-        <span className="eyebrow">AI video prompt tool</span>
+        <span className="eyebrow">Legacy Sora 2 prompt structure</span>
         <h1>Sora 2 Prompt <span className="gradient-text">Generator</span></h1>
         <p>
-          Build a video prompt around the scene you actually want, then add camera, movement, lighting, sound, frame, and continuity instructions.
+          Build a structured video shot brief with scene, action, framing, camera movement,
+          lighting, sound, format, and continuity instructions.
         </p>
       </header>
+
+      <div className="callout">
+        <strong>Sora 2 is discontinued.</strong>
+        <p>
+          OpenAI discontinued the Sora web and app experiences on April 26, 2026, and
+          discontinued the Sora API on September 24, 2026. PromptVera keeps this page as a
+          legacy prompt-planning resource because the shot-brief techniques remain useful
+          when studying or adapting structured prompts for other video-generation workflows.{" "}
+          <a
+            href="https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Read OpenAI&apos;s discontinuation notice
+          </a>.
+        </p>
+      </div>
 
       <PromptBuilder toolId="sora-2" />
 
       <article className="content-wrap prose">
         <h2>What is a Sora 2 prompt generator?</h2>
         <p>
-          A Sora 2 prompt generator structures a video idea into a shot brief with the
-          visible scene, subject action, framing, camera movement, lighting, audio,
-          output format, and continuity instructions. PromptVera generates the prompt
-          text; it does not generate or host the video itself.
+          A Sora 2 prompt generator organizes a video idea as a shot brief. Instead of
+          compressing everything into one vague sentence, it separates the visible scene,
+          subject action, framing, camera movement, lighting, sound, output format, and
+          continuity requirements.
         </p>
-
-        <h2>How to write a stronger Sora video prompt</h2>
         <p>
-          Start with the visible event: who or what is in the scene, where it happens, and what
-          changes during the shot. Then describe camera behavior separately. Mixing every visual
-          detail into one sentence makes it harder to see whether your prompt contains contradictory instructions.
+          Sora 2 itself is no longer available through OpenAI&apos;s former web, app, or API
+          experiences. PromptVera generates text only. Use this page to study the legacy Sora
+          prompt structure or adapt the resulting brief to a current video model after checking
+          that model&apos;s own syntax, controls, and limitations.
         </p>
 
-        <h3>1. Define the scene and action</h3>
+        <h2>What the archived OpenAI Sora 2 prompting guide emphasized</h2>
         <p>
-          Describe the subject, setting, and movement in concrete terms. “A car in a city” leaves
-          many decisions open; “a silver electric coupe drives through a rain-soaked commercial
-          district at night” establishes a clearer visual target.
+          OpenAI still hosts an{" "}
+          <a
+            href="https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide"
+            target="_blank"
+            rel="noreferrer"
+          >
+            archived Sora 2 prompting guide
+          </a>{" "}
+          and explicitly warns that it may reference outdated models or APIs. The guide treated
+          a useful video prompt like a cinematography brief: define framing, subject action,
+          movement, depth, lighting, palette, timing, and audio with enough specificity to
+          control the shot.
         </p>
-
-        <h3>2. Add shot and movement language</h3>
         <p>
-          Use camera direction only when it serves the scene. A tracking shot, orbit, crane move, or
-          static composition creates a different visual result. Avoid stacking incompatible camera
-          moves into a short clip.
+          Those principles describe prompt composition rather than current product availability,
+          so they remain useful as a historical framework. Do not rely on the archived endpoint,
+          duration, resolution, reference-image, or model instructions as current OpenAI API
+          documentation.
         </p>
 
-        <h3>3. Protect continuity</h3>
-        <p>
-          Video generations can become inconsistent when the prompt changes subject details from one
-          phrase to another. The generator adds a continuity section to remind the model to keep
-          identity, environment, lighting, direction of motion, and scale coherent.
-        </p>
+        <h2>Video prompt anatomy: build one coherent shot</h2>
+        <ol>
+          <li><strong>Subject and environment:</strong> identify what the viewer sees and where the action happens.</li>
+          <li><strong>Framing:</strong> choose the shot size and viewing angle that support the scene.</li>
+          <li><strong>Subject action:</strong> describe one plausible action or a short sequence of beats.</li>
+          <li><strong>Camera movement:</strong> use a single clear motion unless the shot genuinely requires more.</li>
+          <li><strong>Lighting and palette:</strong> describe the light source, contrast, time of day, and a small set of color anchors.</li>
+          <li><strong>Timing:</strong> place key actions or pauses in an order that can fit the intended clip.</li>
+          <li><strong>Audio or dialogue:</strong> keep spoken lines and sound cues concise enough for the scene.</li>
+          <li><strong>Continuity:</strong> repeat identity, wardrobe, environment, and motion details that must remain stable.</li>
+        </ol>
 
-        <div className="callout">
-          <strong>Tip:</strong> Treat the generated prompt as a shot brief. Remove any field that is irrelevant rather than forcing every control into every video.
+        <h2>Sora 2 prompt example</h2>
+        <div className="example-box">
+          <strong>Loose idea</strong>
+          <p>A cyclist stops at a rainy intersection at night.</p>
+          <strong>Structured shot brief</strong>
+          <p>
+            Nighttime commercial street after rain. Medium-wide, low-angle tracking shot of a
+            cyclist in a yellow rain shell moving left to right. The cyclist pedals three times,
+            brakes at the crosswalk, then pauses as a bus passes in the background. Camera tracks
+            smoothly and stops with the rider. Wet asphalt reflects amber storefront light and
+            cool blue signage. Keep the yellow shell, black bicycle, travel direction, and street
+            layout consistent. Sound: light rain, tire hiss, distant traffic; no dialogue.
+          </p>
         </div>
-
-        <h2>Related visual prompt tools</h2>
         <p>
-          Need a still-image brief first? Use the{" "}
-          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link> for composition,
-          lighting, lens, and style controls. For image-editing prompts with preservation constraints,
-          use the <Link href="/nano-banana-prompt-generator">Nano Banana Prompt Generator</Link>.
+          The example uses observable action beats, one camera move, stable visual anchors, and
+          a short soundscape instead of relying on the word “cinematic.”
+        </p>
+
+        <h2>How to make a video prompt easier to follow</h2>
+        <h3>Use concrete action beats</h3>
+        <p>
+          “A person moves quickly” leaves timing open. Describe a small sequence such as walking
+          to a window, pausing, and opening the curtain. Physical beats make the intended motion
+          easier to visualize and revise.
+        </p>
+
+        <h3>Keep camera movement plausible</h3>
+        <p>
+          A tracking move, orbit, crane move, handheld shot, or static frame creates a distinct
+          result. Avoid stacking several incompatible camera moves into a short scene.
+        </p>
+
+        <h3>Anchor lighting with sources and colors</h3>
+        <p>
+          “Bright room” gives little direction. Describe the source and quality of the light, then
+          add a few stable palette anchors when visual continuity matters.
+        </p>
+
+        <h3>Write dialogue for the available screen time</h3>
+        <p>
+          Long speeches compete with visual action. Keep dialogue short, identify the speaker,
+          and make sure the line can plausibly fit inside the intended scene.
+        </p>
+
+        <h2>Adapt this prompt structure to current video tools</h2>
+        <p>
+          The scene-planning logic is portable, but model capabilities are not. Before using the
+          result elsewhere, check whether the target video service supports reference images,
+          multiple shots, dialogue, native audio, negative instructions, aspect-ratio controls,
+          camera syntax, or duration settings. Remove Sora-specific assumptions and keep the
+          visual brief that still applies.
+        </p>
+        <p>
+          If you need a still-image concept before planning motion, use the{" "}
+          <Link href="/ai-image-prompt-generator">AI Image Prompt Generator</Link>. It focuses on
+          subject, composition, style, lighting, camera, and output framing without video timing.
         </p>
 
         <h2>Frequently asked questions</h2>
         <div className="faq">
           <details>
-            <summary>Does this tool generate the video?</summary>
-            <p>No. PromptVera generates the text prompt. You copy the result into the video-generation service you choose.</p>
+            <summary>Can I still use Sora 2?</summary>
+            <p>No through the former OpenAI Sora product or API. OpenAI says the web and app experiences ended on April 26, 2026, and the API ended on September 24, 2026.</p>
           </details>
           <details>
-            <summary>Can I create vertical Sora prompts?</summary>
-            <p>Yes. Choose the 9:16 vertical option in the output-format field.</p>
+            <summary>Why keep a Sora 2 prompt generator after discontinuation?</summary>
+            <p>The page preserves a useful historical video-prompt structure for research, prompt study, and adaptation to current video tools. PromptVera does not imply that Sora 2 remains available.</p>
+          </details>
+          <details>
+            <summary>Does PromptVera generate video?</summary>
+            <p>No. PromptVera only structures the text brief.</p>
+          </details>
+          <details>
+            <summary>Can I use the generated prompt with another video model?</summary>
+            <p>You can adapt the scene, action, framing, lighting, audio, and continuity sections, but verify the target model&apos;s current capabilities and supported controls first.</p>
+          </details>
+          <details>
+            <summary>Is OpenAI&apos;s Sora 2 prompting guide still current?</summary>
+            <p>No. OpenAI labels the guide as archived and warns that it may reference outdated models or APIs. Use it as historical prompting guidance, not current product documentation.</p>
           </details>
         </div>
       </article>

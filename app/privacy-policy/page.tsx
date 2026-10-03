@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       <h1>Privacy Policy</h1>
       <p><strong>Effective date:</strong> October 2, 2026</p>
       <p>
-        PromptVera is designed to minimize the personal information required to use its core prompt tools. The launch version does not require account registration.
+        PromptVera minimizes the personal information required to use its core prompt tools. The launch version does not require account registration.
       </p>
 
       <h2>Prompt inputs</h2>
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
 
       <h2>Advertising</h2>
       <p>
-        PromptVera is intended to be supported by advertising. Advertising systems may use cookies or similar technologies where permitted. Consent controls will be implemented where required before personalized advertising is enabled.
+        Advertising is one planned source of support for PromptVera. Advertising systems may use cookies or similar technologies where permitted. We will implement consent controls where required before we enable personalized advertising.
       </p>
 
       <h2>Local browser storage</h2>

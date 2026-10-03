@@ -6,7 +6,7 @@ import { toolMetadata } from "@/lib/metadata";
 
 const title = "AI Prompt Improver – Free Prompt Optimization Tool";
 const description =
-  "Free AI prompt improver for refining existing prompts with clearer context, constraints, goals, and output requirements while preserving the core intent.";
+  "Free AI prompt improver for refining existing prompts, removing ambiguity and conflicts, and strengthening context, constraints, and output requirements.";
 
 export const metadata: Metadata = toolMetadata({ title, description, path: "/prompt-improver" });
 
@@ -15,11 +15,13 @@ export default function PromptImproverPage() {
     <div className="shell tool-page">
       <ToolJsonLd name="PromptVera AI Prompt Improver" description={description} path="/prompt-improver" />
       <div className="breadcrumb"><Link href="/">PromptVera</Link> / Prompt Improver</div>
+
       <header className="tool-hero">
         <span className="eyebrow">Free AI prompt improver</span>
         <h1>AI Prompt <span className="gradient-text">Improver</span></h1>
         <p>
-          Refine an existing instruction without changing its core intent. Add clearer objectives, practical constraints, and output expectations.
+          Refine an existing prompt without changing its core intent. Remove ambiguity,
+          tighten constraints, and make the expected output easier to follow.
         </p>
       </header>
 
@@ -28,65 +30,118 @@ export default function PromptImproverPage() {
       <article className="content-wrap prose">
         <h2>What is an AI prompt improver?</h2>
         <p>
-          An AI prompt improver refines an existing prompt without changing the task you
-          are trying to accomplish. It makes the instruction easier to follow by clarifying
-          the objective, relevant context, constraints, and expected output while preserving
-          the original intent.
-        </p>
-
-        <h2>Improve the instruction, not just the wording</h2>
-        <p>
-          Prompt quality usually improves when the request contains a clear task, relevant context,
-          boundaries, and a usable definition of the desired result. Simply adding adjectives such
-          as “professional,” “detailed,” or “high quality” is rarely enough.
+          An AI prompt improver diagnoses a prompt that already contains a real task and
+          makes that task easier to execute consistently. It can clarify vague wording,
+          separate requirements from preferences, remove duplicated instructions, resolve
+          conflicts, and make the requested output more testable.
         </p>
         <p>
-          Use this AI prompt improver when you already know what you want but the prompt produces
-          inconsistent responses. The output is designed to preserve the original intent while
-          making the request easier to follow and easier for you to review.
+          PromptVera keeps the original intent at the center of the rewrite. The current
+          tool runs in your browser and does not send your prompt to a paid third-party AI
+          API. Review the result before you use it and keep only the changes that support
+          your actual goal.
         </p>
 
-        <h2>Prompt improver vs. AI prompt enhancer</h2>
+        <h2>How to diagnose a weak prompt before rewriting it</h2>
+        <ol>
+          <li><strong>Find the main task.</strong> You should be able to state the required action in one clear sentence.</li>
+          <li><strong>Mark essential context.</strong> Keep facts, definitions, source material, and assumptions that change the answer.</li>
+          <li><strong>Separate hard constraints.</strong> Distinguish requirements from optional preferences.</li>
+          <li><strong>Look for contradictions.</strong> Decide which instruction wins when two requirements compete.</li>
+          <li><strong>Define the output.</strong> Ask for a result you can inspect, reuse, or validate.</li>
+          <li><strong>Delete repetition.</strong> Repeating the same instruction with different adjectives rarely improves control.</li>
+        </ol>
+
+        <h2>Prompt improvement example</h2>
+        <div className="example-box">
+          <strong>Before</strong>
+          <p>
+            Analyze our landing page. Be very detailed but keep it short. Give me everything that
+            is wrong and make it professional. Focus on SEO, conversions, design, copy, speed, and
+            user experience. Do not change anything important.
+          </p>
+          <strong>After</strong>
+          <p>
+            Audit the landing page for five areas: search intent, copy clarity, conversion friction,
+            UX/accessibility, and performance. For each area, identify the three highest-impact
+            issues, explain the evidence, and recommend a specific change. Preserve the current offer,
+            pricing, and brand positioning. Finish with a prioritized action list of no more than
+            ten items.
+          </p>
+        </div>
         <p>
-          These tools serve related but distinct jobs. The improver starts from an existing working
-          prompt and emphasizes refinement. The{" "}
-          <Link href="/prompt-enhancer">AI Prompt Enhancer</Link> is better when a short idea needs
-          a fuller task structure with explicit goals, context, constraints, and output direction.
-          Keeping those intents separate reduces unnecessary rewriting.
+          The improved version resolves the “detailed but short” conflict, defines what “important”
+          means, and turns a vague request for “everything” into a reviewable priority list.
         </p>
 
-        <h2>A practical prompt optimization checklist</h2>
-        <ul>
-          <li>State the actual task in one unambiguous sentence.</li>
-          <li>Add context only when it changes how the task should be completed.</li>
-          <li>Separate must-follow constraints from preferences.</li>
-          <li>Describe the expected output without over-formatting it.</li>
-          <li>Remove instructions that conflict with each other.</li>
-          <li>Keep important source material distinguishable from your instructions.</li>
-        </ul>
-
-        <h2>When a model-specific prompt generator is a better fit</h2>
+        <h2>What should a prompt improver preserve?</h2>
         <p>
-          General prompt optimization is useful when the instruction should remain portable. If the
-          task depends on a specific model workflow, use a dedicated generator such as the{" "}
-          <Link href="/chatgpt-prompt-generator">ChatGPT Prompt Generator</Link>,{" "}
-          <Link href="/claude-prompt-generator">Claude Prompt Generator</Link>, or{" "}
-          <Link href="/gemini-prompt-generator">Gemini Prompt Generator</Link>.
+          Improvement should not silently change the job. Preserve the user&apos;s objective, source
+          material, non-negotiable constraints, intended audience, and important domain terminology.
+          Rewrite the structure around those elements rather than replacing them with generic prompt
+          engineering language.
+        </p>
+
+        <h2>Common fixes that improve prompt reliability</h2>
+        <h3>Replace vague adjectives with observable criteria</h3>
+        <p>
+          Instead of “make it professional,” specify the audience, tone, evidence standard, format,
+          or action the output should support.
+        </p>
+
+        <h3>Turn hidden priorities into explicit priorities</h3>
+        <p>
+          If accuracy matters more than speed, or preserving a source matters more than rewriting
+          style, say so. The model should not have to infer which requirement wins.
+        </p>
+
+        <h3>Remove instructions that do not change the result</h3>
+        <p>
+          Long role descriptions and repeated reminders can bury the actual task. Keep instructions
+          that materially affect content, reasoning, evidence, safety, or output.
+        </p>
+
+        <h3>Ask for evidence instead of confidence</h3>
+        <p>
+          When verification matters, request citations, calculations, source references, changed
+          values, or assumptions you can check. Do not rely on wording such as “be accurate.”
+        </p>
+
+        <h2>Prompt Improver vs. Prompt Enhancer</h2>
+        <p>
+          Use the <strong>Prompt Improver</strong> when the prompt already has substance and needs
+          cleanup or stronger control. Use the{" "}
+          <Link href="/prompt-enhancer">AI Prompt Enhancer</Link> when you start with a short idea
+          that still needs task structure, context, constraints, and output direction.
+        </p>
+
+        <h2>When should you leave a prompt alone?</h2>
+        <p>
+          Keep a prompt simple when the task is already unambiguous and the model consistently
+          returns the result you need. Optimization should remove friction, not add ceremony.
         </p>
 
         <h2>Frequently asked questions</h2>
         <div className="faq">
           <details>
-            <summary>Is the PromptVera AI prompt improver free?</summary>
-            <p>Yes. The current browser-based prompt improver is free and does not require an account.</p>
+            <summary>Is this AI prompt improver free?</summary>
+            <p>Yes. The current tool is free and does not require an account.</p>
           </details>
           <details>
-            <summary>Does PromptVera send my prompt to an AI model?</summary>
-            <p>No. The current tool uses browser-side prompt-structuring logic rather than sending your text to a paid AI API.</p>
+            <summary>Does PromptVera change the purpose of my prompt?</summary>
+            <p>The tool aims to preserve the core task while improving clarity and structure. Review the result because only you can confirm that every requirement still matches your intent.</p>
           </details>
           <details>
-            <summary>What is the difference between improving and enhancing a prompt?</summary>
-            <p>Improving is best when the prompt already works and needs refinement. Enhancing is better when a short or vague request needs more structure and context.</p>
+            <summary>Does the prompt improver call an AI model?</summary>
+            <p>No. The current version uses deterministic browser-side rules to restructure the prompt.</p>
+          </details>
+          <details>
+            <summary>Can I use it for coding, research, writing, or business prompts?</summary>
+            <p>Yes. The improvement framework is task-agnostic, but you should retain the technical terms and source requirements that matter in your domain.</p>
+          </details>
+          <details>
+            <summary>Should an improved prompt always be longer?</summary>
+            <p>No. A better prompt may be shorter if it removes repetition, resolves conflicts, and keeps only instructions that affect the result.</p>
           </details>
         </div>
       </article>

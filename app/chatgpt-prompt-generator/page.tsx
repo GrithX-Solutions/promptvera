@@ -84,7 +84,7 @@ export default function ChatGPTPromptGeneratorPage() {
         <p>
           Useful context includes the current situation, definitions, business rules,
           relevant constraints, or background ChatGPT would not otherwise know.
-          Context that does not affect the output can usually be removed.
+          You can usually remove context that does not affect the output.
         </p>
 
         <h3>Separate source material from instructions</h3>
@@ -109,18 +109,36 @@ export default function ChatGPTPromptGeneratorPage() {
           one very large prompt.
         </p>
 
+        <h2>ChatGPT prompt example</h2>
+        <div className="example-box">
+          <strong>Rough request</strong>
+          <p>Summarize this customer feedback.</p>
+          <strong>Structured ChatGPT prompt</strong>
+          <p>
+            Summarize the customer feedback below for the product team. Separate recurring
+            complaints, feature requests, positive signals, and one-off comments. Use only the
+            supplied feedback as evidence. For each recurring theme, include the number of
+            comments that support it and one short representative quote. Finish with the three
+            highest-priority product questions the team should investigate next.
+          </p>
+        </div>
+        <p>
+          This version defines the audience, evidence boundary, grouping logic, and final
+          deliverable instead of asking ChatGPT for a generic summary.
+        </p>
+
         <h2>ChatGPT Prompt Generator vs. Prompt Enhancer</h2>
         <p>
           The <Link href="/prompt-enhancer">Prompt Enhancer</Link> is a portable,
           general-purpose tool that can improve prompts for different AI systems. This
-          ChatGPT Prompt Generator is designed around ChatGPT-specific user workflows:
+          ChatGPT Prompt Generator focuses on ChatGPT-specific user workflows:
           source material, interaction style, audience, tone, structured output, and
           iterative refinement.
         </p>
         <p>
           PromptVera is an independent utility site and is not affiliated with or
           endorsed by OpenAI. ChatGPT and related product names belong to their
-          respective owner.
+          respective owners.
         </p>
 
         <h2>Frequently asked questions</h2>

@@ -78,13 +78,26 @@ export default function RandomThemeGeneratorPage() {
           with parties, workshops, team activities, or themed creative sessions.
         </p>
 
+        <h2>Random theme example</h2>
+        <div className="example-box">
+          <strong>Generated theme</strong>
+          <p>Borrowed Time</p>
+          <strong>Ways to interpret it</strong>
+          <p>
+            A story could explore a deadline nobody can extend. An illustration could show
+            temporary ownership through fading marks or borrowed objects. A game jam could turn
+            time itself into a resource players trade. The theme gives direction without fixing
+            the medium or final idea.
+          </p>
+        </div>
+
         <h2>Random Theme Generator vs. Random Prompt Generator</h2>
         <p>
           Use this page when you want only a theme. The{" "}
           <Link href="/random-prompt-generator">Random Prompt Generator</Link>{" "}
           produces a fuller creative instruction with a premise, focus, tone, and
           twist. Keeping the two tools separate makes the output easier to reuse
-          and avoids mixing two different search intents.
+          and keeps two different creative jobs from getting mixed together.
         </p>
 
         <h2>Random themes for drawing and visual work</h2>
@@ -115,7 +128,7 @@ export default function RandomThemeGeneratorPage() {
           <details>
             <summary>Can I use it as a story theme generator?</summary>
             <p>
-              Yes. Choose Writing &amp; Story for themes designed to support
+              Yes. Choose Writing &amp; Story for themes that support
               fiction, narrative exercises, and story planning.
             </p>
           </details>

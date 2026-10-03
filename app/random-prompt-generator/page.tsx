@@ -81,6 +81,23 @@ export default function RandomPromptGeneratorPage() {
           normal practice, and Deep when you want consequences, motivation, and change.
         </p>
 
+        <h2>Random prompt example</h2>
+        <div className="example-box">
+          <strong>Category</strong>
+          <p>Story · Reflective · Balanced</p>
+          <strong>Generated direction</strong>
+          <p>
+            A night-shift bus driver realizes one passenger has ridden the same circular route
+            every evening for a month without ever getting off. Write the first conversation
+            between them. Focus on what each person avoids saying, and end the scene with one
+            ordinary detail that changes the driver&apos;s understanding of the passenger.
+          </p>
+        </div>
+        <p>
+          The example gives you a premise, relationship, tone, and turning point without deciding
+          the whole story for you.
+        </p>
+
         <h2>Random prompt generator vs. dedicated prompt tools</h2>
         <p>
           This tool is for idea generation. It is different from the{" "}
@@ -90,8 +107,8 @@ export default function RandomPromptGeneratorPage() {
           targets visual art and sketching ideas. If you only need a broad creative direction
           rather than a complete prompt, use the{" "}
           <Link href="/random-theme-generator">Random Theme Generator</Link>. Keeping those
-          jobs separate makes each tool more useful and reduces duplicated search intent
-          across PromptVera.
+          jobs separate makes each tool more useful and keeps the outputs focused on what
+          you are actually trying to create.
         </p>
 
         <h2>Ways to use one generated prompt</h2>
@@ -126,7 +143,7 @@ export default function RandomPromptGeneratorPage() {
           <details>
             <summary>Can I use the prompts for commercial work?</summary>
             <p>
-              The generated prompt text is intended as a starting point. You remain
+              Use the generated prompt text as a starting point. You remain
               responsible for reviewing your final work and any third-party service rules
               that apply to how you use it.
             </p>
