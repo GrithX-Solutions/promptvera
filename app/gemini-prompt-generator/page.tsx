@@ -4,7 +4,7 @@ import { GeminiPromptGenerator } from "@/components/GeminiPromptGenerator";
 import { ToolJsonLd } from "@/components/ToolJsonLd";
 import { toolMetadata } from "@/lib/metadata";
 
-const title = "Gemini Prompt Generator – Free Prompts";
+const title = "Google Gemini Prompt Generator – Free Structured Prompts";
 const description =
   "Free Gemini prompt generator for clear tasks, context, multimodal inputs, parameters, constraints, examples, verbosity, and structured output.";
 
@@ -132,7 +132,15 @@ export default function GeminiPromptGeneratorPage() {
           prompt structure that can work across several AI assistants. This Gemini
           Prompt Generator is narrower: it adds controls for multimodal inputs,
           long-context ordering, explicit parameters, and output verbosity that align
-          with current Gemini prompting guidance.
+          with current Gemini prompting guidance. If you already have a detailed Gemini
+          prompt and only need to remove ambiguity, repetition, or conflicting rules,
+          use the <Link href="/prompt-improver">Prompt Improver</Link>.
+        </p>
+        <p>
+          For Gemini-native image generation or editing, especially when reference images,
+          preservation rules, and layout matter, use the{" "}
+          <Link href="/nano-banana-prompt-generator">Nano Banana Prompt Generator</Link>
+          rather than treating a general multimodal analysis prompt as an image-editing brief.
         </p>
         <p>
           PromptVera is an independent utility site and is not affiliated with or
@@ -151,10 +159,12 @@ export default function GeminiPromptGeneratorPage() {
             <p>No. The tool structures the prompt in your browser. You choose whether to paste it into Gemini afterward.</p>
           </details>
           <details>
-            <summary>Can I use it for image, audio, or video prompts?</summary>
+            <summary>Can I use it with images, audio, or video?</summary>
             <p>
-              Yes. Use the Input type control to tell the generated prompt which
-              modalities matter and make the task explicitly reference them.
+              Yes. Use the Input type control when Gemini needs to analyze or reason over
+              those modalities and make the task explicitly reference each relevant input.
+              For Gemini image generation or editing, use the Nano Banana tool for more
+              specific reference, preservation, and layout controls.
             </p>
           </details>
           <details>
