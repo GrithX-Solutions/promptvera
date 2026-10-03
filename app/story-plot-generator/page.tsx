@@ -50,7 +50,9 @@ export default function StoryPlotGeneratorPage() {
           than prose writing. You can use the outline for a short story, novella,
           novel, screenplay, game narrative, or as a starting point for your own
           beat sheet. Leave the optional premise open when you want to use it as a
-          random story plot generator and explore an unexpected combination.
+          random story plot generator and explore an unexpected combination. In other
+          words, it works as a plot generator for stories and novels while keeping the
+          instructions natural and focused on the planning job.
         </p>
 
         <h2>How to build a stronger story plot</h2>
@@ -132,6 +134,12 @@ export default function StoryPlotGeneratorPage() {
           subplots, and give secondary characters their own goals that intersect
           with the central conflict.
         </p>
+        <p>
+          If the protagonist still feels generic, develop the character first with the{" "}
+          <Link href="/oc-prompt-generator">OC Prompt Generator</Link>. Once the plot has a
+          stable premise and tone, the <Link href="/book-title-generator">Book Title Generator</Link>
+          can help you test names that reflect the actual story rather than an early placeholder.
+        </p>
 
         <h2>Frequently asked questions</h2>
         <div className="faq">
@@ -152,6 +160,13 @@ export default function StoryPlotGeneratorPage() {
             <p>
               Yes. Select Novel as the story scope, then expand the generated
               turning points into scenes, chapters, and subplots.
+            </p>
+          </details>
+          <details>
+            <summary>Can I use it as a random story plot generator?</summary>
+            <p>
+              Yes. Leave the optional premise open and regenerate until the protagonist,
+              conflict, structure, and turning points give you a direction worth developing.
             </p>
           </details>
           <details>
