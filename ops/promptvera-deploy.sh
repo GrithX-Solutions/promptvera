@@ -8,6 +8,7 @@ LOCK_FILE="$STATE_DIR/deploy.lock"
 IMAGE_REPO=promptvera-web
 CURRENT_TAG="$IMAGE_REPO:latest"
 ROLLBACK_TAG="$IMAGE_REPO:rollback"
+CANDIDATE_PREVIOUS_TAG="$IMAGE_REPO:candidate-previous"
 CONTAINER=promptvera_caddy
 COMPOSE=(docker compose -p promptvera -f docker-compose.production.yml)
 
@@ -93,12 +94,12 @@ restore_previous() {
 previous_image_id="$(container_image_id)"
 old_rollback_image_id="$(image_id_for_tag "$ROLLBACK_TAG")"
 
-# Pin the currently healthy production image before Compose rebuilds or
-# recreates the service. Once the old container is removed, an untagged image
-# can disappear before we get a chance to retain it for rollback.
+# Pin the currently healthy production image under a temporary tag before
+# Compose rebuilds or recreates the service. Keep the existing rollback tag
+# untouched until the candidate has passed health validation.
+docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
 if [ -n "$previous_image_id" ]; then
-  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
-  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
+  docker image tag "$previous_image_id" "$CANDIDATE_PREVIOUS_TAG"
 fi
 
 if ! "${COMPOSE[@]}" up -d --build --remove-orphans; then
@@ -109,6 +110,7 @@ if ! "${COMPOSE[@]}" up -d --build --remove-orphans; then
   else
     echo "error: automatic rollback also failed" >&2
   fi
+  docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
   exit 1
 fi
 
@@ -122,14 +124,19 @@ if ! wait_for_health; then
   else
     echo "error: automatic rollback also failed" >&2
   fi
+  docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
   exit 1
 fi
 
 current_image_id="$(container_image_id)"
 
 if [ -n "$previous_image_id" ] && [ "$current_image_id" != "$previous_image_id" ]; then
+  docker image rm "$ROLLBACK_TAG" >/dev/null 2>&1 || true
+  docker image tag "$previous_image_id" "$ROLLBACK_TAG"
   remove_image_unless_retained "$old_rollback_image_id" "$current_image_id" "$previous_image_id"
 fi
+
+docker image rm "$CANDIDATE_PREVIOUS_TAG" >/dev/null 2>&1 || true
 
 submit_all=0
 indexnow_ok=1
