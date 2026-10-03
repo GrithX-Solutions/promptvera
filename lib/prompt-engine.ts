@@ -4,6 +4,8 @@ export type EnhanceOptions = {
   goal: string;
   model: string;
   detail: string;
+  problems?: string;
+  preserve?: string;
 };
 
 function clean(value: string) {
@@ -45,11 +47,22 @@ export function enhancePrompt(
     `TASK\n${task}`,
     "",
     `GOAL\n${options.goal}`,
+    mode === "improve" && options.problems?.trim()
+      ? `KNOWN PROBLEMS TO FIX\n${options.problems.trim()}`
+      : "",
+    mode === "improve" && options.preserve?.trim()
+      ? `PRESERVE\n${options.preserve.trim()}`
+      : "",
     "",
     "INSTRUCTIONS",
     `- ${modelRule}`,
     `- ${detailRule}`,
-    "- Resolve ambiguity by using the most reasonable interpretation of the request.",
+    mode === "improve"
+      ? "- Fix ambiguity, repetition, and conflicting instructions without changing the core task."
+      : "- Resolve ambiguity by using the most reasonable interpretation of the request.",
+    mode === "improve" && options.preserve?.trim()
+      ? "- Treat the PRESERVE section as non-negotiable unless it conflicts with an explicit higher-priority instruction."
+      : "",
     "- Be specific, practical, and internally consistent.",
     "- Do not invent facts that the task requires to be verified.",
     "",
@@ -110,6 +123,8 @@ export function buildToolPrompt(toolId: ToolId, idea: string, values: Record<str
         line("Composition", values.composition),
         line("Lighting", values.lighting),
         line("Preserve exactly", values.preserve),
+        line("Reference image roles", values.references),
+        line("Text / layout requirements", values.layout),
         line("Aspect ratio", values.format),
         "",
         "Quality constraints: preserve intentional identity and geometry, keep edges and textures clean, maintain realistic perspective and lighting relationships, and avoid accidental text changes, duplicated objects, warped proportions, or unrelated additions.",

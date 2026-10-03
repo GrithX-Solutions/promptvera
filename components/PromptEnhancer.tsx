@@ -12,11 +12,13 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
   const [goal, setGoal] = useState("Create the best practical result for this request");
   const [model, setModel] = useState("General AI");
   const [detail, setDetail] = useState("Balanced");
+  const [problems, setProblems] = useState("");
+  const [preserve, setPreserve] = useState("");
   const [output, setOutput] = useState("");
   const [copied, setCopied] = useState(false);
 
   function generate() {
-    setOutput(enhancePrompt(input, { goal, model, detail }, mode));
+    setOutput(enhancePrompt(input, { goal, model, detail, problems, preserve }, mode));
     setCopied(false);
   }
 
@@ -29,6 +31,8 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
 
   function reset() {
     setInput("");
+    setProblems("");
+    setPreserve("");
     setOutput("");
     setCopied(false);
   }
@@ -45,7 +49,7 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
 
         <div className="field-grid">
           <div className="field full">
-            <label htmlFor="prompt-input">Your rough prompt</label>
+            <label htmlFor="prompt-input">{mode === "improve" ? "Your existing prompt" : "Your rough prompt"}</label>
             <textarea
               className="textarea"
               id="prompt-input"
@@ -87,6 +91,31 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
               <option>Detailed</option>
             </select>
           </div>
+
+          {mode === "improve" && (
+            <>
+              <div className="field full">
+                <label htmlFor="prompt-problems">Problems to fix (optional)</label>
+                <textarea
+                  className="textarea"
+                  id="prompt-problems"
+                  value={problems}
+                  onChange={(event) => setProblems(event.target.value)}
+                  placeholder={"Examples:\nRemove repeated instructions\nResolve the short-vs-detailed conflict\nMake the evidence requirement testable"}
+                />
+              </div>
+              <div className="field full">
+                <label htmlFor="prompt-preserve">What must be preserved? (optional)</label>
+                <textarea
+                  className="textarea"
+                  id="prompt-preserve"
+                  value={preserve}
+                  onChange={(event) => setPreserve(event.target.value)}
+                  placeholder={"Examples:\nKeep product names and pricing unchanged\nPreserve the requested JSON fields\nDo not change the original objective"}
+                />
+              </div>
+            </>
+          )}
         </div>
 
         <div className="tool-actions">
@@ -100,7 +129,7 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
       <section className="tool-panel" aria-live="polite">
         <div className="tool-panel-head">
           <div>
-            <h2>Enhanced prompt</h2>
+            <h2>{mode === "improve" ? "Improved prompt" : "Enhanced prompt"}</h2>
             <p>Review it before using it in another AI service.</p>
           </div>
           <div className="output-toolbar">
@@ -111,7 +140,7 @@ export function PromptEnhancer({ mode = "enhance" }: Props) {
           </div>
         </div>
         <div className={output ? "output" : "output empty"}>
-          {output || "Your improved prompt will appear here."}
+          {output || (mode === "improve" ? "Your improved prompt will appear here." : "Your enhanced prompt will appear here.")}
         </div>
       </section>
     </div>
