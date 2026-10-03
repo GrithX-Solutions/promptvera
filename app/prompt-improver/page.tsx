@@ -38,8 +38,9 @@ export default function PromptImproverPage() {
         <p>
           PromptVera keeps the original intent at the center of the rewrite. The current
           tool runs in your browser and does not send your prompt to a paid third-party AI
-          API. Review the result before you use it and keep only the changes that support
-          your actual goal.
+          API. You can now name the specific problems you want fixed and list facts, wording,
+          fields, constraints, or goals that the rewrite must preserve. Review the result
+          before you use it and keep only the changes that support your actual goal.
         </p>
 
         <h2>How to diagnose a weak prompt before rewriting it</h2>
@@ -107,6 +108,15 @@ export default function PromptImproverPage() {
           values, or assumptions you can check. Do not rely on wording such as “be accurate.”
         </p>
 
+        <h2>Use the preserve and problems fields as a change contract</h2>
+        <p>
+          If a prompt already contains important wording or a fragile output schema, put those
+          non-negotiable elements in <strong>What must be preserved?</strong>. Use
+          <strong> Problems to fix</strong> for known defects such as duplicated rules,
+          contradictory length requirements, vague evidence standards, or unclear priorities.
+          This gives the improver a clearer boundary than asking it to “optimize everything.”
+        </p>
+
         <h2>Prompt Improver vs. Prompt Enhancer</h2>
         <p>
           Use the <strong>Prompt Improver</strong> when the prompt already has substance and needs
@@ -142,6 +152,14 @@ export default function PromptImproverPage() {
           <details>
             <summary>Should an improved prompt always be longer?</summary>
             <p>No. A better prompt may be shorter if it removes repetition, resolves conflicts, and keeps only instructions that affect the result.</p>
+          </details>
+          <details>
+            <summary>Can I use this as a prompt optimizer?</summary>
+            <p>
+              Yes, when “optimizer” means improving an existing prompt&apos;s clarity, priorities,
+              constraints, and output requirements. PromptVera keeps that intent on this page rather
+              than creating a separate near-duplicate optimizer tool.
+            </p>
           </details>
         </div>
       </article>
