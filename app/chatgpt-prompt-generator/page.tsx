@@ -65,10 +65,30 @@ export default function ChatGPTPromptGeneratorPage() {
           to complete accurately.
         </p>
         <p>
-          For longer source material, OpenAI&apos;s prompt-engineering guidance also
-          recommends separating instructions from context clearly. This generator uses
-          labeled sections and quotation delimiters for source material and examples so
-          the task is easier to review before you submit it.
+          OpenAI&apos;s{" "}
+          <a
+            href="https://help.openai.com/en/articles/4936848"
+            target="_blank"
+            rel="noreferrer"
+          >
+            general prompting guidance
+          </a>{" "}
+          likewise emphasizes a clear task, necessary context, and specific instructions.
+          Those principles are why this tool exposes task, context, source material, constraints,
+          audience, tone, output format, and an optional reference example as separate controls.
+        </p>
+        <p>
+          OpenAI&apos;s{" "}
+          <a
+            href="https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api"
+            target="_blank"
+            rel="noreferrer"
+          >
+            prompt-engineering guide
+          </a>{" "}
+          also recommends separating instructions from supplied context clearly. This generator
+          uses labeled sections and quotation delimiters for source material and examples so the
+          task is easier to review before you submit it.
         </p>
 
         <h2>How to build a better ChatGPT prompt</h2>
@@ -167,6 +187,13 @@ export default function ChatGPTPromptGeneratorPage() {
               No. If you need transparency, ask for concise reasoning, evidence,
               calculations, assumptions, or verification steps that help you review
               the answer rather than requesting hidden internal reasoning.
+            </p>
+          </details>
+          <details>
+            <summary>Should I keep refining a ChatGPT prompt after the first response?</summary>
+            <p>
+              Often, yes. OpenAI recommends iterative refinement: review the result, identify the
+              missing context or unclear instruction, then change only what needs correction.
             </p>
           </details>
         </div>
