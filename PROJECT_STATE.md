@@ -111,17 +111,20 @@ Post-deploy:
 - Live `sitemap.xml`: **VERIFIED** 26 URLs, matching the 26 public page routes in the current app.
 - Live `robots.txt`: **VERIFIED** `Allow: /` for general crawlers and declares `https://promptvera.com/sitemap.xml`.
 - Ubersuggest latest site audit: **VERIFIED** 26/26 URLs successful (HTTP 200), 0 blocked, 0 broken, 0 redirected, overall score 100, `page_allowed` issue count 0.
-- Search Console sitemap record for `https://promptvera.com/sitemap.xml`: **VERIFIED registered, 0 errors, 0 warnings**, but its latest connector snapshot shows only **12 submitted URLs**, last submitted 2026-10-02T11:13:50Z and last downloaded 2026-10-02T11:47:56Z. This is stale relative to the current 26-URL live sitemap deployed on 2026-10-03.
+- Search Console sitemap record for `https://promptvera.com/sitemap.xml`: **VERIFIED 26 submitted URLs, 0 errors, 0 warnings**. Last submitted: 2026-10-03T13:11:27Z. Last downloaded: 2026-10-03T13:42:25Z. The previous stale 12-URL snapshot is resolved.
 - Search Console connector's `indexed` sitemap field is deprecated and currently returns 0; do **not** interpret that as 0 pages indexed.
 - Individual Google index status remains **UNKNOWN** because the connected Windsor Search Console integration is read-only and does not expose sitemap resubmission or URL Inspection actions.
+- Fresh Search Console Search Analytics pull on 2026-10-04 now returns first performance rows for 2026-10-03: 4 impressions across 4 query/page pairs and 0 clicks. This confirms Google has begun surfacing PromptVera pages in search results. The sample is too small to treat current positions as stable ranking evidence.
+- The prior Google Search Console URL Inspection "Temporary processing error" under Discovery → Sitemaps did not correspond to a site-side crawl blocker. On 2026-10-04, Search Console refreshed the sitemap record to 26 submitted URLs with 0 errors and 0 warnings.
+- Googlebot-specific live fetch on 2026-10-03 returned the same current 26-URL sitemap as a normal request, HTTP 200, `text/xml`, with current `Last-Modified`; this rules out a known alternate/stale sitemap response to Googlebot.
 
 ## Blockers
 
 ### SEO measurement
 
-Google Search Console still has no Search Analytics rows for the checked period. Ranking, impressions, CTR, and Google-query ownership for the newly deployed P0/P1/P2 pages remain **UNKNOWN** until first-party data appears.
+Google Search Console now has first Search Analytics rows. As of the 2026-10-04 fresh-data pull, four query/page pairs from 2026-10-03 have one impression each and zero clicks. This is **PARTIALLY VERIFIED early discovery**, not enough data to evaluate CTR or stable rankings.
 
-The live site is technically crawl/index eligible, but Search Console has not yet recorded the current 26-URL sitemap snapshot. The connected Search Console data source is read-only, so sitemap re-submission and per-URL Inspection are **BLOCKED in the current toolchain**, not failed on the site itself.
+The live site is technically crawl/index eligible and Search Console has now recorded the current 26-URL sitemap snapshot. Per-URL URL Inspection remains **BLOCKED in the current connected toolchain** because the available Search Console connector is read-only.
 
 There is no evidence yet supporting a ranking or traffic gain claim.
 
@@ -171,4 +174,4 @@ State:
 
 ## NEXT ACTION
 
-From an account surface that supports Google Search Console write/inspection actions, re-submit `https://promptvera.com/sitemap.xml` so GSC refreshes the current 26-URL sitemap, then run URL Inspection on the highest-priority canonical pages. After that, recheck Search Analytics and Ubersuggest rank tracking against the 2026-10-02 baseline before choosing any new SEO intent or content expansion.
+Continue measurement rather than changing pages immediately: recheck Search Analytics and Ubersuggest rank tracking against the 2026-10-02 baseline after more data accumulates, then prioritize pages with sustained impressions but weak CTR/position or no discovery. Use an account surface with URL Inspection only if page-level indexing diagnosis becomes necessary.
