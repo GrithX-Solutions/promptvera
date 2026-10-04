@@ -112,6 +112,8 @@ Post-deploy:
 - PromptVera project tracks US/UK/CA/AU.
 - US rank tracking through 2026-10-02: 83 tracked terms, 0 top-100 rankings.
 - Ubersuggest domain baseline: DA 2, 15 backlinks, 14 referring domains, estimated US organic traffic/keywords 0 at research time.
+- Homepage flagship rank tracking updated on 2026-10-04: added `prompt writer`, `prompt writer generator`, `AI prompt writer`, and `prompt creator` across US/UK/CA/AU. Existing `AI prompt generator` tracking across all four markets and `free AI prompt generator` US tracking were preserved.
+- Ubersuggest tracked keyword phrases increased from 83 to 87; keyword-location usage increased from 131 to 147 of the 300-plan limit.
 - US keyword metrics, current SERP patterns, competitor gaps, canonical intent ownership, cannibalization rules, entities, questions, and internal-link targets are recorded in `docs/seo-keyword-semantic-map-2026-10-03.md`.
 - Search Console property `sc-domain:promptvera.com` returned 0 Search Analytics rows for 2026-09-03 through 2026-10-03 before deployment. First-party impressions/clicks/CTR/query ownership therefore remain **UNKNOWN**, not a failure signal.
 
@@ -206,4 +208,4 @@ State:
 
 ## NEXT ACTION
 
-Measure the live homepage flagship cluster before another material rewrite: monitor Search Console for `prompt writer`, `AI prompt generator`, `prompt writer generator`, `prompt creator`, and related query/page impressions, CTR, and average position; compare Ubersuggest rank tracking against the pre-flagship baseline; then optimize only where first-party evidence shows a discovery, position, or CTR gap.
+Measure the live homepage flagship cluster before another material rewrite: monitor Search Console for `prompt writer`, `AI prompt generator`, `prompt writer generator`, `AI prompt writer`, `prompt creator`, and related query/page impressions, CTR, and average position; compare the newly expanded US/UK/CA/AU Ubersuggest rank tracking against the pre-flagship baseline; then optimize only where first-party evidence shows a discovery, position, or CTR gap.
