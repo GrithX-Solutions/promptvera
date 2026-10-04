@@ -92,7 +92,6 @@ export function buildUniversalPrompt(
 
   const sections = [
     "Complete the following task using the supplied information.",
-    "",
     `TASK\n${task}`,
     options.context.trim() ? `CONTEXT / SOURCE MATERIAL\n${options.context.trim()}` : "",
     options.audience.trim() ? `AUDIENCE\n${clean(options.audience)}` : "",
@@ -101,17 +100,18 @@ export function buildUniversalPrompt(
     options.tone.trim() ? `TONE / STYLE\n${clean(options.tone)}` : "",
     options.example.trim() ? `REFERENCE EXAMPLE\n${options.example.trim()}` : "",
     options.avoid.trim() ? `AVOID\n${clean(options.avoid)}` : "",
-    "",
-    "QUALITY RULES",
-    "- Follow explicit constraints and preservation rules exactly.",
-    "- Use supplied context or source material as the source of truth when it is provided.",
-    "- Do not invent facts, statistics, citations, requirements, or background that were not supplied or verified.",
-    "- If a missing detail would materially change the result, flag what is missing rather than silently guessing.",
-    "- Start with the requested deliverable instead of a long preamble.",
-    "- Use structure only where it makes the result easier to review or reuse.",
+    [
+      "QUALITY RULES",
+      "- Follow explicit constraints and preservation rules exactly.",
+      "- Use supplied context or source material as the source of truth when it is provided.",
+      "- Do not invent facts, statistics, citations, requirements, or background that were not supplied or verified.",
+      "- If a missing detail would materially change the result, flag what is missing rather than silently guessing.",
+      "- Start with the requested deliverable instead of a long preamble.",
+      "- Use structure only where it makes the result easier to review or reuse.",
+    ].join("\n"),
   ];
 
-  return sections.filter(Boolean).join("\n\n").replace(/\n{3,}/g, "\n\n");
+  return sections.filter(Boolean).join("\n\n");
 }
 
 export function buildToolPrompt(toolId: ToolId, idea: string, values: Record<string, string>) {
