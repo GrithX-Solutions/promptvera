@@ -3,12 +3,13 @@
 **Live site:** https://promptvera.com  
 **Tagline:** Better Prompts. Better AI Results.
 
-PromptVera is an independent, no-login collection of free AI prompt generators and creative idea tools. The current tools use deterministic browser-side logic, so the core experience does not require a database, user account, or paid AI API request.
+PromptVera is an independent, no-login collection of free AI prompt generators and creative idea tools. The homepage operates a universal AI Prompt Writer / AI Prompt Generator directly from a user's goal or brief. The current tools use deterministic browser-side logic, so the core experience does not require a database, user account, or paid AI API request.
 
 ## Live tool surface
 
 ### AI prompt tools
 
+- Homepage AI Prompt Writer / AI Prompt Generator
 - AI Prompt Enhancer
 - AI Prompt Improver
 - ChatGPT Prompt Generator
