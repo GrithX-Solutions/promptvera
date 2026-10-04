@@ -153,6 +153,8 @@ Any future wrapper change must be reverified before deployment.
 
 ## Work in progress
 
+A new homepage-specific deep keyword/SERP/competitor research pass on 2026-10-04 identified `prompt writer` as the strongest relative flagship opportunity (US 40,500, SD 26; global 74,000) with `AI prompt generator` as the commercial co-target (US 8,100, SD 39; global 74,000). This is a research recommendation, not a ranking forecast or production change. Full evidence: `docs/homepage-flagship-keyword-research-2026-10-04.md`.
+
 The planned current-URL SEO implementation (P0 + P1 + P2) is complete, merged, deployed, and runtime-verified.
 
 No new search-intent page is authorized by the current evidence. The next phase is measurement and evidence collection rather than immediate page expansion.
@@ -174,4 +176,4 @@ State:
 
 ## NEXT ACTION
 
-Continue measurement rather than changing pages immediately: recheck Search Analytics and Ubersuggest rank tracking against the 2026-10-02 baseline after more data accumulates, then prioritize pages with sustained impressions but weak CTR/position or no discovery. Use an account surface with URL Inspection only if page-level indexing diagnosis becomes necessary.
+Review and, if proceeding, implement the homepage flagship recommendation documented in `docs/homepage-flagship-keyword-research-2026-10-04.md`: make `/` a functioning universal Prompt Writer / AI Prompt Generator above the fold while preserving clear intent boundaries with Prompt Enhancer, Prompt Improver, and model-specific pages. This is a product/SEO implementation task, not a new URL. Run typecheck/build/CI and deploy only after the coherent task is merged.
